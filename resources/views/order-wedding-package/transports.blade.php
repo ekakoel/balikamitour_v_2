@@ -201,7 +201,7 @@
                                                                 <div class="form-group ">
                                                                     <label for="date">@lang('messages.Date')<span> *</span></label>
                                                                     <select name="date" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}" required>
-                                                                        <option selected value="{{ dateFormat($transport_inv->date)) }}">
+                                                                        <option selected value="{{ dateFormat($transport_inv->date) }}">
                                                                             {{ dateFormat($transport_inv->date) }}
                                                                             {{ dateFormat($orderWedding->checkin) == dateFormat($transport_inv->date) ? "Check-in" : "" }}
                                                                             {{ dateFormat($orderWedding->wedding_date) == dateFormat($transport_inv->date) ? "Wedding Ceremony" : "" }}

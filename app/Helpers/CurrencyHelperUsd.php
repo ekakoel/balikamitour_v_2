@@ -3,6 +3,6 @@
 if (!function_exists('currencyFormatUsd')) {
     function currencyFormatUsd($amount)
     {
-        return '$' . number_format($amount, 0, ',', '.');
+        return '$' . number_format($amount, 0, '.', ',');
     }
 }

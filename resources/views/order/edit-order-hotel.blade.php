@@ -316,30 +316,36 @@
                         @error('arrival_time') <div class="alert alert-danger">{{ $message }}</div> @enderror
                     </div>
                 </div>
-                    {{-- BARU SAMPAI DISINI --}}
                 <!-- Airport Shuttle In -->
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="airport_shuttle_in">@lang('messages.Airport Shuttle') <i style="color: #7e7e7e;" data-toggle="tooltip" data-placement="top" title="@lang('messages.Request')" class="icon-copy fa fa-info-circle" aria-hidden="true"></i></label>
-                        <select name="airport_shuttle_in" id="airport_shuttle_in" class="form-control @error('airport_shuttle_in') is-invalid @enderror">
+                        <select name="airport_shuttle_in" id="airportShuttleIn" class="form-control @error('airport_shuttle_in') is-invalid @enderror">
                             <option value="">@lang('messages.None')</option>
-                            @foreach ($transports as $transport)
+                            @foreach ($transports as $transport_in)
                                 @php
-                                    $transport_in = $order->airport_shuttles->where('transport_id',$transport->id)->where('nav','In')->first();
+                                    $transportIn = $order->airport_shuttles->where('transport_id',$transport_in->id)->where('nav','In')->first();
+                                    $tr_out = $transport_in->prices->where('duration',$hotel->airport_duration)->first();
+                                    if ($tr_out) {
+                                        $tr_out_price = $tr_out->calculatePrice($usdrates, $tax);
+                                    }else{
+                                        $tr_out_price = 0;
+                                    }
                                 @endphp
-                                
-                                @if ($transport_in)
+                                @if ($transportIn)
+                                    <option selected value="{{ $transport_in->id }}" data-transportin=1 data-transporpricein={{ $tr_out_price }}>{{ $transport_in->brand." ".$transport_in->name." - (".$transport_in->capacity.")" }}</option>
+                                @else
                                     @php
-                                        if ($transport_in->price_id) {
-                                            $transport_price = $transport->prices->where('id',$transport_in->price_id)->first();
-                                            $transport_in_price = $transport_price->calculatePrice($usdrates, $tax);
+                                        $transport_price = $transport_in->prices->where('duration',$hotel->airport_duration)->first();
+                                        if ($transport_price) {
+                                            
+                                            $transportIn_price = $transport_price->calculatePrice($usdrates, $tax);
                                         }else{
-                                            $transport_in_price = 0;
+                                            $transportIn_price = 0;
+
                                         }
                                     @endphp
-                                    <option selected value="{{ $transport->id }}" data-transportin=1 data-transporpricein={{ $transport_in_price }}>{{ $transport_in->transport->brand." ".$transport_in->transport->name." - (".$transport_in->transport->capacity.")" }}</option>
-                                @else
-                                    <option value="{{ $transport->id }}" data-transportin=1 data-transporpricein=0>{{ $transport->brand." ".$transport->name." - (".$transport->capacity.")" }}</option>
+                                    <option value="{{ $transport_in->id }}" data-transportin=1 data-transporpricein={{ $transportIn_price }}>{{ $transport_in->brand." ".$transport_in->name." - (".$transport_in->capacity.")" }}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -369,26 +375,50 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="airport_shuttle_out">@lang('messages.Airport Shuttle') <i style="color: #7e7e7e;" data-toggle="tooltip" data-placement="top" title="@lang('messages.Request')" class="icon-copy fa fa-info-circle" aria-hidden="true"></i></label>
-                        <select name="airport_shuttle_out" id="airport_shuttle_out" class="form-control @error('airport_shuttle_out') is-invalid @enderror">
+                        <select name="airport_shuttle_out" id="airportShuttleOut" class="form-control @error('airport_shuttle_out') is-invalid @enderror">
                             <option value="">@lang('messages.None')</option>
                             @foreach ($transports as $transport_out)
-                                <option value="{{ $transport_out->id }}" {{ $order->airport_shuttle_out == $transport_out->id ? 'selected' : '' }}>
-                                    {{ $transport_out->brand . ' ' . $transport_out->name . ' - ' . $transport_out->capacity }} @lang('messages.seats')
-                                </option>
+                            
+                                {{-- <option {{ $transport_out->id == $order->airport_shuttle_out?"selected":""; }} value="{{ $transport_out->id }}" data-transportout=1 data-transporpriceout=0>{{ $transport_out->brand." ".$transport_out->name." - (".$transport_out->capacity.")" }}</option> --}}
+                                @php
+                                    $transportOut = $order->airport_shuttles->where('transport_id',$transport_out->id)->where('nav','Out')->first();
+                                    $tr_out = $transport_out->prices->where('duration',$hotel->airport_duration)->first();
+                                    if ($tr_out) {
+                                        $tr_out_price = $tr_out->calculatePrice($usdrates, $tax);
+                                    }else{
+                                        $tr_out_price = 0;
+                                    }
+                                @endphp
+                                @if ($transportOut)
+                                    <option selected value="{{ $transport_out->id }}" data-transportout=1 data-transporpriceout={{ $tr_out_price }}>{{ $transport_out->brand." ".$transport_out->name." - (".$transport_out->capacity.")" }}</option>
+                                @else
+                                    @php
+                                        $transport_price = $transport_out->prices->where('duration',$hotel->airport_duration)->first();
+                                        if ($transport_price) {
+                                            
+                                            $transportOut_price = $transport_price->calculatePrice($usdrates, $tax);
+                                        }else{
+                                            $transportOut_price = 0;
+
+                                        }
+                                    @endphp
+                                    <option value="{{ $transport_out->id }}" data-transportout=1 data-transporpriceout={{ $transportOut_price }}>{{ $transport_out->brand." ".$transport_out->name." - (".$transport_out->capacity.")" }}</option>
+                                @endif
+                                {{-- <option value="">{{ $transport_out->prices }}</option> --}}
                             @endforeach
                         </select>
                         @error('airport_shuttle_out') <span class="invalid-feedback"><strong>{{ $message }}</strong></span> @enderror
                     </div>
                 </div>
                 @if (count($order->airport_shuttles)>0)
-                    <div class="col-md-12">
+                    <div id="total_airport_shuttle_text" class="col-md-12">
                         <div class="box-price-kicked m-b-8">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="subtotal-text">@lang('messages.Airport Shuttle')</div>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <div class="subtotal-price">{{ $total_price_airport_shuttle > 0?currencyFormatUsd($total_price_airport_shuttle):__('messages.To be advised') }}</div>
+                                    <div id="total_airport_shuttle_price" class="subtotal-price">{{ $total_price_airport_shuttle > 0?currencyFormatUsd($total_price_airport_shuttle):__('messages.To be advised') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -412,7 +442,26 @@
                 <div class="col-md-12 m-b-8">
                     <div class="box-price-kicked">
                         <div class="row">
-                            <div class="col-6 col-md-6">
+                            <div class="col-md-12 m-b-8">
+                                <div class="row">
+                                    <div class="col-6 col-md-6">
+                                        <div id="airportShuttle" class="normal-text">@lang('messages.Airport Shuttle')</div>
+                                        <div id="suitesAndVillasText" class="normal-text">@lang('messages.Suites and Villas')</div>
+                                        <hr class="form-hr">
+                                        <div class="total-price">@lang('messages.Total Price')</div>
+                                    </div>
+                                    <div class="col-6 col-md-6 text-right">
+                                        <div id="airportShuttlePrice" class="text-price"><span id="airportShuttleText">{{ $total_price_airport_shuttle>0?currencyFormatUsd($total_price_airport_shuttle):__('messages.To be advised') }}</span></div>
+                                        <div id="suitesAndVillasPrice" class="text-price"><span id="suitesAndVillasPriceLable">{{ currencyFormatUsd($totalRoomAndSuite) }}</span></div>
+                                        <hr class="form-hr">
+                                        <div class="total-price">
+                                            <span id="finalprice">{{ currencyFormatUsd($order->final_price, 0, ",", ".") }}</span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="col-6 col-md-6">
                                 @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $optional_service_total_price > 0 or $order->kick_back > 0 or $total_promotion_disc > 0)
                                     <div class="promo-text">@lang('messages.Suites and Villas')</div>
                                     @if ($optional_service_total_price > 0)
@@ -478,7 +527,7 @@
                                         <hr class="form-hr">
                                     @endif
                                 @endif
-                                <div id="airportShuttlePrice" class="text-price"><span id="airportShuttleText">Airport Shuttle</span></div>
+
                                 @if (count($order->airport_shuttles)>0)
                                     @if ($order->airport_shuttle_price > 0 )
                                         <div class="subtotal-price">{{ currencyFormatUsd($totalRoomAndSuite) }}</div>
@@ -494,7 +543,8 @@
                                 @else
                                     <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ",", ".") }}</div>
                                 @endif
-                            </div>
+
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -517,7 +567,6 @@
                         @elseif ($order->status == "Invalid")
                             {{ $order->msg }}
                         @endif
-                    
                     </div>
                 </div>
                 @include('partials.order-hidden-fields', ['order' => $order, 'authUser' => Auth::user()])
@@ -572,6 +621,7 @@
 </div>
 <script>
     $(document).ready(function() {
+        var currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD',minimumFractionDigits: 0, maximumFractionDigits: 0  });
         function debounce(func, wait) {
             let timeout;
             return function(...args) {
@@ -586,10 +636,9 @@
             $(".btn-txt").text("Processing ...");
         });
 
-        var 
         function calculatePrices() {
-            var totalPromoPrice = @json($order->price_total);
-            var finalPrice = totalPromoPrice;
+            var totalPromoPrice = parseInt(@json($order->price_total), 10);
+            // var finalPrice = totalPromoPrice;
 
             $("select[name='airport_shuttle_in']").each(function () {
                 var airportSelectedOption = $(this).find(":selected");
@@ -606,22 +655,19 @@
                 transportPriceOut = outPrice;
             });
 
-            finalPrice += totalExtraBedPrice;
-            finalPrice += transportPriceIn + transportPriceOut;
-            
-            $('#promo_price').val(totalPromoPrice);
-            $('#final_price').val(finalPrice);
-            $("#total_promo_price").text(totalPromoPrice);
+            var finalPrice = totalPromoPrice + transportPriceIn + transportPriceOut;
 
-            
             if (aiportStatusIn === 1 && aiportStatusOut === 1) {
                 document.getElementById('airportShuttle').hidden = false;
                 document.getElementById('airportShuttlePrice').hidden = false;
                 document.getElementById('airportShuttleText').hidden = false;
+                document.getElementById('total_airport_shuttle_text').hidden = false;
                 if (transportPriceIn > 0 && transportPriceOut > 0) {
                     $("#airportShuttleText").text(currencyFormatter.format(transportPriceIn + transportPriceOut));
+                    $("#total_airport_shuttle_price").text(currencyFormatter.format(transportPriceIn + transportPriceOut));
                     $("#finalprice").text(currencyFormatter.format(finalPrice));
                 }else{
+                    $("#total_airport_shuttle_price").text("@lang('messages.To be advised')");
                     $("#airportShuttleText").text("@lang('messages.To be advised')");
                     $("#finalprice").text("@lang('messages.To be advised')");
                 }
@@ -630,46 +676,41 @@
                 document.getElementById('airportShuttle').hidden = false;
                 document.getElementById('airportShuttlePrice').hidden = false;
                 document.getElementById('airportShuttleText').hidden = false;
+                document.getElementById('total_airport_shuttle_text').hidden = false;
                 if (transportPriceIn > 0) {
                     $("#airportShuttleText").text(currencyFormatter.format(transportPriceIn + transportPriceOut));
                     $("#finalprice").text(currencyFormatter.format(finalPrice));
+                    $("#total_airport_shuttle_price").text(currencyFormatter.format(transportPriceIn + transportPriceOut));
                 }else{
                     $("#airportShuttleText").text("@lang('messages.To be advised')");
                     $("#finalprice").text("@lang('messages.To be advised')");
+                    $("#total_airport_shuttle_price").text("@lang('messages.To be advised')");
                 }
             }else if (aiportStatusOut === 1){
                 document.getElementById('airportShuttle').hidden = false;
                 document.getElementById('airportShuttlePrice').hidden = false;
                 document.getElementById('airportShuttleText').hidden = false;
+                document.getElementById('total_airport_shuttle_text').hidden = false;
                 if (transportPriceOut > 0) {
                     $("#airportShuttleText").text(currencyFormatter.format(transportPriceIn + transportPriceOut));
                     $("#finalprice").text(currencyFormatter.format(finalPrice));
+                    $("#total_airport_shuttle_price").text(currencyFormatter.format(transportPriceIn + transportPriceOut));
                 }else{
                     $("#airportShuttleText").text("@lang('messages.To be advised')");
                     $("#finalprice").text("@lang('messages.To be advised')");
+                    $("#total_airport_shuttle_price").text("@lang('messages.To be advised')");
                 }
             }else{
+                document.getElementById('total_airport_shuttle_text').hidden = true;
                 document.getElementById('airportShuttle').hidden = true;
                 document.getElementById('airportShuttleText').hidden = true;
                 document.getElementById('airportShuttlePrice').hidden = true;
-                $("#finalprice").text(currencyFormatter.format(finalPrice));
-            }
 
-            if (totalExtraBedPrice > 0) {
-                document.getElementById('extraBedPrice').hidden = false;
-                document.getElementById('extraBedText').hidden = false;
-                document.getElementById('suitesAndVillasText').hidden = false;
-                document.getElementById('suitesAndVillasPrice').hidden = false;
-                $("#extraBedPriceTotal").text(currencyFormatter.format(totalExtraBedPrice));
-                $("#suitesAndVillasPriceLable").text(currencyFormatter.format(totalPromoPrice));
-            }else{
-                document.getElementById('extraBedPrice').hidden = true;
-                document.getElementById('extraBedText').hidden = true;
-                document.getElementById('suitesAndVillasText').hidden = true;
-                document.getElementById('suitesAndVillasPrice').hidden = true;
-                $("#extraBedPriceTotal").text(currencyFormatter.format(totalExtraBedPrice));
-                $("#suitesAndVillasPriceLable").text(currencyFormatter.format(totalPromoPrice));
+                $("#finalprice").text(currencyFormatter.format(finalPrice));
+                // $("#finalprice").text("@lang('messages.To be advised')");
             }
+            
+
         }
         $("#airportShuttleIn").change(function() {
             calculatePrices();

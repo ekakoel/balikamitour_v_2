@@ -480,9 +480,7 @@ Route::middleware('log.route.usage')->group(function () {
             Route::post('/order-hotel-promo-{id}', [OrderHotelPromoController::class, 'create'])->name('order-hotel-promo.create')->middleware(['auth']);
 
             Route::post('/fadd-order',[OrderController::class,'func_add_order'])->name('order.create')->middleware(['auth']);
-
-
-
+            
             Route::get('/edit-order-{id}',[OrderController::class,'user_edit_order'])->middleware(['auth'])->name('edit.order');
 
             

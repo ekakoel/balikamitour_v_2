@@ -400,10 +400,10 @@
                                                         <div class="col-6 col-md-6 text-right">
                                                             <div id="airportShuttlePrice" class="text-price"><span id="airportShuttleText"></span></div>
                                                             <div id="suitesAndVillasPrice" class="text-price"><span id="suitesAndVillasPriceLable"></span></div>
-                                                            <div id="extraBedPrice" class="text-price"><span id='extraBedPriceTotal'>{{ number_format($promo_price, 0, ",", ".") }}</span></div>
+                                                            <div id="extraBedPrice" class="text-price"><span id='extraBedPriceTotal'>{{ currencyFormatUsd($promo_price, 0, ",", ".") }}</span></div>
                                                             <hr class="form-hr">
                                                             <div class="total-price">
-                                                                <span id="finalprice">{{ number_format($final_price, 0, ",", ".") }}</span>
+                                                                <span id="finalprice">{{ currencyFormatUsd($final_price, 0, ",", ".") }}</span>
                                                             </div>
                                                             
                                                         </div>
@@ -450,7 +450,7 @@
             }
 
             $(document).ready(function () {
-                var currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+                var currencyFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD',minimumFractionDigits: 0, maximumFractionDigits: 0  });
                 function debounce(func, wait) {
                     let timeout;
                     return function(...args) {

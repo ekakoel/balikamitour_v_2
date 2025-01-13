@@ -292,7 +292,7 @@ class OrderController extends Controller
         $altLogo = Cache::remember('app.alt_logo', 3600, fn() => config('app.alt_logo'));
         $order = Orders::with([
             'airport_shuttles' => function ($ap_query) {
-                $ap_query->select('id','date','transport_id','src','dst','price','nav', 'order_id');
+                $ap_query->select('id','date','price_id','transport_id','src','dst','price','nav', 'order_id');
             },
         ])
         ->where('id', $id)
@@ -389,7 +389,11 @@ class OrderController extends Controller
                 ];
             }
             $extra_beds = ExtraBed::all();
-            $transports = Transports::where('status',"Active")->orderBy('capacity', 'DESC')->get();
+            $transports = Transports::with([
+                'prices'=> function ($ap_query) use($hotel){
+                    $ap_query->where('duration',$hotel->airport_duration);
+                },
+                ])->where('status',"Active")->orderBy('capacity', 'DESC')->get();
             $optionalrate_meals = OptionalRate::with('hotels')->where('type',"Meals")->get();
             $optional_rate_orders = OptionalRateOrder::where('order_id', $id)->first();
             $tour_price = TourPrices::where('id',$order->price_id)->first();
@@ -1225,13 +1229,6 @@ class OrderController extends Controller
             // $checkin = date('Y-m-d', strtotime($request->checkin));
             // $checkout = date('Y-m-d', strtotime($request->checkout));
             $pickup_name = null;
-            $kick_back_per_pax = $request->kick_back_per_pax;
-            $kick_back = $request->kick_back;
-            $normal_price = $request->promo_price;
-            // $normal_price = $request->normal_price;
-            $price_pax = $normal_price / $duration;
-            $price_total = ($normal_price * $number_of_room) + $total_extra_bed_price ;
-            $final_price = $price_total - $bookingcode_disc;
             $orderWedding_id = "";
             // if ($room) {
             //     $include = $room->include;
@@ -1785,7 +1782,13 @@ class OrderController extends Controller
         }else{
             $airport_shuttle_price = NULL;
         }
-
+        $kick_back_per_pax = $request->kick_back_per_pax;
+        $kick_back = $request->kick_back;
+        
+        $normal_price = $request->promo_price;
+        $price_pax = $normal_price / $duration;
+        $price_total = ($normal_price * $number_of_room) + $total_extra_bed_price ;
+        $final_price = $price_total + $airport_shuttle_price - $bookingcode_disc;
         $order =new Orders([
             "user_id"=>$user_id,
             "name"=>$name,
@@ -1878,7 +1881,6 @@ class OrderController extends Controller
         }
         $note = "Created Order with order no: ".$request->orderno;
         if ($order->service == "Hotel" or $order->service == "Hotel Promo" or $order->service == "Hotel Package") {
-            $hotel = Hotels::where('id',$order->service_id)->first();
             $transport_in = Transports::where('id',$request->airport_shuttle_in)->first();
             if ($transport_in) {
                 $transport_in_price = TransportPrice::select('id','contract_rate','markup')->where('transports_id',$transport_in->id)->where('type',"Airport Shuttle")->where('duration',$hotel->airport_duration)->first();
@@ -2294,7 +2296,7 @@ class OrderController extends Controller
             }else{
                 $normal_price = $order->normal_price;
                 $price_total = $order->price_total;
-                $final_price = $order->final_price + $airport_shuttle_price;
+                $final_price = $order->price_total + $airport_shuttle_price;
                 $number_of_guests = $order->number_of_guests;
                 $price_pax = $order->price_pax;
             }
