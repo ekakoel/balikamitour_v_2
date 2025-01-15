@@ -173,17 +173,17 @@
                                 @if (isset($bookingcode->code) or $promotion_price>0)
                                     @if (isset($bookingcode->code))
                                         <div class="price-card m-t-8">
-                                            @lang('messages.Code'){{" $" . number_format($bookingcode->discounts, 0, ",", ".") }}
+                                            @lang('messages.Code'){{" $" . number_format($bookingcode->discounts, 0, ".", ",") }}
                                         </div>
                                     @endif
                                     @if ($promotion_price>0)
                                         <div class="price-card m-t-27">
-                                            @lang('messages.Promo'){{" $" . number_format($promotion_price, 0, ",", ".") }}
+                                            @lang('messages.Promo'){{" $" . number_format($promotion_price, 0, ".", ",") }}
                                         </div>
                                     @endif
                                 @else
                                     <div class="price-card m-t-8">
-                                        {{"$ " . number_format($promotion_price, 0, ",", ".") }}
+                                        {{"$ " . number_format($promotion_price, 0, ".", ",") }}
                                     </div>
                                 @endif
                                 @if (isset($bookingcode->code))

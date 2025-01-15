@@ -144,37 +144,37 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label col-form-label">Description </label>
-                                                <textarea id="description" name="description" class="ckeditor form-control border-radius-0" required>{!! $tours->description !!}</textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control border-radius-0" required>{!! $tours->description !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="destinations" class="form-label col-form-label">Destinations </label>
-                                                <textarea id="destinations" name="destinations" class="ckeditor form-control border-radius-0" required>{!! $tours->destinations !!}</textarea>
+                                                <textarea id="destinations" name="destinations" class="tiny_mce form-control border-radius-0" required>{!! $tours->destinations !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="itinerary" class="form-label col-form-label">Itinerary </label>
-                                                <textarea id="itinerary" name="itinerary" class="ckeditor form-control border-radius-0" required>{!! $tours->itinerary !!}</textarea>
+                                                <textarea id="itinerary" name="itinerary" class="tiny_mce form-control border-radius-0" required>{!! $tours->itinerary !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include" class="form-label col-form-label">Include </label>
-                                                <textarea id="include" name="include" class="ckeditor form-control border-radius-0" required>{!! $tours->include !!}</textarea>
+                                                <textarea id="include" name="include" class="tiny_mce form-control border-radius-0" required>{!! $tours->include !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="cancellation_policy" class="form-label col-form-label">Cancellation Policy</label>
-                                                <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control border-radius-0">{!! $tours->cancellation_policy !!}</textarea>
+                                                <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control border-radius-0">{!! $tours->cancellation_policy !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label col-form-label">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control border-radius-0">{!! $tours->additional_info !!}</textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control border-radius-0">{!! $tours->additional_info !!}</textarea>
                                             </div>
                                         </div>
                                         <input id="author" name="author" value="{{ Auth::user()->id }}" type="hidden">

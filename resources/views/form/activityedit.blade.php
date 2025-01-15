@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card-box p-b-18 m-b-18">
-                                        <div class="subtitle"><i class="icon-copy fa fa-money"></i>USD Rate : {{ "IDR ".number_format($usdrates->rate, 0, ",", ".") }}</div>
+                                        <div class="subtitle"><i class="icon-copy fa fa-money"></i>USD Rate : {{ "IDR ".number_format($usdrates->rate, 0, ".", ",") }}</div>
                                     </div>
                                 </div>
                                 @include('layouts.attentions')
@@ -207,31 +207,31 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Description </label>
-                                                <textarea id="description" name="description" class="ckeditor form-control border-radius-0" required>{!! $activities->description !!}</textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control border-radius-0" required>{!! $activities->description !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="itinerary">Itinerary </label>
-                                                <textarea id="itinerary" name="itinerary" class="ckeditor form-control border-radius-0" required>{!! $activities->itinerary !!}</textarea>
+                                                <textarea id="itinerary" name="itinerary" class="tiny_mce form-control border-radius-0" required>{!! $activities->itinerary !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include">Include </label>
-                                                <textarea id="include" name="include" class="ckeditor form-control border-radius-0" required>{!! $activities->include !!}</textarea>
+                                                <textarea id="include" name="include" class="tiny_mce form-control border-radius-0" required>{!! $activities->include !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="cancellation_policy">Cancellation Policy</label>
-                                                <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control border-radius-0">{!! $activities->cancellation_policy !!}</textarea>
+                                                <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control border-radius-0">{!! $activities->cancellation_policy !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control border-radius-0">{!! $activities->additional_info !!}</textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control border-radius-0">{!! $activities->additional_info !!}</textarea>
                                             </div>
                                         </div>
                                         <input id="author" name="author" value="{{ Auth::user()->id }}" type="hidden">

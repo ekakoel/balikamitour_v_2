@@ -183,12 +183,23 @@ class OrdersAdminController extends Controller
             $drivers = Drivers::All();
             $pickup_people = Guests::where('id',$order->pickup_name)->first();
             $airport_shuttles = AirportShuttle::where('order_id',$order->id)->get();
+            if ($airport_shuttles) {
+                $airport_shuttles_prices = AirportShuttle::where('order_id',$order->id)->where('price', 0)->exists();
+            }else{
+                $airport_shuttles_prices = 0;
+            }
             if (isset($order)) {
                 $handled_by = User::where('id',$order->handled_by)->first();
                 $extra_beds = ExtraBed::where('hotels_id',$order->service_id)->get();
                 $agent = User::where('id','=',$order->sales_agent)->first();
                 $optional_rate_order = OptionalRateOrder::where('order_id', $id)->first();
-                $optionalrates = OptionalRate::all();
+                $service = $order->service;
+                if ($service === "Hotel" || $service === "Hotel Promo" || $service === "Hotel Package") {
+                    $hotel = Hotels::find($order->service_id);
+                    $optionalrates = OptionalRate::where('hotels_id',$hotel->id)->get();
+                }else{
+                    $optionalrates = NULL;
+                }
                 $users= User::where('id',$order->user_id)->first();
                 $action_log = ActionLog::where('service_id','=',$id)
                 ->where('service','Order')
@@ -369,6 +380,12 @@ class OrdersAdminController extends Controller
                 }
                 $transports = Transports::where('status',"Active")->get();
                 $hotel = Hotels::where('id',$order->subservice_id)->first();
+                $incld = json_decode($order->include);
+                if (is_array($incld)) {
+                    $include = implode('<br>',$incld);
+                }else{
+                    $include = $order->include;
+                }
                 if ($order->service == "Wedding Package") {
                     $wedding = Weddings::where('id', $order->service_id)->first();
                     $wedding_order = OrderWedding::where('id', $order->wedding_order_id)->first();
@@ -450,7 +467,9 @@ class OrdersAdminController extends Controller
                     'total_additional_service'=>$total_additional_service,
                     'status_contract'=>$status_contract,
                     'airport_shuttles'=>$airport_shuttles,
+                    'airport_shuttles_prices'=>$airport_shuttles_prices,
                     'invoice'=>$invoice,
+                    'include'=>$include,
                     'order_notes'=>$order_notes,
                     'receipt'=>$receipt,
                     'receipts'=>$receipts,
@@ -1805,7 +1824,7 @@ class OrdersAdminController extends Controller
         }
         $airport_shuttles->update([
             "date"=>$request->date,
-            "transport"=>$request->transport,
+            "transport_id"=>$request->transport_id,
             "dst"=>$request->dst,
             "src"=>$request->src,
             "duration"=>$hotel->airport_duration,
@@ -1814,6 +1833,7 @@ class OrdersAdminController extends Controller
             "order_id"=>$request->order_id,
             "nav"=>$nav,
         ]);
+        // dd($airport_shuttles);
         $asus = AirportShuttle::where('order_id',$order->id)->get();
         $airport_shuttle_price = 0;
         foreach ($asus as $asu) {
@@ -3217,6 +3237,13 @@ class OrdersAdminController extends Controller
         $rate_twd = $twdrates->rate;
         $currency_id = $request->currency;
         $bank_id = $request->bank;
+        if ($currency_id === 1) {
+            $balance = $final_price;
+        }else if($currency_id === 2){
+            $balance = $total_cny;
+        }else{
+            $balance = $total_twd;
+        } 
         if ($invoice) {
             $invoice->update([
                 "inv_no"=>$inv_no,
@@ -3235,6 +3262,7 @@ class OrdersAdminController extends Controller
                 "sell_cny"=>$cnyrates->sell,
                 "bank_id"=>$bank_id,
                 "currency_id"=>$currency_id,
+                "balance"=>$balance,
             ]);
         }else{
             $invoice = new InvoiceAdmin([
@@ -3254,7 +3282,9 @@ class OrdersAdminController extends Controller
                 "sell_cny"=>$cnyrates->sell,
                 "bank_id"=>$bank_id,
                 "currency_id"=>$currency_id,
+                "balance"=>$balance,
             ]);
+            // $dd($invoice);
             $invoice->save();
         }
         $order_log =new OrderLog([
@@ -3962,58 +3992,101 @@ class OrdersAdminController extends Controller
 
     
     // Admin Add Payment Receipt =============================================================================================================>
-    public function admin_add_payment_confirmation(Request $request,$id)
+    public function admin_add_payment_confirmation(Request $request, $id)
     {
         $now = Carbon::now();
         $order = Orders::findOrFail($id);
-        $reservation = Reservation::where('id',$order->rsv_id)->first();
-        $invoice = InvoiceAdmin::where('rsv_id',$reservation->id)->first();
-        $status="Pending";
-        
-        if($request->hasFile("desktop_receipt_name")){
-            $file=$request->file("desktop_receipt_name");
-            $receipt_name=$invoice->inv_no.'_'.time().'_'.$file->getClientOriginalName();
-            $file->move("storage/receipt/",$receipt_name);
+
+        // Preload reservation and invoice data
+        $reservation = Reservation::select('id')->where('id', $order->rsv_id)->first();
+        $invoice = InvoiceAdmin::where('rsv_id', $reservation->id)->first();
+
+        $status = "Pending";
+
+        // Combine logic for desktop and mobile receipt handling
+        $fileFieldName = $request->hasFile('desktop_receipt_name') ? 'desktop_receipt_name' : ($request->hasFile('mobile_receipt_name') ? 'mobile_receipt_name' : null);
+
+        if ($fileFieldName) {
+            $file = $request->file($fileFieldName);
+            $receipt_name = $invoice->inv_no . '_' . time() . '_' . $file->getClientOriginalName();
+            $file->move("storage/receipt/", $receipt_name);
+
+            // Save payment confirmation
             $receipt = new PaymentConfirmation([
-                "receipt_img"=>$receipt_name,
-                "inv_id"=>$invoice->id,
-                "status"=>$status,
+                "receipt_img" => $receipt_name,
+                "inv_id" => $invoice->id,
+                "status" => $status,
             ]);
             $receipt->save();
+
+            // Save order log
             $order_log = new OrderLog([
-                "order_id"=>$order->id,
-                "action"=>"Upload Receipt",
-                "url"=>$request->getClientIp(),
-                "method"=>"Upload",
-                "agent"=>$order->name,
-                "admin"=>Auth::user()->id,
+                "order_id" => $order->id,
+                "action" => "Upload Receipt",
+                "url" => $request->getClientIp(),
+                "method" => "Upload",
+                "agent" => $order->name,
+                "admin" => Auth::user()->id,
             ]);
             $order_log->save();
-            return redirect("/orders-admin-$order->id")->with('success','Payment proof has been updated.');
-        }elseif ($request->hasFile("mobile_receipt_name")) {
-            $file=$request->file("mobile_receipt_name");
-            $receipt_name=$invoice->inv_no.'_'.time().'_'.$file->getClientOriginalName();
-            $file->move("storage/receipt/",$receipt_name);
-            $receipt = new PaymentConfirmation([
-                "receipt_img"=>$receipt_name,
-                "inv_id"=>$invoice->id,
-                "status"=>$status,
-            ]);
-            $receipt->save();
-            $order_log = new OrderLog([
-                "order_id"=>$order->id,
-                "action"=>"Upload Receipt",
-                "url"=>$request->getClientIp(),
-                "method"=>"Upload",
-                "agent"=>$order->name,
-                "admin"=>Auth::user()->id,
-            ]);
-            $order_log->save();
-            return redirect("/orders-admin-$order->id")->with('success','Payment proof has been updated.');
-        }else{
-            return redirect("/orders-admin-$order->id")->with('error','Please try again');
+            // dd($receipt,$order_log);
+            return redirect("/orders-admin-$order->id")->with('success', 'Payment proof has been updated.');
         }
+
+        return redirect("/orders-admin-$order->id")->with('error', 'Please try again');
     }
+    // public function admin_add_payment_confirmation(Request $request,$id)
+    // {
+    //     $now = Carbon::now();
+    //     $order = Orders::findOrFail($id);
+    //     $reservation = Reservation::select('id')->where('id',$order->rsv_id)->first();
+    //     $invoice = InvoiceAdmin::where('rsv_id',$reservation->id)->first();
+    //     $status="Pending";
+        
+    //     if($request->hasFile("desktop_receipt_name")){
+    //         $file=$request->file("desktop_receipt_name");
+    //         $receipt_name=$invoice->inv_no.'_'.time().'_'.$file->getClientOriginalName();
+    //         $file->move("storage/receipt/",$receipt_name);
+    //         $receipt = new PaymentConfirmation([
+    //             "receipt_img"=>$receipt_name,
+    //             "inv_id"=>$invoice->id,
+    //             "status"=>$status,
+    //         ]);
+    //         $receipt->save();
+    //         $order_log = new OrderLog([
+    //             "order_id"=>$order->id,
+    //             "action"=>"Upload Receipt",
+    //             "url"=>$request->getClientIp(),
+    //             "method"=>"Upload",
+    //             "agent"=>$order->name,
+    //             "admin"=>Auth::user()->id,
+    //         ]);
+    //         $order_log->save();
+    //         return redirect("/orders-admin-$order->id")->with('success','Payment proof has been updated.');
+    //     }elseif ($request->hasFile("mobile_receipt_name")) {
+    //         $file=$request->file("mobile_receipt_name");
+    //         $receipt_name=$invoice->inv_no.'_'.time().'_'.$file->getClientOriginalName();
+    //         $file->move("storage/receipt/",$receipt_name);
+    //         $receipt = new PaymentConfirmation([
+    //             "receipt_img"=>$receipt_name,
+    //             "inv_id"=>$invoice->id,
+    //             "status"=>$status,
+    //         ]);
+    //         $receipt->save();
+    //         $order_log = new OrderLog([
+    //             "order_id"=>$order->id,
+    //             "action"=>"Upload Receipt",
+    //             "url"=>$request->getClientIp(),
+    //             "method"=>"Upload",
+    //             "agent"=>$order->name,
+    //             "admin"=>Auth::user()->id,
+    //         ]);
+    //         $order_log->save();
+    //         return redirect("/orders-admin-$order->id")->with('success','Payment proof has been updated.');
+    //     }else{
+    //         return redirect("/orders-admin-$order->id")->with('error','Please try again');
+    //     }
+    // }
     // Admin Add Payment Receipt to ORDER WEDDING =============================================================================================================>
     public function admin_add_payment_confirmation_to_order_wedding(Request $request,$id)
     {
@@ -4106,7 +4179,141 @@ class OrdersAdminController extends Controller
         $order_log->save();
         return redirect("/orders-admin-$order->id")->with('success','Payment receipt has been successfully validate!');
     }
-     // Function Confirmation Payment ORDER WEDDING =============================================================================================================>
+
+
+    // Function Admin Confirm Receipt =============================================================================================================>
+    public function fadmin_confirm_receipt(Request $request,$id){
+        $usdrate = UsdRates::where('name','USD')->first();
+        $twdrate = UsdRates::where('name','TWD')->first();
+        $cnyrate = UsdRates::where('name','CNY')->first();
+        $order = Orders::where("id",$request->order_id)->first();
+        $agent = Auth::user()->where('id',$order->user_id)->first();
+        $receipt = PaymentConfirmation::find($id);
+        $invoice = InvoiceAdmin::where("id",$receipt->inv_id)->first();
+        $payment_date = date('Y-m-d',strtotime($request->payment_date));
+        $status = $request->status;
+        if ($request->kurs == "USD") {
+            $kurs_rate = $usdrate->rate;
+        }elseif($request->kurs == "TWD") {
+            $kurs_rate = $twdrate->rate;
+        }elseif($request->kurs == "CNY") {
+            $kurs_rate = $cnyrate->rate;
+        }else{
+            $kurs_rate = 1;
+        }
+        $transaction_code = "ORD".$order->orderno."/INV".$receipt->inv_id."/PAY".$receipt->id;
+       
+        // PAYMENT CALCULATE
+        $rate_usd = $invoice->rate_usd;
+        $sell_usd = $invoice->sell_usd;
+        $rate_twd = $invoice->rate_twd;
+        $sell_twd = $invoice->sell_twd;
+        $rate_cny = $invoice->rate_cny;
+        $sell_cny = $invoice->sell_cny;
+        $invoice_balance = $invoice->balance;
+
+        if ($invoice->currency->name == "USD") {
+            if ($request->kurs == "USD") {
+                $payment_usd = $request->amount;
+            }elseif($request->kurs == "CNY"){
+                $payment_amount_idr = $request->amount * $rate_cny;
+                $payment_usd = ceil($payment_amount_idr / $sell_usd);
+            }elseif($request->kurs == "TWD"){
+                $payment_amount_idr = $request->amount * $rate_twd;
+                $payment_usd = ceil($payment_amount_idr / $sell_usd);
+            }else{
+                $payment_amount_idr = $request->amount;
+                $payment_usd = ceil($payment_amount_idr / $sell_usd);
+            }
+            $balance = $invoice_balance - $payment_usd;
+            $new_balance = $invoice_balance + $payment_usd;
+        }elseif($invoice->currency->name == "CNY") {
+            if ($request->kurs == "USD") {
+                $payment_amount_idr = $request->amount * $rate_usd;
+                $payment_cny = ceil($payment_amount_idr / $sell_cny);
+            }elseif($request->kurs == "CNY"){
+                $payment_cny = $request->amount;
+            }elseif($request->kurs == "TWD"){
+                $payment_amount_idr = $request->amount * $rate_twd;
+                $payment_cny = ceil($payment_amount_idr / $sell_cny);
+            }else{
+                $payment_amount_idr = $request->amount;
+                $payment_cny = ceil($payment_amount_idr / $sell_cny);
+            }
+            $balance = $invoice_balance - $payment_cny;
+            $new_balance = $invoice_balance + $payment_cny;
+        }elseif($invoice->currency->name == "TWD") {
+            if ($request->kurs == "USD") {
+                $payment_amount_idr = $request->amount * $rate_usd;
+                $payment_twd = ceil($payment_amount_idr / $sell_twd);
+            }elseif($request->kurs == "CNY"){
+                $payment_amount_idr = $request->amount * $rate_cny;
+                $payment_twd = ceil($payment_amount_idr / $sell_twd);
+            }elseif($request->kurs == "TWD"){
+                $payment_twd = $request->amount;
+            }else{
+                $payment_amount_idr = $request->amount;
+                $payment_twd = ceil($payment_amount_idr / $sell_twd);
+            }
+            $balance = $invoice_balance - $payment_twd;
+            $new_balance = $invoice_balance + $payment_twd;
+        }elseif($invoice->currency->name == "IDR") {
+            if ($request->kurs == "USD") {
+                $payment_amount_idr = $request->amount * $rate_usd;
+                $payment_idr = $payment_amount_idr;
+            }elseif($request->kurs == "CNY"){
+                $payment_amount_idr = $request->amount * $rate_cny;
+                $payment_idr = $payment_amount_idr;
+            }elseif($request->kurs == "TWD"){
+                $payment_amount_idr = $request->amount * $rate_twd;
+                $payment_idr = $payment_amount_idr;
+            }else{
+                $payment_idr = $request->amount;
+            }
+            $balance = $invoice_balance - $payment_idr;
+            $new_balance = $invoice_balance + $payment_idr;
+        }
+        
+        if ($receipt->status == "Pending" && $request->status == "Valid") {
+            $invoice->update([
+                'balance'=>$balance,
+            ]);
+        }elseif ($receipt->status == "Valid" && $request->status == "Invalid") {
+            $invoice->update([
+                'balance'=>$new_balance,
+            ]);
+        }elseif ($receipt->status == "Invalid" && $request->status == "Valid") {
+            $invoice->update([
+                'balance'=>$balance,
+            ]);
+        }
+        if ($balance <= 1) {
+            $order->update([
+                'status'=>"Paid",
+            ]);
+        }else{
+            $order->update([
+                'status'=>"Approved",
+            ]);
+        }
+        // dd($receipt->status, $status, $new_outstanding_balance_idr, $outstanding_balance_idr, $balance, $new_balance, $invoice->kurs->name, $receipt, $invoice);
+        $receipt->update([
+            "status"=>$status,
+            "note"=>$request->note,
+            "payment_date"=>$payment_date,
+        ]);
+        $order_log =new OrderLog([
+            "order_wedding_id"=>$order->id,
+            "action"=>"Validate Payment Receipt",
+            "url"=>$request->getClientIp(),
+            "method"=>"Validate",
+            "agent"=>$order->name,
+            "admin"=>Auth::user()->id,
+        ]);
+        $order_log->save();
+        return redirect("/orders-admin-$order->id")->with('success','Payment receipt has been successfully validate!');
+    }
+    // Function Confirmation Payment ORDER WEDDING =============================================================================================================>
     public function forder_wedding_confirmation_payment(Request $request,$id){
         $usdrate = UsdRates::where('name','USD')->first();
         $twdrate = UsdRates::where('name','TWD')->first();

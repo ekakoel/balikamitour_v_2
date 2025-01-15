@@ -152,7 +152,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_venue->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_venue->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     <i class="icon-copy fa fa-users" aria-hidden="true"></i> {{ $wedding_venue->capacity }}
@@ -195,7 +195,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ". number_format($wedding_venue->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ". number_format($wedding_venue->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -275,7 +275,7 @@
                                                                                                         <p>{{ $wedding_room->rooms }}</p>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="label-capacity m-l-18">{{ "$ ". number_format($viewroomprice, 0, ",", ".") }}</div>
+                                                                                                <div class="label-capacity m-l-18">{{ "$ ". number_format($viewroomprice, 0, ".", ",") }}</div>
                                                                                             </div>
                                                                                         @endif
                                                                                     @endforeach
@@ -330,7 +330,7 @@
                                                                 </div>
                                                                 @if ($roomandprice)
                                                                     <div class="price-card-usd m-t-8">
-                                                                        {{ "$ ". number_format($roomprice, 0, ",", ".") }}
+                                                                        {{ "$ ". number_format($roomprice, 0, ".", ",") }}
                                                                     </div>
                                                                 @endif
                                                                 
@@ -367,7 +367,7 @@
                                                                         </div>
                                                                         <div class="modal-label-price">
                                                                             @if ($roomandprice)
-                                                                            {{ "$ ". number_format($roomprice, 0, ",", ".") }}
+                                                                            {{ "$ ". number_format($roomprice, 0, ".", ",") }}
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -474,7 +474,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_makeup->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_makeup->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     <i class="icon-copy fa fa-clock-o" aria-hidden="true"></i> {{ $wedding_makeup->duration." ".$wedding_makeup->time }}
@@ -517,7 +517,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ". number_format($wedding_makeup->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ". number_format($wedding_makeup->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -625,7 +625,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_decoration->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_decoration->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     <i class="icon-copy fa fa-users" aria-hidden="true"></i> {{ $wedding_decoration->capacity }}
@@ -668,7 +668,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ".number_format($wedding_decoration->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ".number_format($wedding_decoration->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -776,7 +776,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_dinner_venue->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_dinner_venue->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     <i class="icon-copy fa fa-users" aria-hidden="true"></i> {{ $wedding_dinner_venue->capacity }}
@@ -819,7 +819,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ".number_format($wedding_dinner_venue->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ".number_format($wedding_dinner_venue->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -927,7 +927,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_entertainment->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_entertainment->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     <i class="icon-copy fa fa-clock-o" aria-hidden="true"></i> {{ $wedding_entertainment->duration." ".$wedding_entertainment->time }}
@@ -970,7 +970,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ".number_format($wedding_entertainment->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ".number_format($wedding_entertainment->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1078,7 +1078,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_documentation->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_documentation->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     <i class="icon-copy fa fa-clock-o" aria-hidden="true"></i> {{ $wedding_documentation->duration." ".$wedding_documentation->time }}
@@ -1121,7 +1121,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ".number_format($wedding_documentation->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ".number_format($wedding_documentation->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1245,7 +1245,7 @@
                                                                 </div>
                                                                 @if ($weddingTransportPrice > 0)
                                                                     <div class="price-card-usd m-t-8">
-                                                                        {{ "$ ". number_format($weddingTransportPrice, 0, ",", ".") }}
+                                                                        {{ "$ ". number_format($weddingTransportPrice, 0, ".", ",") }}
                                                                     </div>
                                                                 @endif
                                                                 <div class="label-capacity">
@@ -1287,7 +1287,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ".number_format($weddingTransportPrice, 0, ",", ".") }}
+                                                                            {{ "$ ".number_format($weddingTransportPrice, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1394,7 +1394,7 @@
                                                                 </div>
                                                                 
                                                                 <div class="price-card-usd m-t-8">
-                                                                    {{ "$ ". number_format($wedding_other->publish_rate, 0, ",", ".") }}
+                                                                    {{ "$ ". number_format($wedding_other->publish_rate, 0, ".", ",") }}
                                                                 </div>
                                                                 <div class="label-capacity">
                                                                     {{ $wedding_other->duration." ".$wedding_other->time }}
@@ -1437,7 +1437,7 @@
                                                                             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                                                         </div>
                                                                         <div class="modal-label-price">
-                                                                            {{ "$ ".number_format($wedding_other->publish_rate, 0, ",", ".") }}
+                                                                            {{ "$ ".number_format($wedding_other->publish_rate, 0, ".", ",") }}
                                                                         </div>
                                                                     </div>
                                                                 </div>

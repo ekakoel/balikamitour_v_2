@@ -412,7 +412,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0" value="{{ old('note') }}"></textarea>
+                                                <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0" value="{{ old('note') }}"></textarea>
                                                 @error('note')
                                                     <div class="alert alert-danger">
                                                         {{ $message }}
@@ -452,24 +452,24 @@
                                                     <div class="col-6 col-md-6 text-right">
                                                         @if ($service == "Hotel")
                                                             @if ($kick_back > 0 or $promotion_price > 0)
-                                                                <div class="text-price line-trought"><span id='total_normal_price'>{{  number_format(($normal_price), 0, ",", ".")  }}</span></div>
+                                                                <div class="text-price line-trought"><span id='total_normal_price'>{{  number_format(($normal_price), 0, ".", ",")  }}</span></div>
                                                                 <div id="extraBedPrice" class="text-price"><span id='extraBedPriceTotal'></span></div>
                                                                 <hr class="form-hr">
                                                                 @if ($kick_back > 0)
-                                                                    <div class="kick-back"><span id="total_kick_back">{{ number_format($kick_back, 0, ",", ".") }}</span></div>
+                                                                    <div class="kick-back"><span id="total_kick_back">{{ number_format($kick_back, 0, ".", ",") }}</span></div>
                                                                 @endif
                                                                 @if ($promotion_price > 0)
-                                                                    <div class="kick-back"><span id="promotionPrice">{{ number_format($promotion_price, 0, ",", ".") }}</span></div>
+                                                                    <div class="kick-back"><span id="promotionPrice">{{ number_format($promotion_price, 0, ".", ",") }}</span></div>
                                                                 @endif
                                                                 <hr class="form-hr">
                                                                 <div class="total-price">
-                                                                    <span id="finalprice">{{ number_format($f_price, 0, ",", ".") }}</span>
+                                                                    <span id="finalprice">{{ number_format($f_price, 0, ".", ",") }}</span>
                                                                 </div>
                                                             @else
-                                                                <div class="total-price"><span id="finalprice">{{ number_format($final_price , 0, ",", ".") }}</span></div>
+                                                                <div class="total-price"><span id="finalprice">{{ number_format($final_price , 0, ".", ",") }}</span></div>
                                                             @endif
                                                         @else
-                                                            <div class="total-price"><span id="finalprice">{{ number_format($final_price , 0, ",", ".") }}</span></div>
+                                                            <div class="total-price"><span id="finalprice">{{ number_format($final_price , 0, ".", ",") }}</span></div>
                                                         @endif
                                                     </div>
                                                 </div>

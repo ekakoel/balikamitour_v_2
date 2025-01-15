@@ -108,7 +108,7 @@
                                                                             @error('name_id')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $user_term->policy_id !!}</textarea>
+                                                                            <textarea name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $user_term->policy_id !!}</textarea>
                                                                             @error('policy_id')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -123,7 +123,7 @@
                                                                             @error('name_en')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $user_term->policy_en !!}</textarea>
+                                                                            <textarea name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $user_term->policy_en !!}</textarea>
                                                                             @error('policy_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -138,7 +138,7 @@
                                                                             @error('name_zh')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $user_term->policy_zh !!}</textarea>
+                                                                            <textarea name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $user_term->policy_zh !!}</textarea>
                                                                             @error('policy_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -232,7 +232,7 @@
                                                                             @error('name_id')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $sys_term->policy_id !!}</textarea>
+                                                                            <textarea name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $sys_term->policy_id !!}</textarea>
                                                                             @error('policy_id')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -247,7 +247,7 @@
                                                                             @error('name_en')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $sys_term->policy_en !!}</textarea>
+                                                                            <textarea name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $sys_term->policy_en !!}</textarea>
                                                                             @error('policy_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -262,7 +262,7 @@
                                                                             @error('name_zh')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $sys_term->policy_zh !!}</textarea>
+                                                                            <textarea name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $sys_term->policy_zh !!}</textarea>
                                                                             @error('policy_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -355,7 +355,7 @@
                                                                             @error('name_id')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $adm_term->policy_id !!}</textarea>
+                                                                            <textarea name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $adm_term->policy_id !!}</textarea>
                                                                             @error('policy_id')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -370,7 +370,7 @@
                                                                             @error('name_en')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $adm_term->policy_en !!}</textarea>
+                                                                            <textarea name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $adm_term->policy_en !!}</textarea>
                                                                             @error('policy_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -385,7 +385,7 @@
                                                                             @error('name_zh')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $adm_term->policy_zh !!}</textarea>
+                                                                            <textarea name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $adm_term->policy_zh !!}</textarea>
                                                                             @error('policy_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -478,7 +478,7 @@
                                                                             @error('name_id')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $prs_term->policy_id !!}</textarea>
+                                                                            <textarea name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $prs_term->policy_id !!}</textarea>
                                                                             @error('policy_id')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -493,7 +493,7 @@
                                                                             @error('name_en')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $prs_term->policy_en !!}</textarea>
+                                                                            <textarea name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $prs_term->policy_en !!}</textarea>
                                                                             @error('policy_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -508,7 +508,7 @@
                                                                             @error('name_zh')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $prs_term->policy_zh !!}</textarea>
+                                                                            <textarea name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $prs_term->policy_zh !!}</textarea>
                                                                             @error('policy_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -601,7 +601,7 @@
                                                                             @error('name_id')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $curr_term->policy_id !!}</textarea>
+                                                                            <textarea name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $curr_term->policy_id !!}</textarea>
                                                                             @error('policy_id')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -616,7 +616,7 @@
                                                                             @error('name_en')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $curr_term->policy_en !!}</textarea>
+                                                                            <textarea name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $curr_term->policy_en !!}</textarea>
                                                                             @error('policy_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -631,7 +631,7 @@
                                                                             @error('name_zh')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $curr_term->policy_zh !!}</textarea>
+                                                                            <textarea name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $curr_term->policy_zh !!}</textarea>
                                                                             @error('policy_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -724,7 +724,7 @@
                                                                             @error('name_id')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $promo_term->policy_id !!}</textarea>
+                                                                            <textarea name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Insert policy" required>{!! $promo_term->policy_id !!}</textarea>
                                                                             @error('policy_id')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -739,7 +739,7 @@
                                                                             @error('name_en')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $promo_term->policy_en !!}</textarea>
+                                                                            <textarea name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy" required>{!! $promo_term->policy_en !!}</textarea>
                                                                             @error('policy_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -754,7 +754,7 @@
                                                                             @error('name_zh')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
-                                                                            <textarea name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $promo_term->policy_zh !!}</textarea>
+                                                                            <textarea name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy" required>{!! $promo_term->policy_zh !!}</textarea>
                                                                             @error('policy_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -850,7 +850,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="add_policy_id">Policy ID </label>
-                                                            <textarea id="add_policy_id" name="policy_id" class="ckeditor form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Isi Kebijakan" required>{!! old('policy_id') !!}</textarea>
+                                                            <textarea id="add_policy_id" name="policy_id" class="tiny_mce form-control border-radius-0 @error('policy_id') is-invalid @enderror" placeholder="Isi Kebijakan" required>{!! old('policy_id') !!}</textarea>
                                                             @error('policy_id')
                                                                 <span class="invalid-feedback">
                                                                     <strong>{{ $message }}</strong>
@@ -869,7 +869,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="policy_en">Policy EN </label>
-                                                            <textarea id="add_policy_en" name="policy_en" class="ckeditor form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy in English" required>{!! old('policy_en') !!}</textarea>
+                                                            <textarea id="add_policy_en" name="policy_en" class="tiny_mce form-control border-radius-0 @error('policy_en') is-invalid @enderror" placeholder="Insert policy in English" required>{!! old('policy_en') !!}</textarea>
                                                             @error('policy_en')
                                                                 <span class="invalid-feedback">
                                                                     <strong>{{ $message }}</strong>
@@ -887,7 +887,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="policy_zh">Policy ZH </label>
-                                                            <textarea id="add_policy_zh" name="policy_zh" class="ckeditor form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy in Chinese" required>{!! old('policy_zh') !!}</textarea>
+                                                            <textarea id="add_policy_zh" name="policy_zh" class="tiny_mce form-control border-radius-0 @error('policy_zh') is-invalid @enderror" placeholder="Insert policy in Chinese" required>{!! old('policy_zh') !!}</textarea>
                                                             @error('policy_zh')
                                                                 <span class="invalid-feedback">
                                                                     <strong>{{ $message }}</strong>

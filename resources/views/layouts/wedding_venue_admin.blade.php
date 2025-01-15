@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="price-card-usd m-t-8">
-                                {{ "$ ". number_format($wedding_venue->publish_rate, 0, ",", ".") }}
+                                {{ "$ ". number_format($wedding_venue->publish_rate, 0, ".", ",") }}
                             </div>
                             <div class="label-capacity">
                                 <i class="icon-copy fa fa-users" aria-hidden="true"></i> {{ $wedding_venue->capacity }}
@@ -81,7 +81,7 @@
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                     </div>
                                     <div class="modal-label-price">
-                                        {{ "$ ".number_format($wedding_venue->publish_rate, 0, ",", ".") }}
+                                        {{ "$ ".number_format($wedding_venue->publish_rate, 0, ".", ",") }}
                                     </div>
                                 </div>
                             </div>

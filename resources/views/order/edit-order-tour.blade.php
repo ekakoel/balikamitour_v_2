@@ -223,7 +223,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="guest_detail"> @lang('messages.Guest Detail')</label>
-                        <textarea id="guest_detail" name="guest_detail" class="ckeditor form-control  @error('guest_detail') is-invalid @enderror" placeholder="@lang('messages.Insert the names of all guests')" required>{!! $order->guest_detail !!}</textarea>
+                        <textarea id="guest_detail" name="guest_detail" class="tiny_mce form-control  @error('guest_detail') is-invalid @enderror" placeholder="@lang('messages.Insert the names of all guests')" required>{!! $order->guest_detail !!}</textarea>
                         @error('guest_detail')
                             <div class="alert alert-danger">
                                 {{ $message }}
@@ -236,7 +236,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0">{{ $order->note }}</textarea>
+                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0">{{ $order->note }}</textarea>
                         @error('note')
                             <div class="alert alert-danger">
                                 {{ $message }}
@@ -294,27 +294,27 @@
                             <div class="col-6 col-md-6 text-right">
                                 <div class="normal-text-07"><span id="tour_price_per_pax" style="color: black">{{ $order->price_pax }}</span></div>
                                 @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $order->kick_back > 0 or $order->promotion_disc > 0)
-                                    <div class="promo-text"><span id="tour-normal-price">{{ number_format($order->normal_price, 0, ",", ".") }}</span></div>
+                                    <div class="promo-text"><span id="tour-normal-price">{{ number_format($order->normal_price, 0, ".", ",") }}</span></div>
                                     <hr class="form-hr">
                                     @if ($order->kick_back > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($order->kick_back, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($order->kick_back, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->bookingcode_disc > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($order->bookingcode_disc, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($order->bookingcode_disc, 0, ".", ",") }}</div>
                                     @endif
 
                                     @if ($order->discounts > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($order->discounts, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($order->discounts, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($total_promotion > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($total_promotion, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($total_promotion, 0, ".", ",") }}</div>
                                     @endif
                                 
                                     @if ($order->kick_back > 0 or $order->bookingcode_disc > 0 or $order->discounts > 0 or $total_promotion > 0)
                                         <hr class="form-hr">
                                     @endif
                                 @endif
-                                <div class="price-tag"><span id="tour_final_price">{{ number_format($order->final_price, 0, ",", ".") }}</span></div>
+                                <div class="price-tag"><span id="tour_final_price">{{ number_format($order->final_price, 0, ".", ",") }}</span></div>
                             </div>
                         </div>
                     </div>

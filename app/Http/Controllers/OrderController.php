@@ -382,9 +382,9 @@ class OrderController extends Controller
                     'guest_name' => $guest_detail[$i] ?? NULL,
                     'special_date' => $special_date[$i] ?? NULL,
                     'special_day' => $special_day[$i] ?? NULL,
-                    'price' => "$" . number_format($pricePerPax, 0, ",", "."),
+                    'price' => "$" . number_format($pricePerPax, 0, ".", ","),
                     'extra_bed' => $extraBedPrice > 0
-                        ? "$extraBedName ($extraBedType) $" . number_format($extraBedPrice, 0, ",", ".")
+                        ? "$extraBedName ($extraBedType) $" . number_format($extraBedPrice, 0, ".", ",")
                         : NULL
                 ];
             }
@@ -1168,7 +1168,6 @@ class OrderController extends Controller
             $periodStart = [];
             $periodEnd = [];
             $promoBenefits = [];
-            $additionalInfo = [];
             $promoInclude = [];
             $room = HotelRoom::find($request->subservice_id);
             foreach ($request->number_of_guests as $jk) {
@@ -1199,7 +1198,6 @@ class OrderController extends Controller
                     array_push($periodStart,$h_promo->periode_start);
                     array_push($periodEnd,$h_promo->periode_end);
                     array_push($promoBenefits,$h_promo->benefits);
-                    array_push($additionalInfo,$h_promo->additional_info);
                     array_push($promoInclude,$h_promo->include);
                 }
             }
@@ -1213,7 +1211,7 @@ class OrderController extends Controller
             $extra_bed_id = json_encode($extrabed_id);
             $extra_bed_price = json_encode($extra_bed_id_price);
             $extra_bed = json_encode($extra_bed_proses);
-            $additional_info = json_encode($additionalInfo);
+            $additional_info = $hotel->additionalInfo;
             $cancellation_policy = $hotel->cancellation_policy;
             $include = json_encode($promoInclude);
             $special_day = json_encode($request->special_day);
@@ -1961,8 +1959,6 @@ class OrderController extends Controller
         $subject = $request->orderno;
         if (Auth::user()->position == "developer" || Auth::user()->position == "reservation" || Auth::user()->position == "author") {
             $rquotation = $request->request_quotation;
-            // Mail::to(['reservation@balikamitour.com',config('app.reservation_mail')])
-            
             Mail::to(config('app.reservation_mail'))
             ->send(new ReservationMail($order->id,$rquotation));
             return redirect('/orders-admin-'.$order->id)->with('success','The order has been successfully created!');
@@ -2423,7 +2419,6 @@ class OrderController extends Controller
             $rquotation = $request->request_quotation;
             $agent = User::where('id',$order->user_id)->first();
             Mail::to(config('app.reservation_mail'))
-            // Mail::to(['reservation@balikamitour.com',config('app.reservation_mail')])
             ->send(new ReservationMail($id,$rquotation));
             $note = "Submited order no: ".$order->orderno;
             // dd($order);

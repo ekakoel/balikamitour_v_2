@@ -12,7 +12,7 @@
         </div>
         <div class="col-sm-6">
             @if ($fixedService_price > 0)
-                <p>{{ "$ ".number_format($fixedService_price, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($fixedService_price, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-6">
             @if ($ven_price > 0)
-                <p>{{ "$ ".number_format($ven_price, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($ven_price, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -32,7 +32,7 @@
         </div>
         <div class="col-sm-6">
             @if ($suite_and_villa_price > 0)
-                <p>{{ "$ ".number_format($suite_and_villa_price, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($suite_and_villa_price, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -43,7 +43,7 @@
         </div>
         <div class="col-sm-6">
             @if ($decorationPrice > 0)
-                <p>{{ "$ ".number_format($decorationPrice, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($decorationPrice, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-6">
             @if ($dinnerVenuePrice > 0)
-                <p>{{ "$ ".number_format($dinnerVenuePrice, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($dinnerVenuePrice, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -65,7 +65,7 @@
         </div>
         <div class="col-sm-6">
             @if ($makeupPrice > 0)
-                <p>{{ "$ ".number_format($makeupPrice, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($makeupPrice, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -76,7 +76,7 @@
         </div>
         <div class="col-sm-6">
             @if ($entertainmentPrice > 0)
-                <p>{{ "$ ".number_format($entertainmentPrice, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($entertainmentPrice, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -87,7 +87,7 @@
         </div>
         <div class="col-sm-6">
             @if ($documentationPrice > 0)
-                <p>{{ "$ ".number_format($documentationPrice, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($documentationPrice, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -98,7 +98,7 @@
         </div>
         <div class="col-sm-6">
             @if ($wedding_transport_price > 0)
-                <p>{{ "$ ".number_format($wedding_transport_price, 0, ",", ".") }}</p>
+                <p>{{ "$ ".number_format($wedding_transport_price, 0, ".", ",") }}</p>
             @else
                 <p>-</p>
             @endif
@@ -109,7 +109,7 @@
          </div>
          <div class="col-sm-6">
              @if ($otherPrice > 0)
-                 <p>{{ "$ ".number_format($otherPrice, 0, ",", ".") }}</p>
+                 <p>{{ "$ ".number_format($otherPrice, 0, ".", ",") }}</p>
              @else
                  <p>-</p>
              @endif
@@ -121,13 +121,13 @@
                 <div class="price-text">Total Services</div>
             </div>
             <div class="col-6 text-right">
-                <div class="price-rate">{{ "$ ". number_format($total_service_price, 0, ",", ".") }}</div>
+                <div class="price-rate">{{ "$ ". number_format($total_service_price, 0, ".", ",") }}</div>
             </div>
             <div class="col-6 text-left">
                 <div class="price-text">Markup</div>
             </div>
             <div class="col-6 text-right">
-                <div class="price-rate">{{ "$ ". number_format($weddings->markup, 0, ",", ".") }}</div>
+                <div class="price-rate">{{ "$ ". number_format($weddings->markup, 0, ".", ",") }}</div>
             </div>
             <div class="col-12">
                 <hr class="form-hr">
@@ -136,7 +136,7 @@
                 <div class="price-text">Public price estimation</div>
             </div>
             <div class="col-6 text-right">
-                <div class="price-rate">{{ "$ ". number_format($published_price, 0, ",", ".") }}</div>
+                <div class="price-rate">{{ "$ ". number_format($published_price, 0, ".", ",") }}</div>
             </div>
         </div>
     </div>
@@ -176,19 +176,19 @@
                                     <div class="card-title">Total Services</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="card-title">{{ ": $ ". number_format(($total_service_price), 0, ",", ".") }}</div>
+                                    <div class="card-title">{{ ": $ ". number_format(($total_service_price), 0, ".", ",") }}</div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="card-title">Markup</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="card-title">{{ ": $ ". number_format(($weddings->markup), 0, ",", ".") }}</div>
+                                    <div class="card-title">{{ ": $ ". number_format(($weddings->markup), 0, ".", ",") }}</div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="card-title">Publish Rate</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="card-title">{{ ": $ ". number_format(($weddings->price), 0, ",", ".") }}</div>
+                                    <div class="card-title">{{ ": $ ". number_format(($weddings->price), 0, ".", ",") }}</div>
                                 </div>
                                 <div class="col-12">
                                     <hr class="form-hr">

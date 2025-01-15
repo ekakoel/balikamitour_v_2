@@ -18,6 +18,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="https://cdn.ckeditor.com/ckeditor4/4.17.1/standard/ckeditor.js"></script>
 <script>
     $(document).ready(function() {
         $('.numeric-input').on('input', function(event) {

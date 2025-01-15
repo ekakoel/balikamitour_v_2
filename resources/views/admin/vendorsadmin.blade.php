@@ -268,7 +268,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="description">Description</label>
-                                                                        <textarea name="description" id="description" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! old('description') !!}</textarea>
+                                                                        <textarea name="description" id="description" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! old('description') !!}</textarea>
                                                                         @error('description')
                                                                             <span class="invalid-feedback">
                                                                                 <strong>{{ $message }}</strong>
@@ -279,7 +279,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="term">Terms and Conditions <span>*</span></label>
-                                                                        <textarea name="term" id="term" wire:model="term" class="ckeditor form-control @error('term') is-invalid @enderror" placeholder="Terms and Conditions" type="text">{!! old('term') !!}</textarea>
+                                                                        <textarea name="term" id="term" wire:model="term" class="tiny_mce form-control @error('term') is-invalid @enderror" placeholder="Terms and Conditions" type="text">{!! old('term') !!}</textarea>
                                                                         @error('term')
                                                                             <span class="invalid-feedback">
                                                                                 <strong>{{ $message }}</strong>

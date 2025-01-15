@@ -43,7 +43,7 @@
                     </div>
                 </a>
                 <div class="price-card m-t-8">
-                    {{"$ " . number_format($package_other->publish_rate, 0, ",", ".") }}
+                    {{"$ " . number_format($package_other->publish_rate, 0, ".", ",") }}
                 </div>
                 @canany(['posDev','weddingDvl','weddingAuthor'])
                     <div class="card-delete-btn">
@@ -120,23 +120,23 @@
                                                     $other_publish_idr = ceil($package_other->publish_rate * $usdrates->rate);
                                                 @endphp
                                                 <div class="card-subtitle">Contract Rate</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($package_other->contract_rate, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($other_cr_usd, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($package_other->contract_rate, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($other_cr_usd, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Markup</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($other_mr_idr, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($package_other->markup, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($other_mr_idr, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($package_other->markup, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Tax {{ $tax->tax."%" }}</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($other_tax_idr, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($other_tax, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($other_tax_idr, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($other_tax, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Publish Rate</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($other_publish_idr, 0, ",", ".") }}</div>
-                                                <div class="usd-rate">{{ "$ ".number_format($package_other->publish_rate, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($other_publish_idr, 0, ".", ",") }}</div>
+                                                <div class="usd-rate">{{ "$ ".number_format($package_other->publish_rate, 0, ".", ",") }}</div>
                                             </div>
                                             
                                         </div>
@@ -359,7 +359,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea name="description" id="update-description-package{{ ++$no }}" wiremodel="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $package_other->description !!}</textarea>
+                                                <textarea name="description" id="update-description-package{{ ++$no }}" wiremodel="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $package_other->description !!}</textarea>
                                                 @error('description')
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>

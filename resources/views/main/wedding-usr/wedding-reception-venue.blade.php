@@ -15,7 +15,7 @@
                                     <i class="icon-copy fa fa-user" aria-hidden="true"></i> {{ $reception_venue->capacity }}
                                 </div>
                                 <div class="card-price-br">
-                                    {{ "$ ".number_format($reception_venue->price, 0, ",", ".") }}
+                                    {{ "$ ".number_format($reception_venue->price, 0, ".", ",") }}
                                 </div>
                             </div>
                             <div class="name-card">
@@ -92,7 +92,7 @@
                                                 </div>
                                                 <div class="col-6 text-right">
                                                     <div class="usd-rate">
-                                                        {{ "$ ".number_format($reception_venue->price, 0, ",", ".") }} 
+                                                        {{ "$ ".number_format($reception_venue->price, 0, ".", ",") }} 
                                                     </div>
                                                 </div>
                                                
@@ -215,7 +215,7 @@
                                             <hr class="form-hr">
                                             <div class="modal-show-price-container">
                                                 <div class="modal-show-price">
-                                                    @lang('messages.Price'): <span>{{ number_format($reception_venue->price, 0, ",", ".") }}</span>
+                                                    @lang('messages.Price'): <span>{{ number_format($reception_venue->price, 0, ".", ",") }}</span>
                                                 </div>
                                             </div>
                                         </div>

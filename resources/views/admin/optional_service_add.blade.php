@@ -82,7 +82,7 @@
                                                 <div class="table-service-name">{{ $optional_service->description }}</div>
                                             </td>
                                             <td>
-                                                <div class="table-service-name">{{ "$ ". number_format($or_pub_price, 0, ",", ".")." /pax" }}</div>
+                                                <div class="table-service-name">{{ "$ ". number_format($or_pub_price, 0, ".", ",")." /pax" }}</div>
                                             </td>
                                         </tr>
                                         @endforeach

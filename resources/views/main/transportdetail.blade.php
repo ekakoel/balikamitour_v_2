@@ -336,10 +336,10 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @if (isset($bookingcode->code) or $promotion_price > 0)
-                                                                                        <div class="normal-price"><p>{{ "$ ". number_format($normal_price_dr, 0, ",", ".") }}</p></div>
-                                                                                        <div class="code-price"><p>{{ "$ ". number_format($final_price_dr, 0, ",", ".") }}</p></div>
+                                                                                        <div class="normal-price"><p>{{ "$ ". number_format($normal_price_dr, 0, ".", ",") }}</p></div>
+                                                                                        <div class="code-price"><p>{{ "$ ". number_format($final_price_dr, 0, ".", ",") }}</p></div>
                                                                                     @else
-                                                                                        <p>{{ "$ ". number_format($final_price_dr, 0, ",", ".") }}</p>
+                                                                                        <p>{{ "$ ". number_format($final_price_dr, 0, ".", ",") }}</p>
                                                                                     @endif
                                                                                 </td>
                                                                                 <form id="order-transport-{{ $price_dr->id }}" action="/order-transport-{{ $price_dr->id }}" method="POST">
@@ -419,10 +419,10 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @if (isset($bookingcode->code) or $promotion_price > 0)
-                                                                                        <div class="normal-price"><p>{{ "$ ". number_format($normal_price_as, 0, ",", ".") }}</p></div>
-                                                                                        <div class="code-price"><p>{{ "$ ". number_format($final_price_as, 0, ",", ".") }}</p></div>
+                                                                                        <div class="normal-price"><p>{{ "$ ". number_format($normal_price_as, 0, ".", ",") }}</p></div>
+                                                                                        <div class="code-price"><p>{{ "$ ". number_format($final_price_as, 0, ".", ",") }}</p></div>
                                                                                     @else
-                                                                                        <p>{{ "$ ". number_format($final_price_as, 0, ",", ".") }}</p>
+                                                                                        <p>{{ "$ ". number_format($final_price_as, 0, ".", ",") }}</p>
                                                                                     @endif
                                                                                 </td>
                                                                                 <form id="order-transport-{{ $price_as->id }}" action="/order-transport-{{ $price_as->id }}" method="POST">
@@ -502,10 +502,10 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     @if (isset($bookingcode->code) or $promotion_price > 0)
-                                                                                        <div class="normal-price"><p>{{ "$ ". number_format($normal_price_tr, 0, ",", ".") }}</p></div>
-                                                                                        <div class="code-price"><p>{{ "$ ". number_format($final_price_tr, 0, ",", ".") }}</p></div>
+                                                                                        <div class="normal-price"><p>{{ "$ ". number_format($normal_price_tr, 0, ".", ",") }}</p></div>
+                                                                                        <div class="code-price"><p>{{ "$ ". number_format($final_price_tr, 0, ".", ",") }}</p></div>
                                                                                     @else
-                                                                                        <p>{{ "$ ". number_format($final_price_tr, 0, ",", ".") }}</p>
+                                                                                        <p>{{ "$ ". number_format($final_price_tr, 0, ".", ",") }}</p>
                                                                                     @endif
                                                                                 </td>
                                                                                 <form id="order-transport-{{ $price_tr->id }}" action="/order-transport-{{ $price_tr->id }}" method="POST">
@@ -584,7 +584,7 @@
                                             </div>
                                             @if ($promotion_price > 0)
                                                 <div class="price-card m-t-8">
-                                                    {{"Disc $ " . number_format($promotion_price, 0, ",", ".") }}
+                                                    {{"Disc $ " . number_format($promotion_price, 0, ".", ",") }}
                                                 </div>
                                             @endif
                                             @if (isset($bookingcode->code))

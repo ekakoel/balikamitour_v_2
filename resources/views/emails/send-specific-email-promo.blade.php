@@ -126,7 +126,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label for="suggestion">suggestion</label>
-                                                                    <textarea id="suggestion" name="suggestion"  class="ckeditor form-control border-radius-0 @error('suggestion') is-invalid @enderror" placeholder="Insert some text ...">We are thrilled to offer you an "{{ $promo->name }}" for your next stay at {{ $hotel->name }}. Don't miss out on these fantastic deals</textarea>
+                                                                    <textarea id="suggestion" name="suggestion"  class="tiny_mce form-control border-radius-0 @error('suggestion') is-invalid @enderror" placeholder="Insert some text ...">We are thrilled to offer you an "{{ $promo->name }}" for your next stay at {{ $hotel->name }}. Don't miss out on these fantastic deals</textarea>
                                                                     @error('suggestion')
                                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                                     @enderror

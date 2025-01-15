@@ -193,37 +193,37 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3">Deskription</label>
                                                                     <div class="col-md-9">
-                                                                        <textarea name="deskription" class="ckeditor form-control"></textarea>
+                                                                        <textarea name="deskription" class="tiny_mce form-control"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3">Destination</label>
                                                                     <div class="col-md-9">
-                                                                        <textarea name="destination" class="ckeditor form-control"></textarea>
+                                                                        <textarea name="destination" class="tiny_mce form-control"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3">Itinerary</label>
                                                                     <div class="col-md-9">
-                                                                        <textarea itinerary class="ckeditor form-control"></textarea>
+                                                                        <textarea itinerary class="tiny_mce form-control"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3">Include</label>
                                                                     <div class="col-md-9">
-                                                                        <textarea name="include" class="ckeditor form-control"></textarea>
+                                                                        <textarea name="include" class="tiny_mce form-control"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3">Exclude</label>
                                                                     <div class="col-md-9">
-                                                                        <textarea name="exclude" class="ckeditor form-control"></textarea>
+                                                                        <textarea name="exclude" class="tiny_mce form-control"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3">Note</label>
                                                                     <div class="col-md-9">
-                                                                        <textarea name="note" class="ckeditor form-control"></textarea>
+                                                                        <textarea name="note" class="tiny_mce form-control"></textarea>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
@@ -436,7 +436,7 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-md-4">Task Message</label>
                                                                                 <div class="col-md-8">
-                                                                                    <textarea class="ckeditor form-control"></textarea>
+                                                                                    <textarea class="tiny_mce form-control"></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
@@ -482,7 +482,7 @@
                                                                             <div class="form-group row">
                                                                                 <label class="col-md-4">Task Message</label>
                                                                                 <div class="col-md-8">
-                                                                                    <textarea class="ckeditor form-control"></textarea>
+                                                                                    <textarea class="tiny_mce form-control"></textarea>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group row">
@@ -600,7 +600,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Address</label>
-                                                        <textarea class="ckeditor form-control"></textarea>
+                                                        <textarea class="tiny_mce form-control"></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Visa Card Number</label>
@@ -754,7 +754,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Address</label>
-                                                        <textarea class="ckeditor form-control"></textarea>
+                                                        <textarea class="tiny_mce form-control"></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Visa Card Number</label>

@@ -67,7 +67,7 @@
                                                         {{ dateFormat($package->stay_period_start)." - ".dateFormat($package->stay_period_end) }}
                                                     </td>
                                                     <td>
-                                                        {{ "$ ".  number_format($usd_prate, 0, ",", ".") ." /night" }}
+                                                        {{ "$ ".  number_format($usd_prate, 0, ".", ",") ." /night" }}
                                                     </td>      
                                                 </tr>
                                             @endforeach

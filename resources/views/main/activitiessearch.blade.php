@@ -195,14 +195,14 @@
                                     </div>
                                     @if (isset($bookingcode->code) or $promotion_price>0)
                                         <div class="price-card-normal m-t-8">
-                                            {{"$ " . number_format($normal_price, 0, ",", ".") }}
+                                            {{"$ " . number_format($normal_price, 0, ".", ",") }}
                                         </div>
                                         <div class="price-card m-t-27">
-                                            {{"$ " . number_format($final_price, 0, ",", ".") }}
+                                            {{"$ " . number_format($final_price, 0, ".", ",") }}
                                         </div>
                                     @else
                                         <div class="price-card m-t-8">
-                                            {{"$ " . number_format($final_price, 0, ",", ".") }}
+                                            {{"$ " . number_format($final_price, 0, ".", ",") }}
                                         </div>
                                     @endif
                                     @if (isset($bookingcode->code))

@@ -137,7 +137,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label">Description</label>
-                                                <textarea id="description" name="description"  class="ckeditor form-control border-radius-0 @error('description') is-invalid @enderror" placeholder="Insert some text ..." value="{{ $decoration->description }}">{!! $decoration->description !!}</textarea>
+                                                <textarea id="description" name="description"  class="tiny_mce form-control border-radius-0 @error('description') is-invalid @enderror" placeholder="Insert some text ..." value="{{ $decoration->description }}">{!! $decoration->description !!}</textarea>
                                                 @error('description')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -146,7 +146,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="terms_and_conditions" class="form-label">Terms and Conditions</label>
-                                                <textarea id="terms_and_conditions" name="terms_and_conditions"  class="ckeditor form-control border-radius-0 @error('terms_and_conditions') is-invalid @enderror" placeholder="Insert some text ..." value="{{ $decoration->terms_and_conditions }}">{!! $decoration->terms_and_conditions !!}</textarea>
+                                                <textarea id="terms_and_conditions" name="terms_and_conditions"  class="tiny_mce form-control border-radius-0 @error('terms_and_conditions') is-invalid @enderror" placeholder="Insert some text ..." value="{{ $decoration->terms_and_conditions }}">{!! $decoration->terms_and_conditions !!}</textarea>
                                                 @error('terms_and_conditions')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror

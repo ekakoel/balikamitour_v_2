@@ -406,7 +406,7 @@
                                                 <div class="form-group row">
                                                     <label for="note" class="col-sm-12 col-md-12 col-form-label">@lang('messages.Note')</label>
                                                     <div class="col-sm-12 col-md-12">
-                                                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0" value="{{ old('note') }}"></textarea>
+                                                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0" value="{{ old('note') }}"></textarea>
                                                         @error('note')
                                                             <div class="alert alert-danger">
                                                                 {{ $message }}
@@ -429,11 +429,11 @@
                                                                 <div class="price-name">@lang('messages.Total Price')</div>
                                                             </div>
                                                             <div class="col-4 col-md-6 text-right">
-                                                                <div class="usd-rate-kicked float-right">$ <p id="tda" style="display:inline-flex; font-size:1rem;"> {{ number_format(($normal_price), 0, ",", ".") }}</p></div>
+                                                                <div class="usd-rate-kicked float-right">$ <p id="tda" style="display:inline-flex; font-size:1rem;"> {{ number_format(($normal_price), 0, ".", ",") }}</p></div>
                                                                 <hr class="form-hr">
-                                                                <div class="kick-back float-right">$ <p id="total_kick_back" style="display:inline-flex; font-size:1rem;"> {{ number_format(($kick_back), 0, ",", ".") }}</p></div>
+                                                                <div class="kick-back float-right">$ <p id="total_kick_back" style="display:inline-flex; font-size:1rem;"> {{ number_format(($kick_back), 0, ".", ",") }}</p></div>
                                                                 <hr class="form-hr">
-                                                                <div class="usd-rate float-right">$ <p id="npkb" style="display:inline-flex; font-size:1rem;">{{ number_format(($normal_price - $kick_back), 0, ",", ".") }}</p></div>
+                                                                <div class="usd-rate float-right">$ <p id="npkb" style="display:inline-flex; font-size:1rem;">{{ number_format(($normal_price - $kick_back), 0, ".", ",") }}</p></div>
                                                             </div>
                                                         </div>
                                                     @else
@@ -444,7 +444,7 @@
                                                                     <div class="price-name">@lang('messages.Total')</div>
                                                                 </div>
                                                                 <div class="col-6 col-md-6 text-right">
-                                                                    <div class="usd-rate float-right">$ <p id="tda" style="display:inline-flex; font-size:1rem;"> {{ number_format(($price_pax), 0, ",", ".") }}</p></div>
+                                                                    <div class="usd-rate float-right">$ <p id="tda" style="display:inline-flex; font-size:1rem;"> {{ number_format(($price_pax), 0, ".", ",") }}</p></div>
                                                                 </div>
                                                            
                                                         </div>
@@ -542,7 +542,6 @@
         <script src="panel/apexcharts/apexcharts.min.js"></script>
         <script src="panel/script/dashboard.js"></script>
         <script src="panel/dropzone/dropzone.js"></script>
-        <script src="panel/ckeditor/ckeditor.js"></script>
         <script src="panel/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
         <script src="panel/fullcalendar/fullcalendar.min.js"></script>
         <script src="vendors/scripts/calendar-setting.js"></script>

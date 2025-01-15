@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Event Description</label>
-                                            <textarea class="ckeditor form-control" name="edesc"></textarea>
+                                            <textarea class="tiny_mce form-control" name="edesc"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Event Color</label>

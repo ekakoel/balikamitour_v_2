@@ -162,7 +162,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="attention_en">Attention English <span>*</span></label>
-                                                                            <textarea name="attention_en" class="ckeditor form-control @error('attention_en') is-invalid @enderror" placeholder="Attention English" type="text">{{ $attention->attention_en }}</textarea>
+                                                                            <textarea name="attention_en" class="tiny_mce form-control @error('attention_en') is-invalid @enderror" placeholder="Attention English" type="text">{{ $attention->attention_en }}</textarea>
                                                                             @error('attention_en')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -173,7 +173,7 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label for="attention_zh">Attention Chinese <span>*</span></label>
-                                                                            <textarea name="attention_zh" class="ckeditor form-control @error('attention_zh') is-invalid @enderror" placeholder="Attention Chinese" type="text">{{ $attention->attention_zh }}</textarea>
+                                                                            <textarea name="attention_zh" class="tiny_mce form-control @error('attention_zh') is-invalid @enderror" placeholder="Attention Chinese" type="text">{{ $attention->attention_zh }}</textarea>
                                                                             @error('attention_zh')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>

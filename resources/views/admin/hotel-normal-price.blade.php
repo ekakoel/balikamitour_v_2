@@ -43,35 +43,35 @@
                                             <p>{{ dateFormat($price->start_date)." - ".dateFormat($price->end_date) }}</p>
                                         </td>
                                         <td>
-                                            <div class="rate-usd">{{ "$ ".number_format($usdrates_normal_price, 0, ",", ".") }}</div>
-                                            <div class="rate-idr">{{"IDR " . number_format($price->contract_rate, 0, ",", ".") }}</div>
+                                            <div class="rate-usd">{{ "$ ".number_format($usdrates_normal_price, 0, ".", ",") }}</div>
+                                            <div class="rate-idr">{{"IDR " . number_format($price->contract_rate, 0, ".", ",") }}</div>
                                         </td>
                                         <td>
-                                            <div class="rate-usd">{{ "$ ".number_format($price->markup, 0, ",", ".") }}</div>
-                                            <div class="rate-idr">{{ "IDR ".number_format($price->markup * $usdrates->rate, 0, ",", ".") }}</div>
+                                            <div class="rate-usd">{{ "$ ".number_format($price->markup, 0, ".", ",") }}</div>
+                                            <div class="rate-idr">{{ "IDR ".number_format($price->markup * $usdrates->rate, 0, ".", ",") }}</div>
                                         </td>
                                         <td>
                                             @if ($price->kick_back > 0)
-                                                <div class="rate-usd">{{"$ " . number_format($price->kick_back, 0, ",", ".") }}</div>
-                                                <div class="rate-idr">{{"IDR " . number_format($price->kick_back * $usdrates->rate, 0, ",", ".") }}</div>
+                                                <div class="rate-usd">{{"$ " . number_format($price->kick_back, 0, ".", ",") }}</div>
+                                                <div class="rate-idr">{{"IDR " . number_format($price->kick_back * $usdrates->rate, 0, ".", ",") }}</div>
                                             @else
                                                 <div class="rate-usd">-</div>
                                                 <div class="rate-idr">-</div>
                                             @endif
                                         </td>
                                         <td>
-                                            <div class="rate-usd">{{"$ " . number_format($tax_normal_price, 0, ",", ".") }}</div>
-                                            <div class="rate-idr">{{"IDR " . number_format($tax_normal_price * $usdrates->rate, 0, ",", ".") }}</div>
+                                            <div class="rate-usd">{{"$ " . number_format($tax_normal_price, 0, ".", ",") }}</div>
+                                            <div class="rate-idr">{{"IDR " . number_format($tax_normal_price * $usdrates->rate, 0, ".", ",") }}</div>
                                         </td>
                                         <td>
                                             @if ($price->kick_back > 0)
-                                                <div class="rate-usd-kicked">{{"$ " . number_format($final_normal_price, 0, ",", ".") }}</div>
-                                                <div class="rate-idr-kicked">{{"IDR " . number_format($final_normal_price * $usdrates->rate, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{"$ " . number_format($harga_kick_back, 0, ",", ".") }}</div>
-                                                <div class="rate-idr">{{"IDR " . number_format(($harga_kick_back * $usdrates->rate), 0, ",", ".") }}</div>
+                                                <div class="rate-usd-kicked">{{"$ " . number_format($final_normal_price, 0, ".", ",") }}</div>
+                                                <div class="rate-idr-kicked">{{"IDR " . number_format($final_normal_price * $usdrates->rate, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{"$ " . number_format($harga_kick_back, 0, ".", ",") }}</div>
+                                                <div class="rate-idr">{{"IDR " . number_format(($harga_kick_back * $usdrates->rate), 0, ".", ",") }}</div>
                                             @else
-                                                <div class="rate-usd">{{"$ " . number_format($final_normal_price, 0, ",", ".") }}</div>
-                                                <div class="rate-idr">{{"IDR " . number_format(($final_normal_price * $usdrates->rate), 0, ",", ".") }}</div>
+                                                <div class="rate-usd">{{"$ " . number_format($final_normal_price, 0, ".", ",") }}</div>
+                                                <div class="rate-idr">{{"IDR " . number_format(($final_normal_price * $usdrates->rate), 0, ".", ",") }}</div>
                                             @endif
                                         </td>
                                         <td class="text-right">
@@ -101,7 +101,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-12">
-                                                                <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ",", ".") }}</div>
+                                                                <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ".", ",") }}</div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <hr class="form-hr">
@@ -130,19 +130,19 @@
                                                                 <div class="row">
                                                                     <div class="col-12  m-b-8">
                                                                         <p><b>Contract Rate :</b></p>
-                                                                        <div class="rate-usd">{{ "$ ".number_format($usdrates_normal_price, 0, ",", ".") }}</div>
-                                                                        <div class="rate-idr">{{ "IDR ". number_format($price->contract_rate, 0, ",", ".") }}</div>
+                                                                        <div class="rate-usd">{{ "$ ".number_format($usdrates_normal_price, 0, ".", ",") }}</div>
+                                                                        <div class="rate-idr">{{ "IDR ". number_format($price->contract_rate, 0, ".", ",") }}</div>
                                                                     </div>
                                                                     <div class="col-12  m-b-8">
                                                                         <p><b>Markup :</b></p>
-                                                                        <div class="rate-usd">{{ "$ ".number_format($price->markup, 0, ",", ".") }}</div>
-                                                                        <div class="rate-idr">{{ "IDR ". number_format($usdrates->rate * $price->markup, 0, ",", ".") }}</div>
+                                                                        <div class="rate-usd">{{ "$ ".number_format($price->markup, 0, ".", ",") }}</div>
+                                                                        <div class="rate-idr">{{ "IDR ". number_format($usdrates->rate * $price->markup, 0, ".", ",") }}</div>
                                                                     </div>
                                                                     <div class="col-12  m-b-8">
                                                                         <p><b>Kick Back :</b></p>
                                                                         @if ($price->kick_back > 0)
-                                                                            <div class="rate-kick-back">{{ "$ ".number_format($price->kick_back, 0, ",", ".") }}</div>
-                                                                            <div class="rate-idr">{{ "IDR ". number_format($usdrates->rate * $price->kick_back, 0, ",", ".") }}</div>
+                                                                            <div class="rate-kick-back">{{ "$ ".number_format($price->kick_back, 0, ".", ",") }}</div>
+                                                                            <div class="rate-idr">{{ "IDR ". number_format($usdrates->rate * $price->kick_back, 0, ".", ",") }}</div>
                                                                         @else
                                                                             <div class="rate-usd">-</div>
                                                                             <div class="rate-idr">-</div>
@@ -151,8 +151,8 @@
                                                                     <div class="col-12  m-b-8">
                                                                         <p><b>Tax :</b></p>
                                                                         @if ($tax_normal_price > 0)
-                                                                            <div class="rate-usd">{{ "$ ".number_format($tax_normal_price, 0, ",", ".") }}</div>
-                                                                            <div class="rate-idr">{{ "IDR ". number_format($usdrates->rate * $tax_normal_price, 0, ",", ".") }}</div>
+                                                                            <div class="rate-usd">{{ "$ ".number_format($tax_normal_price, 0, ".", ",") }}</div>
+                                                                            <div class="rate-idr">{{ "IDR ". number_format($usdrates->rate * $tax_normal_price, 0, ".", ",") }}</div>
                                                                         @else
                                                                             <div class="rate-usd">-</div>
                                                                             <div class="rate-idr">-</div>
@@ -169,19 +169,19 @@
                                                                         <div class="col-6  m-b-8">
                                                                             <p><b>Published Rate :</b></p>
                                                                             <div class="price-usd">
-                                                                                <strike>{{ "$ ".number_format($final_normal_price, 0, ",", ".") }}</strike>
+                                                                                <strike>{{ "$ ".number_format($final_normal_price, 0, ".", ",") }}</strike>
                                                                             </div>
                                                                             <div class="price-idr">
-                                                                                <strike>{{ "$ ".number_format($final_normal_price* $usdrates->rate, 0, ",", ".") }}</strike>
+                                                                                <strike>{{ "$ ".number_format($final_normal_price* $usdrates->rate, 0, ".", ",") }}</strike>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-6  m-b-8">
                                                                             <p><b>Published With Kick Back Rate :</b></p>
                                                                             <div class="price-usd">
-                                                                                {{ "$ ".number_format($harga_kick_back, 0, ",", ".") }}
+                                                                                {{ "$ ".number_format($harga_kick_back, 0, ".", ",") }}
                                                                             </div>
                                                                             <div class="price-idr">
-                                                                                {{ "$ ".number_format($harga_kick_back*$usdrates->rate, 0, ",", ".") }}
+                                                                                {{ "$ ".number_format($harga_kick_back*$usdrates->rate, 0, ".", ",") }}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -190,10 +190,10 @@
                                                                 <div class="col-12 m-b-8">
                                                                     <p><b>Published Rate :</b></p>
                                                                     <div class="price-usd">
-                                                                        {{ "$ ".number_format($final_normal_price, 0, ",", ".") }}
+                                                                        {{ "$ ".number_format($final_normal_price, 0, ".", ",") }}
                                                                     </div>
                                                                     <div class="price-idr">
-                                                                        {{ "$ ".number_format($final_normal_price * $usdrates->rate, 0, ",", ".") }}
+                                                                        {{ "$ ".number_format($final_normal_price * $usdrates->rate, 0, ".", ",") }}
                                                                     </div>
                                                                 </div>
                                                             @endif

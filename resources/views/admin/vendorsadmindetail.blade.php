@@ -307,7 +307,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label for="description">Description</label>
-                                                                            <textarea name="description" id="description" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $vendor->description !!}</textarea>
+                                                                            <textarea name="description" id="description" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $vendor->description !!}</textarea>
                                                                             @error('description')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -319,7 +319,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label for="term"></label>
-                                                                            <textarea name="term" id="term" wire:model="term" class="ckeditor form-control @error('term') is-invalid @enderror" placeholder="Description" type="text">{!! $vendor->term !!}</textarea>
+                                                                            <textarea name="term" id="term" wire:model="term" class="tiny_mce form-control @error('term') is-invalid @enderror" placeholder="Description" type="text">{!! $vendor->term !!}</textarea>
                                                                             @error('term')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -561,7 +561,7 @@
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
                                                                                 <label for="description">Description</label>
-                                                                                <textarea name="description" id="description-package" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! old('description') !!}</textarea>
+                                                                                <textarea name="description" id="description-package" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! old('description') !!}</textarea>
                                                                                 @error('description')
                                                                                     <span class="invalid-feedback">
                                                                                         <strong>{{ $message }}</strong>
@@ -646,21 +646,5 @@
             };
             reader.readAsDataURL(input.files[0]);
         }
-    </script>
-    <script>
-        CKEDITOR.replace('update-description-package1');
-        CKEDITOR.replace('update-description-package2');
-        CKEDITOR.replace('update-description-package3');
-        CKEDITOR.replace('update-description-package4');
-        CKEDITOR.replace('update-description-package5');
-        CKEDITOR.replace('update-description-package6');
-        CKEDITOR.replace('update-description-package7');
-        CKEDITOR.replace('update-description-package8');
-        CKEDITOR.replace('update-description-package9');
-        CKEDITOR.replace('update-description-package10');
-        CKEDITOR.replace('update-description-package11');
-        CKEDITOR.replace('update-description-package12');
-        CKEDITOR.replace('update-description-package13');
-        CKEDITOR.replace('update-description-package14');
     </script>
 @endsection

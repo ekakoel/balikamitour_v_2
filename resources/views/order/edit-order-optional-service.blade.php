@@ -57,7 +57,7 @@
                                                 <div class="table-service-name">{!! $optional_service->description !!}</div>
                                             </td>
                                             <td>
-                                                <div class="table-service-name">{{ "$ ". number_format($optional_service->calculatePrice($usdrates, $tax), 0, ",", ".")." /" }}@lang('messages.pax')</div>
+                                                <div class="table-service-name">{{ "$ ". number_format($optional_service->calculatePrice($usdrates, $tax), 0, ".", ",")." /" }}@lang('messages.pax')</div>
                                             </td>
                                         </tr>
                                     @endforeach

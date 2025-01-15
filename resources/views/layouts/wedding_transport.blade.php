@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="price-card-usd m-t-8">
-                                    {{ "$ ". number_format($transport_price, 0, ",", ".") }}
+                                    {{ "$ ". number_format($transport_price, 0, ".", ",") }}
                                 </div>
                                 <div class="label-capacity">
                                     {{ $transports_active->capacity." seats" }}
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-label-price">
-                                        {{ "$ ". number_format($transport_price, 0, ",", ".") }}
+                                        {{ "$ ". number_format($transport_price, 0, ".", ",") }}
                                     </div>
                                 </div>
                             </div>

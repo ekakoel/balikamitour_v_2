@@ -27,6 +27,19 @@
 	<link rel="stylesheet" href="/assets/owlcarousel/owl.theme.default.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="{{ asset('panel/ckeditor/ckeditor.js') }}"></script>
+	{{-- <script src="https://cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script> --}}
+	{{-- <script src="https://cdn.ckeditor.com/ckeditor4/4.17.1/standard/ckeditor.js"></script> --}}
+	{{-- <script src="https://cdn.tiny.cloud/1/0noybrzl9hm927mh3vrm82ywkgnzgak4ags4e2a8ctwi34gi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> --}}
+
+	{{-- <script src="https://cdn.ckeditor.com/ckeditor4/4.17.1/standard/ckeditor.js"></script> --}}
+	<!-- Menambahkan CSS Quill -->
+	{{-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> --}}
+
+	<!-- Menambahkan Quill JS -->
+	{{-- <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script> --}}
+
+
 	<script>  
 		if(performance.navigation.type == 2){
 		   location.reload(true);

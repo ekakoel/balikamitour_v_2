@@ -11,7 +11,7 @@
                     <hr class="form-hr">
                 </div>
                 <div class="widget-data">
-                    <div class="rate-usd-panel m-0">{{ "$ ".number_format($total_price_valid_order, 0, ",", ".") }}</div>
+                    <div class="rate-usd-panel m-0">{{ "$ ".number_format($total_price_valid_order, 0, ".", ",") }}</div>
                     <hr class="form-hr">
                     <p>{{ dateFormat($mindate)." - ".dateFormat($maxdate) }}</p>
                 </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="widget-data-subtitle">
                     <p>{{ count($activeorders)." Orders" }}<br>
-                    {{ "Total ("."$ ".number_format($total_price_active_order, 0, ",", ".").")" }}</p>
+                    {{ "Total ("."$ ".number_format($total_price_active_order, 0, ".", ",").")" }}</p>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="widget-data-subtitle">
                     <p>{{ count($pendingorders)." Orders" }}<br>
-                        {{ "Total ("."$ ".number_format($total_price_pending_order, 0, ",", ".").")" }}
+                        {{ "Total ("."$ ".number_format($total_price_pending_order, 0, ".", ",").")" }}
                     </p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="widget-data-subtitle">
                     <p>{{ count($invalidorders)." Orders" }}<br>
-                    {{ "Total ("."$ ".number_format($total_price_invalid_order, 0, ",", ".").")" }}</p>
+                    {{ "Total ("."$ ".number_format($total_price_invalid_order, 0, ".", ",").")" }}</p>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="widget-data-subtitle">
                     <p>{{ count($rejectedorders)." Orders" }}<br>
-                    {{ "Total ("."$ ".number_format($total_price_rejected_order, 0, ",", ".").")" }}</p>
+                    {{ "Total ("."$ ".number_format($total_price_rejected_order, 0, ".", ",").")" }}</p>
                     </div>
                 </div>
             </div>

@@ -195,7 +195,7 @@
                         Amount
                     </td>
                     <td style="width: 70%">
-                        {{ "$ ".number_format($orderWedding->final_price, 0, ",", ".") }}
+                        {{ "$ ".number_format($orderWedding->final_price, 0, ".", ",") }}
                     </td>
                 </tr>
             </table>

@@ -154,7 +154,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label for="remark" class="form-label">@lang('messages.Remark')</label>
-                                                        <textarea name="remark" class="ckeditor form-control @error('remark') is-invalid @enderror"
+                                                        <textarea name="remark" class="tiny_mce form-control @error('remark') is-invalid @enderror"
                                                             placeholder="Insert remark" value="@lang('messages.Remark')">{!! old('remark') !!}</textarea>
                                                         @error('remark')
                                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -242,12 +242,12 @@
                                         
                                         <td class="pd-2-8">
                                             @if ($accommodation_inv->extra_bed_order)
-                                                {{ "$ ".number_format($accommodation_inv->extra_bed_order->total_price, 0, ",", ".") }}
+                                                {{ "$ ".number_format($accommodation_inv->extra_bed_order->total_price, 0, ".", ",") }}
                                             @else
                                                 -
                                             @endif
                                         </td>
-                                        <td class="pd-2-8">{{ "$ ".number_format($accommodation_inv->public_rate, 0, ",", ".") }}</td>
+                                        <td class="pd-2-8">{{ "$ ".number_format($accommodation_inv->public_rate, 0, ".", ",") }}</td>
                                         <td class="pd-2-8">
                                             @if ($accommodation_inv->status == "Requested")
                                                 <i class="icon-copy fa fa-question-circle text-red" data-toggle="tooltip" title="Please check the availability of rooms and the room rates at the hotel. If rooms are available, update the status and price accordingly." aria-hidden="true"></i> <i>Req</i>
@@ -493,7 +493,7 @@
                                                                 <div class="form-group">
                                                                     <label for="remark"
                                                                         class="form-label">@lang('messages.Remark')</label>
-                                                                    <textarea name="remark" class="ckeditor form-control @error('remark') is-invalid @enderror"
+                                                                    <textarea name="remark" class="tiny_mce form-control @error('remark') is-invalid @enderror"
                                                                         placeholder="Insert remark" value="@lang('messages.Remark')">{!! old('remark') !!}</textarea>
                                                                     @error('remark')
                                                                         <div class="alert alert-danger">{{ $message }}</div>

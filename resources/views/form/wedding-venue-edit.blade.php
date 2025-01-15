@@ -198,7 +198,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label">Description </label>
-                                                <textarea id="description" name="description" class="ckeditor form-control" placeholder="Insert description" required>{{ $weddingVenue->description }}</textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control" placeholder="Insert description" required>{{ $weddingVenue->description }}</textarea>
                                                 @error('description')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -207,7 +207,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="term_and_condition" class="form-label">Terms and Conditions</label>
-                                                <textarea id="term_and_condition" name="term_and_condition" class="ckeditor form-control" placeholder="Insert additional information">{{ $weddingVenue->term_and_condition }}</textarea>
+                                                <textarea id="term_and_condition" name="term_and_condition" class="tiny_mce form-control" placeholder="Insert additional information">{{ $weddingVenue->term_and_condition }}</textarea>
                                             </div>
                                             @error('term_and_condition')
                                                 <div class="alert alert-danger">{{ $message }}</div>

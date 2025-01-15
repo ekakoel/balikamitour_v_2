@@ -92,7 +92,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include" class="form-label">Include</label>
-                                                <textarea id="include" name="include"  class="ckeditor form-control border-radius-0 @error('include') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('include') }}"></textarea>
+                                                <textarea id="include" name="include"  class="tiny_mce form-control border-radius-0 @error('include') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('include') }}"></textarea>
                                                 @error('include')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -101,7 +101,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info"  class="ckeditor form-control border-radius-0 @error('additional_info') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('additional_info') }}"></textarea>
+                                                <textarea id="additional_info" name="additional_info"  class="tiny_mce form-control border-radius-0 @error('additional_info') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('additional_info') }}"></textarea>
                                                 @error('additional_info')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror

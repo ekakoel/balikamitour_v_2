@@ -209,7 +209,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0">{!! $order->note !!}</textarea>
+                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0">{!! $order->note !!}</textarea>
                         @error('note')
                             <div class="alert alert-danger">
                                 {{ $message }}
@@ -260,20 +260,20 @@
                             </div>
                             <div class="col-6 col-md-6 text-right">
                                 @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $order->kick_back > 0 or isset($order->promotion_disc))
-                                    <div class="modal-num-price"><span id="normal_price">{{ number_format($order->normal_price, 0, ",", ".") }}</span></div>
+                                    <div class="modal-num-price"><span id="normal_price">{{ number_format($order->normal_price, 0, ".", ",") }}</span></div>
                                     <hr class="form-hr">
                                     @if ($order->bookingcode_disc > 0)
-                                        <div class="kick-back">{{ number_format($order->bookingcode_disc, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($order->bookingcode_disc, 0, ".", ",") }}</div>
                                     @endif
 
                                     @if ($order->discounts > 0)
-                                        <div class="kick-back">{{ number_format($order->discounts, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($order->discounts, 0, ".", ",") }}</div>
                                     @endif
                                     @if (isset($order->promotion_disc))
-                                        <div class="kick-back">{{ number_format($total_promotion, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($total_promotion, 0, ".", ",") }}</div>
                                     @endif
                                 @endif
-                                <div class="price-tag"><span id="final_price">{{ number_format($order->final_price, 0, ",", ".") }}</span></div>
+                                <div class="price-tag"><span id="final_price">{{ number_format($order->final_price, 0, ".", ",") }}</span></div>
                                 
                             </div>
                         </div>

@@ -378,7 +378,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-12">
                                             <label for="note">Note</label>
-                                            <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0" value="{{ old('note') }}"></textarea>
+                                            <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0" value="{{ old('note') }}"></textarea>
                                             @error('note')
                                                 <div class="alert alert-danger">
                                                     {{ $message }}

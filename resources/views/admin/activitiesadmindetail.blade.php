@@ -115,23 +115,23 @@
                                         <div class="row ">
                                             <div class="col-6 ">
                                                 <div class="card-subtitle">Contract Rate :</div>
-                                                <div class="rate-usd">{{ "$ ". number_format($usd_activity, 0, ",", ".") }}</div>
-                                                <div class="rate-idr m-b-8">{{ "IDR ". number_format($activity->contract_rate, 0, ",", ".") }}</div>
+                                                <div class="rate-usd">{{ "$ ". number_format($usd_activity, 0, ".", ",") }}</div>
+                                                <div class="rate-idr m-b-8">{{ "IDR ". number_format($activity->contract_rate, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 ">
                                                 <div class="card-subtitle">Markup :</div>
                                                 <div class="rate-usd">{{ "$ ". $activity->markup }}</div>
-                                                <div class="rate-idr m-b-8">{{"IDR ". number_format($activity->markup * $usdrates->rate, 0, ",", ".") }}</div>
+                                                <div class="rate-idr m-b-8">{{"IDR ". number_format($activity->markup * $usdrates->rate, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="card-subtitle">Tax :</div>
                                                 <div class="rate-usd">{{ "$ ". $usd_activity_tax." (". $taxes->tax."%)"}}</div>
-                                                <div class="rate-idr m-b-8">{{"IDR ". number_format($usd_activity_tax * $usdrates->rate, 0, ",", ".") }}</div>
+                                                <div class="rate-idr m-b-8">{{"IDR ". number_format($usd_activity_tax * $usdrates->rate, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="card-subtitle">Published Rate :</div>
-                                                <div class="rate-usd">{{ "$ ".  number_format($final_price, 0, ",", ".") }}</div>
-                                                <div class="rate-idr">{{"IDR ". number_format($final_price * $usdrates->rate, 0, ",", ".") }}</div>
+                                                <div class="rate-usd">{{ "$ ".  number_format($final_price, 0, ".", ",") }}</div>
+                                                <div class="rate-idr">{{"IDR ". number_format($final_price * $usdrates->rate, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="card-subtitle">Valid Until :</div>

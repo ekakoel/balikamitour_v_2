@@ -95,7 +95,7 @@
                                                                                         {{ date('m/d', strtotime($hotel_promo_price['on_dates'][$index])) }}
                                                                                     </div>
                                                                                     <div class="p-card-price-promo {{ $bg_color }}">
-                                                                                        {{ "$ " . number_format($price, 0, ",", ".") }}
+                                                                                        {{ "$ " . number_format($price, 0, ".", ",") }}
                                                                                     </div>
                                                                                 </div>
                                                                             @endforeach
@@ -111,7 +111,7 @@
                                                                     </div>
                                                                     <div class="description-action">
                                                                         <div class="description-price">
-                                                                            <div class="price">{{ "$" . number_format($hotel_promo_price['total_price'], 0, ",", ".") }}</div>
+                                                                            <div class="price">{{ "$" . number_format($hotel_promo_price['total_price'], 0, ".", ",") }}</div>
                                                                         </div>
                                                                         
                                                                         <form action="{{ route('order-hotel-promo.create',$hotel_promo_price['room']->id) }}" method="POST">
@@ -196,7 +196,7 @@
                                                                     </div>
                                                                     <div class="description-action">
                                                                         <div class="description-price">
-                                                                            <div class="price">{{ "$" . number_format($package->calculated_price, 0, ",", ".") }}</div>
+                                                                            <div class="price">{{ "$" . number_format($package->calculated_price, 0, ".", ",") }}</div>
                                                                         </div>
                                                                         <form action="/order-room-{{ $package->room->id }}" method="POST">
                                                                             @csrf
@@ -245,7 +245,7 @@
                                                                             {{ $room_normal_price['normal_room']?->rooms }}
                                                                         </div>
                                                                         @if ($promotion)
-                                                                            <div class="promotion-text">{{ $promotion->name }} @lang('messages.Discount') {{ "$" . number_format($promotion->discounts, 0, ",", ".") }}</div>
+                                                                            <div class="promotion-text">{{ $promotion->name }} @lang('messages.Discount') {{ "$" . number_format($promotion->discounts, 0, ".", ",") }}</div>
                                                                         @endif
                                                                         @if (session('bookingcode'))
                                                                             <div class="promotion-name bg-red }}">
@@ -274,12 +274,12 @@
                                                                         @if ($room_normal_price['total_kick_b']>0 || $promotion)
                                                                             <div class="description-price">
                                                                                 <div class="price">
-                                                                                    <div class="price-after-discount">{{ "$ " . number_format($room_normal_price['total_price'], 0, ",", ".") }}</div>
+                                                                                    <div class="price-after-discount">{{ "$ " . number_format($room_normal_price['total_price'], 0, ".", ",") }}</div>
                                                                                 </div>
                                                                             </div>
                                                                         @endif
                                                                         <div class="description-price">
-                                                                            <div class="price">{{ "$" . number_format($room_normal_price['total_price'] - $room_normal_price['total_kick_b'] - $promotion_price, 0, ",", ".") }}</div>
+                                                                            <div class="price">{{ "$" . number_format($room_normal_price['total_price'] - $room_normal_price['total_kick_b'] - $promotion_price, 0, ".", ",") }}</div>
                                                                         </div>
                                                                         <form action="{{ route('hotels.order.room.normal',$room_normal_price['normal_room']->id) }}" method="POST">
                                                                             @csrf

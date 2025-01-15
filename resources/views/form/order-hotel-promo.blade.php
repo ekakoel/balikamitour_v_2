@@ -374,7 +374,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0" value="{{ old('note') }}"></textarea>
+                                                    <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0" value="{{ old('note') }}"></textarea>
                                                     @error('note')
                                                         <div class="alert alert-danger">
                                                             {{ $message }}
@@ -400,10 +400,10 @@
                                                         <div class="col-6 col-md-6 text-right">
                                                             <div id="airportShuttlePrice" class="text-price"><span id="airportShuttleText"></span></div>
                                                             <div id="suitesAndVillasPrice" class="text-price"><span id="suitesAndVillasPriceLable"></span></div>
-                                                            <div id="extraBedPrice" class="text-price"><span id='extraBedPriceTotal'>{{ currencyFormatUsd($promo_price, 0, ",", ".") }}</span></div>
+                                                            <div id="extraBedPrice" class="text-price"><span id='extraBedPriceTotal'>{{ currencyFormatUsd($promo_price, 0, ".", ",") }}</span></div>
                                                             <hr class="form-hr">
                                                             <div class="total-price">
-                                                                <span id="finalprice">{{ currencyFormatUsd($final_price, 0, ",", ".") }}</span>
+                                                                <span id="finalprice">{{ currencyFormatUsd($final_price, 0, ".", ",") }}</span>
                                                             </div>
                                                             
                                                         </div>

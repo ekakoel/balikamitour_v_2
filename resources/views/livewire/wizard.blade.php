@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="detail">Team Details:</label>
-                <textarea type="text" wire:model="detail" class="ckeditor form-control"
+                <textarea type="text" wire:model="detail" class="tiny_mce form-control"
                     id="taskDetail">{{{ $detail ?? '' }}}</textarea>
                 @error('detail') <span class="error">{{ $message }}</span> @enderror
             </div>

@@ -4576,7 +4576,12 @@ marquee{
     text-align: center;
     font-size: 0.8rem;
 }
-
+.tox:not([dir=rtl]) .tox-statusbar__branding {
+    display: none !important;
+}
+.tox .tox-menubar {
+    display: none !important;
+}
 .card-box {
     position: relative;
     background-color: white;
@@ -4587,6 +4592,9 @@ marquee{
     border-radius: 10px;
     height: fit-content;
     background: #f9f9f9;
+}
+.mce-content-body {
+    font-size: 0.9rem !important;
 }
 .card-box .content{
     text-align: left;

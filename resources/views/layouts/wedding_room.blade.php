@@ -48,7 +48,7 @@
                             </div>
                             @if ($roomandprice)
                                 <div class="price-card-usd m-t-8">
-                                    {{ "$ ". number_format($roomprice, 0, ",", ".") }}
+                                    {{ "$ ". number_format($roomprice, 0, ".", ",") }}
                                 </div>
                             @endif
                             
@@ -81,7 +81,7 @@
                                                     <b>Capacity: </b><p>{{ $rooms->capacity." guests" }}</p>
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <b>Price: </b><p class="usd-rate">{{ "$ ".number_format(ceil($rooms->price/$usdrates->rate), 0, ",", ".") }}</p>
+                                                    <b>Price: </b><p class="usd-rate">{{ "$ ".number_format(ceil($rooms->price/$usdrates->rate), 0, ".", ",") }}</p>
                                                 </div>
                                                 
                                                 <div class="col-sm-12">
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="modal-label-price">
                                         @if ($roomandprice)
-                                        {{ "$ ". number_format($roomprice, 0, ",", ".") }}
+                                        {{ "$ ". number_format($roomprice, 0, ".", ",") }}
                                         @endif
                                     </div>
                                 </div>

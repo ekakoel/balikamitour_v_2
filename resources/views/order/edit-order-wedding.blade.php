@@ -191,7 +191,7 @@
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
-                                                                <textarea name="remark" id="remark" placeholder="@lang('messages.Insert guest name')" class="ckeditor form-control border-radius-0 @error('remark') is-invalid @enderror">{!! $orderWedding->remark !!}</textarea>
+                                                                <textarea name="remark" id="remark" placeholder="@lang('messages.Insert guest name')" class="tiny_mce form-control border-radius-0 @error('remark') is-invalid @enderror">{!! $orderWedding->remark !!}</textarea>
                                                                 @error('remark')
                                                                     <span class="invalid-feedback">
                                                                         <strong>{{ $message }}</strong>

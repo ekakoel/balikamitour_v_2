@@ -235,7 +235,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="remark" class="form-label">@lang('messages.Remark')</label>
-                                                            <textarea name="remark" class="ckeditor form-control @error('remark') is-invalid @enderror" placeholder="Insert remark" value="@lang('messages.Remark')">{!! old('remark') !!}</textarea>
+                                                            <textarea name="remark" class="tiny_mce form-control @error('remark') is-invalid @enderror" placeholder="Insert remark" value="@lang('messages.Remark')">{!! old('remark') !!}</textarea>
                                                             @error('remark')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror
@@ -347,7 +347,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="remark" class="form-label">@lang('messages.Remark')</label>
-                                                <textarea name="remark" class="ckeditor form-control @error('remark') is-invalid @enderror" placeholder="Insert remark" value="@lang('messages.Remark')">{!! old('remark') !!}</textarea>
+                                                <textarea name="remark" class="tiny_mce form-control @error('remark') is-invalid @enderror" placeholder="Insert remark" value="@lang('messages.Remark')">{!! old('remark') !!}</textarea>
                                                 @error('remark')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror

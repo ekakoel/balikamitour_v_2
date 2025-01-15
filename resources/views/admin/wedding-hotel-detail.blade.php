@@ -408,7 +408,7 @@
                                                         @method('PUT')
                                                         <div class="form-group">
                                                             <label for="entrance_fee" class="form-label">Entrance Fee</label>
-                                                            <textarea id="entrance_fee" name="entrance_fee" class="ckeditor form-control @error('entrance_fee') is-invalid @enderror" placeholder="Insert entrance_fee" value="{{ $hotel->entrance_fee }}">{!! $hotel->entrance_fee !!}</textarea>
+                                                            <textarea id="entrance_fee" name="entrance_fee" class="tiny_mce form-control @error('entrance_fee') is-invalid @enderror" placeholder="Insert entrance_fee" value="{{ $hotel->entrance_fee }}">{!! $hotel->entrance_fee !!}</textarea>
                                                             @error('entrance_fee')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror
@@ -456,7 +456,7 @@
                                                         @method('PUT')
                                                         <div class="form-group">
                                                             <label for="wedding_cancellation_policy" class="form-label">Cancellation Policy</label>
-                                                            <textarea name="wedding_cancellation_policy" class="ckeditor form-control @error('wedding_cancellation_policy') is-invalid @enderror" placeholder="Insert wedding_cancellation_policy" value="{{ $hotel->wedding_cancellation_policy }}">{!! $hotel->wedding_cancellation_policy !!}</textarea>
+                                                            <textarea name="wedding_cancellation_policy" class="tiny_mce form-control @error('wedding_cancellation_policy') is-invalid @enderror" placeholder="Insert wedding_cancellation_policy" value="{{ $hotel->wedding_cancellation_policy }}">{!! $hotel->wedding_cancellation_policy !!}</textarea>
                                                             @error('wedding_cancellation_policy')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror
@@ -504,7 +504,7 @@
                                                         @method('PUT')
                                                         <div class="form-group">
                                                             <label for="wedding_info" class="form-label">Other Information</label>
-                                                            <textarea id="wedding_info" name="wedding_info" class="ckeditor form-control @error('wedding_info') is-invalid @enderror" placeholder="Insert wedding_info" value="{{ $hotel->wedding_info }}">{!! $hotel->wedding_info !!}</textarea>
+                                                            <textarea id="wedding_info" name="wedding_info" class="tiny_mce form-control @error('wedding_info') is-invalid @enderror" placeholder="Insert wedding_info" value="{{ $hotel->wedding_info }}">{!! $hotel->wedding_info !!}</textarea>
                                                             @error('wedding_info')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror

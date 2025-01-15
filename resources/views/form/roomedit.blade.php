@@ -111,7 +111,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="include" class="form-label">Include </label>
-                                                <textarea id="include" name="include" class="ckeditor form-control" placeholder="Insert include" required>{{ $room->include }}</textarea>
+                                                <textarea id="include" name="include" class="tiny_mce form-control" placeholder="Insert include" required>{{ $room->include }}</textarea>
                                                 @error('include')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -120,7 +120,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control" placeholder="Insert additional information">{{ $room->additional_info }}</textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control" placeholder="Insert additional information">{{ $room->additional_info }}</textarea>
                                             </div>
                                             @error('additional_info')
                                                 <div class="alert alert-danger">{{ $message }}</div>

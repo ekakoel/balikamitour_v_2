@@ -1533,7 +1533,7 @@
                                                                         <div class="col-5"><p>@lang('messages.Due Date')</p></div>
                                                                         <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                         <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                        <div class="col-7"><p><b>: {{ "$ ".number_format($orderWedding->final_price, 0, ",", ".") }}</b></p></div>
+                                                                        <div class="col-7"><p><b>: {{ "$ ".number_format($orderWedding->final_price, 0, ".", ",") }}</b></p></div>
                                                                         <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                                     </div>
                                                                 </div>

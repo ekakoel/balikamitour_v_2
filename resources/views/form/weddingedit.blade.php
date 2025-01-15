@@ -351,7 +351,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="include" class="form-label">Include</label>
-                                                    <textarea id="include" name="include" class="ckeditor form-control @error('include') is-invalid @enderror" placeholder="Insert include" value="{{ $wedding->include }}" required>{!! $wedding->include !!}</textarea>
+                                                    <textarea id="include" name="include" class="tiny_mce form-control @error('include') is-invalid @enderror" placeholder="Insert include" value="{{ $wedding->include }}" required>{!! $wedding->include !!}</textarea>
                                                     @error('include')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -360,7 +360,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="payment_process" class="form-label">Payment Process</label>
-                                                    <textarea id="payment_process" name="payment_process" class="ckeditor form-control @error('Description') is-invalid @enderror" placeholder="Insert Remark" value="{{ $wedding->payment_process }}">{!! $wedding->payment_process !!}</textarea>
+                                                    <textarea id="payment_process" name="payment_process" class="tiny_mce form-control @error('Description') is-invalid @enderror" placeholder="Insert Remark" value="{{ $wedding->payment_process }}">{!! $wedding->payment_process !!}</textarea>
                                                     @error('payment_process')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -369,7 +369,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="cancellation_policy" class="form-label">Cancellation Policy</label>
-                                                    <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control @error('Description') is-invalid @enderror" placeholder="Insert cancellation policy" value="{{ $wedding->cancellation_policy }}">{!! $wedding->cancellation_policy !!}</textarea>
+                                                    <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control @error('Description') is-invalid @enderror" placeholder="Insert cancellation policy" value="{{ $wedding->cancellation_policy }}">{!! $wedding->cancellation_policy !!}</textarea>
                                                     @error('cancellation_policy')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -379,7 +379,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="terms_and_conditions" class="form-label">Terms and Conditions</label>
-                                                    <textarea id="terms_and_conditions" name="terms_and_conditions" class="ckeditor form-control @error('terms_and_conditions') is-invalid @enderror" placeholder="Insert terms_and_conditions" value="{{ $wedding->terms_and_conditions }}">{!! $wedding->terms_and_conditions !!}</textarea>
+                                                    <textarea id="terms_and_conditions" name="terms_and_conditions" class="tiny_mce form-control @error('terms_and_conditions') is-invalid @enderror" placeholder="Insert terms_and_conditions" value="{{ $wedding->terms_and_conditions }}">{!! $wedding->terms_and_conditions !!}</textarea>
                                                     @error('terms_and_conditions')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror

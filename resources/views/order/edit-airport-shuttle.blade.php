@@ -47,11 +47,11 @@
                                             <td>{{ ++$num_airport }}</td>
                                             <td>{{ dateTimeFormat($airport_shuttle->date) }}</td>
                                             <td><p>Airport Shuttle</p></td>
-                                            <td>{{ $airport_shuttle->transport }}</td>
+                                            <td>{{ $airport_shuttle->transport?->brand." ".$airport_shuttle->transport?->name }}</td>
                                             <td>{{ $airport_shuttle->src." <=> ".$airport_shuttle->dst }}</td>
                                             <td>{{ $airport_shuttle->duration }}</td>
                                             <td>{{ $airport_shuttle->distance }}</td>
-                                            <td>{{ "$ ".number_format($airport_shuttle->price, 0, ",", ".") }}</td>
+                                            <td>{{ "$ ".number_format($airport_shuttle->price, 0, ".", ",") }}</td>
                                             <td class="text-right">
                                                 <div class="table-action">
                                                    
@@ -131,14 +131,14 @@
                                                                                         </div>
                                                                                         <div class="col-sm-2">
                                                                                             <div class="form-group">
-                                                                                                <label for="transport">Transport <span> *</span></label>
-                                                                                                <select id="transport" name="transport" class="form-control m-0 @error('transport') is-invalid @enderror" required>
-                                                                                                    <option selected value="{{ $airport_shuttle->transport }}">{{ $airport_shuttle->transport }}</option>
+                                                                                                <label for="transport_id">Transport <span> *</span></label>
+                                                                                                <select id="transportId" name="transport_id" class="form-control m-0 @error('transport_id') is-invalid @enderror" required>
+                                                                                                    <option selected value="{{ $airport_shuttle->transport?->id }}">{{ $airport_shuttle->transport?->name." - ".$airport_shuttle->transport?->capacity }}</option>
                                                                                                     @foreach ($transports as $transport)
-                                                                                                        <option value="{{ $transport->name }}">{{ $transport->name." - ".$transport->capacity }} <i> Seats</i></option>
+                                                                                                        <option  value="{{ $transport->id }}">{{ $transport->name." - ".$transport->capacity }} <i> Seats</i></option>
                                                                                                     @endforeach
                                                                                                 </select>
-                                                                                                @error('transport')
+                                                                                                @error('transport_id')
                                                                                                     <div class="alert alert-danger">
                                                                                                         {{ $message }}
                                                                                                     </div>

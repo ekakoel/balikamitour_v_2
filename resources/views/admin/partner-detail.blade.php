@@ -264,7 +264,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label for="description">Description</label>
-                                                                            <textarea name="description" id="description" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $partner->description !!}</textarea>
+                                                                            <textarea name="description" id="description" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $partner->description !!}</textarea>
                                                                             @error('description')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>
@@ -582,11 +582,11 @@
                                                                                 </div>
                                                                                 <div class="col-4 col-sm-4">
                                                                                     <div class="card-subtitle">Price:</div>
-                                                                                    <p>{{ "$ ". number_format($h_final/$tour->qty, 0, ",", ".") }}/pax</p>
+                                                                                    <p>{{ "$ ". number_format($h_final/$tour->qty, 0, ".", ",") }}/pax</p>
                                                                                 </div>
                                                                                 <div class="col-4 col-sm-4">
                                                                                     <div class="card-subtitle">Total Price:</div>
-                                                                                    <p>{{ "$ ". number_format($h_final, 0, ",", ".") }}</p>
+                                                                                    <p>{{ "$ ". number_format($h_final, 0, ".", ",") }}</p>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

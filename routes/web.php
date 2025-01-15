@@ -480,7 +480,7 @@ Route::middleware('log.route.usage')->group(function () {
             Route::post('/order-hotel-promo-{id}', [OrderHotelPromoController::class, 'create'])->name('order-hotel-promo.create')->middleware(['auth']);
 
             Route::post('/fadd-order',[OrderController::class,'func_add_order'])->name('order.create')->middleware(['auth']);
-            
+
             Route::get('/edit-order-{id}',[OrderController::class,'user_edit_order'])->middleware(['auth'])->name('edit.order');
 
             
@@ -523,7 +523,7 @@ Route::middleware('log.route.usage')->group(function () {
 
         // Order Admin  (ord) =================================================================================================================> (Admin)
             Route::get('/orders-admin',[OrdersAdminController::class,'index'])->middleware(['auth','adminType']);
-            Route::get('/orders-admin-{id}',[OrdersAdminController::class,'view_order_admin_detail'])->middleware(['auth','adminType']);
+            Route::get('/orders-admin-{id}',[OrdersAdminController::class,'view_order_admin_detail'])->name('view.order.admin.detail')->middleware(['auth','adminType']);
             Route::get('/edit-additional-services-{id}',[OrdersAdminController::class,'edit_additional_services'])->middleware(['auth','adminType']);
             Route::get('/admin-edit-order-itinerary-{id}',[OrdersAdminController::class,'admin_edit_order_itinerary'])->middleware(['auth','adminType']);
             Route::get('/edit-airport-shuttle-{id}',[OrdersAdminController::class,'edit_airport_shuttle'])->middleware(['auth','adminType']);
@@ -693,8 +693,9 @@ Route::middleware('log.route.usage')->group(function () {
             Route::put('/fupdate-payment-confirmation/{id}',[PaymentConfirmationController::class,'update_payment_confirmation'])->name('update-payment-confirmation')->middleware(['auth']);
 
         // ADMIN CONFIRMATION PAYMENT
-            Route::post('/fconfirmation-payment-{id}',[OrdersAdminController::class,'fconfirmation_payment'])->middleware(['auth','adminType']);
-            Route::post('/fadmin-add-payment-confirmation-{id}',[OrdersAdminController::class,'admin_add_payment_confirmation'])->middleware(['auth','adminType']);
+            Route::post('/fconfirm-receipt-{id}',[OrdersAdminController::class,'fadmin_confirm_receipt'])->name("fadmin.confirm.receipt")->middleware(['auth','adminType']);
+            Route::post('/fconfirmation-payment-{id}',[OrdersAdminController::class,'fconfirmation_payment'])->name("func.confirm.payment")->middleware(['auth','adminType']);
+            Route::post('/fadmin-add-payment-confirmation-{id}',[OrdersAdminController::class,'admin_add_payment_confirmation'])->name('func.admin.add.receipt')->middleware(['auth','adminType']);
             Route::post('/forder-wedding-confirmation-payment-{id}',[OrdersAdminController::class,'forder_wedding_confirmation_payment'])->middleware(['auth','adminType']);
             Route::post('/order-wedding-add-payment-confirmation-{id}',[OrdersAdminController::class,'admin_add_payment_confirmation_to_order_wedding'])->middleware(['auth','adminType']);
 

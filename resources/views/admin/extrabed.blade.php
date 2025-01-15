@@ -32,8 +32,8 @@
                                     <b>{{ $extrabed->name." (". $extrabed->type.")"}}</b>
                                 </td>
                                 <td>
-                                    <div class="rate-usd"> {{ "$ ". number_format($usdrates_extra_bed, 0, ",", ".") }}</div>
-                                    <div class="rate-idr"> {{ "IDR ". number_format($extrabed->contract_rate, 0, ",", ".") }}</div>
+                                    <div class="rate-usd"> {{ "$ ". number_format($usdrates_extra_bed, 0, ".", ",") }}</div>
+                                    <div class="rate-idr"> {{ "IDR ". number_format($extrabed->contract_rate, 0, ".", ",") }}</div>
                                 </td>
                                 <td>
                                     <div class="rate-usd"> {{ "$ ".number_format($extrabed->markup, 0,",",".") }}</div>
@@ -44,8 +44,8 @@
                                     <div class="rate-idr"> {{ "IDR ".number_format($pajak_extra_bed * $usdrates->rate, 0,",",".") }}</div>
                                 </td>
                                 <td>
-                                    <div class="rate-usd">{{ "$ ". number_format($usdrates_extra_bed + $extrabed->markup + $pajak_extra_bed, 0, ",", ".") }}</div>
-                                    <div class="rate-idr">{{ "IDR ".number_format(($usdrates_extra_bed + $extrabed->markup + $pajak_extra_bed) * $usdrates->rate, 0, ",", ".") }}</div>
+                                    <div class="rate-usd">{{ "$ ". number_format($usdrates_extra_bed + $extrabed->markup + $pajak_extra_bed, 0, ".", ",") }}</div>
+                                    <div class="rate-idr">{{ "IDR ".number_format(($usdrates_extra_bed + $extrabed->markup + $pajak_extra_bed) * $usdrates->rate, 0, ".", ",") }}</div>
                                 </td>
                                 @canany(['posDev','posAuthor'])
                                     <td class="text-right">
@@ -139,7 +139,7 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label for="description">Description</label>
-                                                                <textarea name="description" id="description" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Insert description" type="text">{!! $extrabed->description !!}</textarea>
+                                                                <textarea name="description" id="description" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Insert description" type="text">{!! $extrabed->description !!}</textarea>
                                                                 @error('description')
                                                                     <span class="invalid-feedback">
                                                                         <strong>{{ $message }}</strong>
@@ -245,7 +245,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea name="description" id="description" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! old('description') !!}</textarea>
+                                                <textarea name="description" id="description" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! old('description') !!}</textarea>
                                                 @error('description')
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>

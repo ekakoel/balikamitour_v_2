@@ -96,7 +96,7 @@
                                                 <hr class="form-hr">
                                                 <div class="usd-rate">
                                                     @for ($prs = 0; $prs < $cslot; $prs++)
-                                                    {{ "$ ".number_format($basic_price[$prs], 0, ",", ".") }} <br>
+                                                    {{ "$ ".number_format($basic_price[$prs], 0, ".", ",") }} <br>
                                                     @endfor
                                                     
                                                 </div>
@@ -106,7 +106,7 @@
                                                 <hr class="form-hr">
                                                 <div class="usd-rate">
                                                     @for ($arpr = 0; $arpr < $cslot; $arpr++)
-                                                    {{ "$ ".number_format($arrangement_price[$arpr], 0, ",", ".") }} <br>
+                                                    {{ "$ ".number_format($arrangement_price[$arpr], 0, ".", ",") }} <br>
                                                     @endfor
                                                     
                                                 </div>

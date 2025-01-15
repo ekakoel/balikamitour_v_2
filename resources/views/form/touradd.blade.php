@@ -156,7 +156,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label col-form-label">Description <span> *</span></label>
-                                                <textarea id="description" name="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Insert description" value="{{ old('description') }}" required>{{ old('description') }}</textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Insert description" value="{{ old('description') }}" required>{{ old('description') }}</textarea>
                                                 @error('description')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -165,7 +165,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="destinations" class="form-label col-form-label">Destinations <span> *</span></label>
-                                                <textarea id="destinations" name="destinations" class="ckeditor form-control @error('destinations') is-invalid @enderror" placeholder="Insert destinations" value="{{ old('destinations') }}" required>{{ old('destinations') }}</textarea>
+                                                <textarea id="destinations" name="destinations" class="tiny_mce form-control @error('destinations') is-invalid @enderror" placeholder="Insert destinations" value="{{ old('destinations') }}" required>{{ old('destinations') }}</textarea>
                                                 @error('destinations')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -174,7 +174,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="itinerary" class="form-label col-form-label">Itinerary <span> *</span></label>
-                                                <textarea id="itinerary" name="itinerary" class="ckeditor form-control @error('itinerary') is-invalid @enderror" placeholder="Insert itinerary" value="{{ old('itinerary') }}" required>{{ old('itinerary') }}</textarea>
+                                                <textarea id="itinerary" name="itinerary" class="tiny_mce form-control @error('itinerary') is-invalid @enderror" placeholder="Insert itinerary" value="{{ old('itinerary') }}" required>{{ old('itinerary') }}</textarea>
                                                 @error('itinerary')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -183,7 +183,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include" class="form-label col-form-label">Include <span> *</span></label>
-                                                <textarea id="include" name="include" class="ckeditor form-control @error('include') is-invalid @enderror" placeholder="Insert include" value="{{ old('include') }}" required></textarea>
+                                                <textarea id="include" name="include" class="tiny_mce form-control @error('include') is-invalid @enderror" placeholder="Insert include" value="{{ old('include') }}" required></textarea>
                                                 @error('include')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -192,7 +192,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="cancellation_policy" class="form-label col-form-label">Cancellation Policy</label>
-                                                <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control @error('cancellation_policy') is-invalid @enderror" placeholder="Insert additional information" value="{{ old('cancellation_policy') }}"></textarea>
+                                                <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control @error('cancellation_policy') is-invalid @enderror" placeholder="Insert additional information" value="{{ old('cancellation_policy') }}"></textarea>
                                                 @error('cancellation_policy')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -201,7 +201,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label col-form-label">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control @error('additional_info') is-invalid @enderror" placeholder="Insert additional information" value="{{ old('additional_info') }}"></textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control @error('additional_info') is-invalid @enderror" placeholder="Insert additional information" value="{{ old('additional_info') }}"></textarea>
                                                 @error('additional_info')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror

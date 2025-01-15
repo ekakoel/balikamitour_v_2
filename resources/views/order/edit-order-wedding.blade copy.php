@@ -902,7 +902,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0">{{ $order->note }}</textarea>
+                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0">{{ $order->note }}</textarea>
                         @error('note')
                             <div class="alert alert-danger">
                                 {{ $message }}
@@ -986,20 +986,20 @@
                             <div class="col-6 col-md-6 text-right">
                                 {{-- <div class="normal-text-07"><span style="color: black">{{ $order->price_pax }}</span></div> --}}
                                 @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $order->kick_back > 0 or $order->promotion_disc > 0)
-                                    <div class="promo-text"><span id="tour-normal-price">{{ number_format($order->normal_price, 0, ",", ".") }}</span></div>
+                                    <div class="promo-text"><span id="tour-normal-price">{{ number_format($order->normal_price, 0, ".", ",") }}</span></div>
                                     <hr class="form-hr">
                                     @if ($order->kick_back > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($order->kick_back, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($order->kick_back, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->bookingcode_disc > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($order->bookingcode_disc, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($order->bookingcode_disc, 0, ".", ",") }}</div>
                                     @endif
 
                                     @if ($order->discounts > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($order->discounts, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($order->discounts, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($total_promotion > 0)
-                                        <div class="kick-back">{{ "- $ ".number_format($total_promotion, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ "- $ ".number_format($total_promotion, 0, ".", ",") }}</div>
                                     @endif
                                 
                                     @if ($order->kick_back > 0 or $order->bookingcode_disc > 0 or $order->discounts > 0 or $total_promotion > 0)
@@ -1007,7 +1007,7 @@
                                     @endif
                                 @endif
                                 @if ($order->status == "Approved")
-                                    <div class="price-tag"><span>{{ number_format($order->final_price, 0, ",", ".") }}</span></div>
+                                    <div class="price-tag"><span>{{ number_format($order->final_price, 0, ".", ",") }}</span></div>
                                 @else
                                     <div class="price-name text-right"><span>@lang('messages.To be advised')</span></div>
                                 @endif

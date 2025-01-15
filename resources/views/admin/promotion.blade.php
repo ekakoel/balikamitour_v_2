@@ -314,7 +314,7 @@
                                                                                 <div class="modal-subtitle">
                                                                                     Discounts :
                                                                                 </div>
-                                                                                <p>{{ "$ ".number_format($promotion->discounts, 0, ",", ".") }}</p>
+                                                                                <p>{{ "$ ".number_format($promotion->discounts, 0, ".", ",") }}</p>
                                                                             </div>
 
                                                                             <div class="col-md-12">
@@ -410,14 +410,14 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="term">Term and Condition</label>
-                                                                            <textarea id="term" name="term" class="ckeditor form-control @error('term') is-invalid @enderror" placeholder="Optional" value="{{ $promotion->term }}">{!! $promotion->term !!}</textarea>
+                                                                            <textarea id="term" name="term" class="tiny_mce form-control @error('term') is-invalid @enderror" placeholder="Optional" value="{{ $promotion->term }}">{!! $promotion->term !!}</textarea>
                                                                             @error('term')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="description">Description</label>
-                                                                            <textarea id="description" name="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Optional" value="{{ $promotion->description }}">{!! $promotion->description !!}</textarea>
+                                                                            <textarea id="description" name="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Optional" value="{{ $promotion->description }}">{!! $promotion->description !!}</textarea>
                                                                             @error('description')
                                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                                             @enderror
@@ -505,14 +505,14 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="term">Term and Condition</label>
-                                                            <textarea id="term" name="term" class="ckeditor form-control @error('term') is-invalid @enderror" placeholder="Optional" value="{{ old('term') }}"></textarea>
+                                                            <textarea id="term" name="term" class="tiny_mce form-control @error('term') is-invalid @enderror" placeholder="Optional" value="{{ old('term') }}"></textarea>
                                                             @error('term')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="description" >Description</label>
-                                                            <textarea id="description" name="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Optional" value="{{ old('description') }}"></textarea>
+                                                            <textarea id="description" name="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Optional" value="{{ old('description') }}"></textarea>
                                                             @error('description')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
                                                             @enderror

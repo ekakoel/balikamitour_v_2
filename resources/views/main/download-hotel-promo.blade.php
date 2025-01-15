@@ -69,7 +69,7 @@
                                                         {{ dateFormat($promo->periode_start)." - ".dateFormat($promo->periode_end) }}
                                                     </td>
                                                     <td>
-                                                        {{ "$ ".  number_format($usd_prate, 0, ",", ".") ." /night" }}
+                                                        {{ "$ ".  number_format($usd_prate, 0, ".", ",") ." /night" }}
                                                     </td>      
                                                 </tr>
                                             @endforeach

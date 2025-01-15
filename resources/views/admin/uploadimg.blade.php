@@ -16,7 +16,7 @@
                     <label>Name</label>
                     <input type="text" name="name" placeholder="Enter Product Name">
                     <label>Discription</label>
-                    <textarea class="ckeditor form-control" name="description" rows="4" >
+                    <textarea class="tiny_mce form-control" name="description" rows="4" >
                     </textarea>
                 </div>
                 <div >

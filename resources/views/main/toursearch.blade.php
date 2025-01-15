@@ -134,7 +134,7 @@
                                         @endphp
                                         @if ($hasBookingCode || $hasPromotion)
                                             <div class="price-card m-t-8">
-                                                {{ $priceCardText . " $ " . number_format($priceValue, 0, ",", ".") }}
+                                                {{ $priceCardText . " $ " . number_format($priceValue, 0, ".", ",") }}
                                             </div>
                                         @endif
                                         <a href="{{ $link }}">

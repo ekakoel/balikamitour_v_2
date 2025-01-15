@@ -150,7 +150,7 @@
                                                 <div class="form-group row">
                                                     <label for="order_note" class="col-sm-12">@lang('messages.Note')</label>
                                                     <div class="col-sm-12">
-                                                        <textarea id="order_note" name="order_note" placeholder="Insert order note" class="ckeditor form-control border-radius-0" autofocus required></textarea>
+                                                        <textarea id="order_note" name="order_note" placeholder="Insert order note" class="tiny_mce form-control border-radius-0" autofocus required></textarea>
                                                         @error('order_note')
                                                             <div class="alert alert-danger">
                                                                 {{ $message }}
@@ -206,14 +206,14 @@
                                                 <p>TWD</p>
                                             </div>
                                             <div class="col-4 col-md-4">
-                                                <p>{{ "Rp ".number_format($invoice_sell_usd, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_sell_cny, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_sell_twd, 0, ",", ".") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_sell_usd, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_sell_cny, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_sell_twd, 0, ".", ",") }}</p>
                                             </div>
                                             <div class="col-4 col-md-4">
-                                                <p>{{ "Rp ".number_format($invoice_buy_usd, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_buy_cny, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_buy_twd, 0, ",", ".") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_buy_usd, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_buy_cny, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_buy_twd, 0, ".", ",") }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -263,16 +263,16 @@
                                                                     <div class="ptext-value">{{ dateFormat($receipt->created_at) }}</div>
                                                                     @if ($receipt->kurs_name == 'USD')
                                                                         <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "$ ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "$ ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                     @elseif($receipt->kurs_name == 'TWD')
                                                                         <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "NT$ ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "NT$ ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                     @elseif($receipt->kurs_name == 'CNY')
                                                                         <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "¥ ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "¥ ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                     @elseif($receipt->kurs_name == 'IDR')
                                                                         <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "Rp ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                        <div class="ptext-value">{{ $receipt->kurs_name }} {{ "Rp ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -331,13 +331,13 @@
                                                                                             </div>
                                                                                             <div class="col-7">
                                                                                                 @if ($receipt->kurs_name == "USD")
-                                                                                                    <p><b>: {{ "$ ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                    <p><b>: {{ "$ ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                 @elseif ($receipt->kurs_name == "CNY")
-                                                                                                    <p><b>: {{ "¥ ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                    <p><b>: {{ "¥ ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                 @elseif ($receipt->kurs_name == "TWD")
-                                                                                                    <p><b>: {{ "NT$ ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                    <p><b>: {{ "NT$ ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                 @elseif ($receipt->kurs_name == "IDR")
-                                                                                                    <p><b>: {{ "Rp ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                    <p><b>: {{ "Rp ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                 @endif
                                                                                             </div>
                                                                                             <div class="col-12">
@@ -394,7 +394,7 @@
                                                                                                 <div class="col-md-12">
                                                                                                     <div class="form-group">
                                                                                                         <label for="note">@lang('messages.Description') </label>
-                                                                                                        <textarea name="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Description">{{ $receipt->note }}</textarea>
+                                                                                                        <textarea name="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Description">{{ $receipt->note }}</textarea>
                                                                                                         @error('note')
                                                                                                             <span class="invalid-feedback">
                                                                                                                 <strong>{{ $message }}</strong>
@@ -438,22 +438,22 @@
                                             <div class="card-ptext-content">
                                                 @if ($invoice->currency->name == 'USD')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                 @elseif ($invoice->currency->name == 'TWD')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                     <div class="ptext-title">@lang('messages.Total Invoice') TWD</div>
-                                                    <div class="ptext-value">{{ "NT$ ".number_format($invoice->total_twd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "NT$ ".number_format($invoice->total_twd, 0, ".", ",") }}</div>
                                                 @elseif ($invoice->currency->name == 'CNY')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                     <div class="ptext-title">@lang('messages.Total Invoice') CNY</div>
-                                                    <div class="ptext-value">{{ "¥ ".number_format($invoice->total_cny, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "¥ ".number_format($invoice->total_cny, 0, ".", ",") }}</div>
                                                 @elseif ($invoice->currency->name == 'IDR')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                     <div class="ptext-title">@lang('messages.Total Invoice') IDR</div>
-                                                    <div class="ptext-value">{{ "Rp ".number_format($invoice->total_idr, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "Rp ".number_format($invoice->total_idr, 0, ".", ",") }}</div>
                                                 @endif
                                             </div>
                                         </div>
@@ -467,7 +467,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($total_payment_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($total_payment_usd, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -475,7 +475,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') CNY</div>
-                                                    <div class="ptext-value">{{ "¥ ".number_format($total_payment_cny, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "¥ ".number_format($total_payment_cny, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -483,7 +483,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') TWD</div>
-                                                    <div class="ptext-value">{{ "NT$ ".number_format($total_payment_twd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "NT$ ".number_format($total_payment_twd, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -491,7 +491,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') IDR</div>
-                                                    <div class="ptext-value">{{ "Rp ".number_format($total_payment_idr, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "Rp ".number_format($total_payment_idr, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -508,13 +508,13 @@
                                                         <div class="ptext-value"><div class="usd-rate">@lang('messages.Paid')</div></div>
                                                     @else
                                                         @if ($invoice->currency->name == "USD")
-                                                            <div class="ptext-value"><b>{{ "$ ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "$ ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @elseif ($invoice->currency->name == "CNY")
-                                                            <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @elseif ($invoice->currency->name == "TWD")
-                                                            <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @else
-                                                            <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @endif
                                                     @endif
                                                 @endif
@@ -541,22 +541,22 @@
                                                 <div class="ptext-value">{{ dateFormat($invoice->due_date) }}</div>
                                                 @if ($invoice->currency->name == 'USD')
                                                     <div class="ptext-title"><b>@lang('messages.Total Price')</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                 @elseif ($invoice->currency->name == 'TWD')
                                                     <div class="ptext-title"><b>@lang('messages.Total') USD</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                     <div class="ptext-title"><b>@lang('messages.Total') TWD</b></div>
-                                                    <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->total_twd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->total_twd, 0, ".", ",") }}</b></div>
                                                 @elseif ($invoice->currency->name == 'CNY')
                                                     <div class="ptext-title"><b>@lang('messages.Total') USD</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                     <div class="ptext-title"><b>@lang('messages.Total') CNY</b></div>
-                                                    <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->total_cny, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->total_cny, 0, ".", ",") }}</b></div>
                                                 @elseif ($invoice->currency->name == 'IDR')
                                                     <div class="ptext-title"><b>@lang('messages.Total') USD</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                     <div class="ptext-title"><b>@lang('messages.Total') IDR</b></div>
-                                                    <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->total_idr, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->total_idr, 0, ".", ",") }}</b></div>
                                                 @endif
                                             </div>
                                             
@@ -589,7 +589,7 @@
                                                                     <div class="col-5"><p>@lang('messages.Due Date')</p></div>
                                                                     <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                     <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                    <div class="col-7"><p><b>: {{ "$ ".number_format($orderWedding->final_price, 0, ",", ".") }}</b></p></div>
+                                                                    <div class="col-7"><p><b>: {{ "$ ".number_format($orderWedding->final_price, 0, ".", ",") }}</b></p></div>
                                                                     <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                                 </div>
                                                             </div>
@@ -3940,7 +3940,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="remark" class="form-label">@lang('messages.Remark')</label>
-                                                                        <textarea name="remark" class="ckeditor form-control @error('remark') is-invalid @enderror" placeholder="Insert remark">{!! old('remark') !!}</textarea>
+                                                                        <textarea name="remark" class="tiny_mce form-control @error('remark') is-invalid @enderror" placeholder="Insert remark">{!! old('remark') !!}</textarea>
                                                                         @error('remark')
                                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                                         @enderror
@@ -4635,7 +4635,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="note" class="form-label">@lang('messages.Note')</label>
-                                                                        <textarea name="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! old('note') !!}</textarea>
+                                                                        <textarea name="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! old('note') !!}</textarea>
                                                                         @error('note')
                                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                                         @enderror
@@ -4788,7 +4788,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <label for="note" class="form-label">@lang('messages.Note')</label>
-                                                                                        <textarea name="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! $request_service->note !!}</textarea>
+                                                                                        <textarea name="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! $request_service->note !!}</textarea>
                                                                                         @error('note')
                                                                                             <div class="alert alert-danger">{{ $message }}</div>
                                                                                         @enderror
@@ -4933,7 +4933,7 @@
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
                                                                                     <label for="note" class="form-label">@lang('messages.Note')</label>
-                                                                                    <textarea name="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! $rejected_service->note !!}</textarea>
+                                                                                    <textarea name="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! $rejected_service->note !!}</textarea>
                                                                                     @error('note')
                                                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                                                     @enderror
@@ -5502,7 +5502,7 @@
                                                             <div class="row">
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group">
-                                                                        <textarea name="remark" placeholder="@lang('messages.Insert guest name')" class="ckeditor form-control border-radius-0 @error('remark') is-invalid @enderror">{!! $orderWedding->remark !!}</textarea>
+                                                                        <textarea name="remark" placeholder="@lang('messages.Insert guest name')" class="tiny_mce form-control border-radius-0 @error('remark') is-invalid @enderror">{!! $orderWedding->remark !!}</textarea>
                                                                         @error('remark')
                                                                             <span class="invalid-feedback">
                                                                                 <strong>{{ $message }}</strong>
@@ -5884,7 +5884,7 @@
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label for="emailContent">@lang('messages.Email Content') <span>*</span></label>
-                                                                        <textarea name="email_content" class="ckeditor form-control" placeholder="Insert email content" required></textarea>
+                                                                        <textarea name="email_content" class="tiny_mce form-control" placeholder="Insert email content" required></textarea>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="pdf_file">@lang('messages.Select Invoice')</label>
@@ -5919,7 +5919,7 @@
                                                                 @csrf
                                                                 <div class="form-group">
                                                                     <label for="emailContent">@lang('messages.Email Content') <span>*</span></label>
-                                                                    <textarea name="email_content" class="ckeditor form-control" placeholder="Insert email content" required></textarea>
+                                                                    <textarea name="email_content" class="tiny_mce form-control" placeholder="Insert email content" required></textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="pdf_file">@lang('messages.Select Invoice')</label>
@@ -6090,7 +6090,7 @@
                                                 <div class="form-group row">
                                                     <label for="order_note" class="col-sm-12">@lang('messages.Note')</label>
                                                     <div class="col-sm-12">
-                                                        <textarea id="order_note" name="order_note" placeholder="Insert order note" class="ckeditor form-control border-radius-0" autofocus required></textarea>
+                                                        <textarea id="order_note" name="order_note" placeholder="Insert order note" class="tiny_mce form-control border-radius-0" autofocus required></textarea>
                                                         @error('order_note')
                                                             <div class="alert alert-danger">
                                                                 {{ $message }}
@@ -6146,14 +6146,14 @@
                                                 <p>TWD</p>
                                             </div>
                                             <div class="col-4 col-md-4">
-                                                <p>{{ "Rp ".number_format($invoice_sell_usd, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_sell_cny, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_sell_twd, 0, ",", ".") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_sell_usd, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_sell_cny, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_sell_twd, 0, ".", ",") }}</p>
                                             </div>
                                             <div class="col-4 col-md-4">
-                                                <p>{{ "Rp ".number_format($invoice_buy_usd, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_buy_cny, 0, ",", ".") }}</p>
-                                                <p>{{ "Rp ".number_format($invoice_buy_twd, 0, ",", ".") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_buy_usd, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_buy_cny, 0, ".", ",") }}</p>
+                                                <p>{{ "Rp ".number_format($invoice_buy_twd, 0, ".", ",") }}</p>
                                             </div>
                                         </div>
                                         <div class="card-ptext-margin">
@@ -6188,22 +6188,22 @@
                                             <div class="card-ptext-content">
                                                 @if ($invoice->currency->name == 'USD')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                 @elseif ($invoice->currency->name == 'TWD')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                     <div class="ptext-title">@lang('messages.Total Invoice') TWD</div>
-                                                    <div class="ptext-value">{{ "NT$ ".number_format($invoice->total_twd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "NT$ ".number_format($invoice->total_twd, 0, ".", ",") }}</div>
                                                 @elseif ($invoice->currency->name == 'CNY')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                     <div class="ptext-title">@lang('messages.Total Invoice') CNY</div>
-                                                    <div class="ptext-value">{{ "¥ ".number_format($invoice->total_cny, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "¥ ".number_format($invoice->total_cny, 0, ".", ",") }}</div>
                                                 @elseif ($invoice->currency->name == 'IDR')
                                                     <div class="ptext-title">@lang('messages.Total Invoice') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</div>
                                                     <div class="ptext-title">@lang('messages.Total Invoice') IDR</div>
-                                                    <div class="ptext-value">{{ "Rp ".number_format($invoice->total_idr, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "Rp ".number_format($invoice->total_idr, 0, ".", ",") }}</div>
                                                 @endif
                                             </div>
                                         </div>
@@ -6232,16 +6232,16 @@
                                                                         <div class="ptext-value">{{ dateFormat($receipt->created_at) }}</div>
                                                                         @if ($receipt->kurs_name == 'USD')
                                                                             <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "$ ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "$ ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                         @elseif($receipt->kurs_name == 'TWD')
                                                                             <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "NT$ ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "NT$ ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                         @elseif($receipt->kurs_name == 'CNY')
                                                                             <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "¥ ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "¥ ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                         @elseif($receipt->kurs_name == 'IDR')
                                                                             <div class="ptext-title">@lang('messages.Amount')</div>
-                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "Rp ".number_format($receipt->amount, 0, ",", ".") }}</div>
+                                                                            <div class="ptext-value">{{ $receipt->kurs_name }} {{ "Rp ".number_format($receipt->amount, 0, ".", ",") }}</div>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -6300,13 +6300,13 @@
                                                                                                 </div>
                                                                                                 <div class="col-7">
                                                                                                     @if ($receipt->kurs_name == "USD")
-                                                                                                        <p><b>: {{ "$ ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                        <p><b>: {{ "$ ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                     @elseif ($receipt->kurs_name == "CNY")
-                                                                                                        <p><b>: {{ "¥ ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                        <p><b>: {{ "¥ ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                     @elseif ($receipt->kurs_name == "TWD")
-                                                                                                        <p><b>: {{ "NT$ ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                        <p><b>: {{ "NT$ ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                     @elseif ($receipt->kurs_name == "IDR")
-                                                                                                        <p><b>: {{ "Rp ".number_format($receipt->amount, 0, ",", ".") }}</b></p>
+                                                                                                        <p><b>: {{ "Rp ".number_format($receipt->amount, 0, ".", ",") }}</b></p>
                                                                                                     @endif
                                                                                                 </div>
                                                                                                 <div class="col-12">
@@ -6363,7 +6363,7 @@
                                                                                                     <div class="col-md-12">
                                                                                                         <div class="form-group">
                                                                                                             <label for="note">@lang('messages.Description') </label>
-                                                                                                            <textarea name="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Description">{{ $receipt->note }}</textarea>
+                                                                                                            <textarea name="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Description">{{ $receipt->note }}</textarea>
                                                                                                             @error('note')
                                                                                                                 <span class="invalid-feedback">
                                                                                                                     <strong>{{ $message }}</strong>
@@ -6414,7 +6414,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') USD</div>
-                                                    <div class="ptext-value">{{ "$ ".number_format($total_payment_usd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "$ ".number_format($total_payment_usd, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -6422,7 +6422,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') CNY</div>
-                                                    <div class="ptext-value">{{ "¥ ".number_format($total_payment_cny, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "¥ ".number_format($total_payment_cny, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -6430,7 +6430,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') TWD</div>
-                                                    <div class="ptext-value">{{ "NT$ ".number_format($total_payment_twd, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "NT$ ".number_format($total_payment_twd, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -6438,7 +6438,7 @@
                                             <div class="pmt-des">
                                                 <div class="card-ptext-content">
                                                     <div class="ptext-title">@lang('messages.Total Payment') IDR</div>
-                                                    <div class="ptext-value">{{ "Rp ".number_format($total_payment_idr, 0, ",", ".") }}</div>
+                                                    <div class="ptext-value">{{ "Rp ".number_format($total_payment_idr, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         @endif
@@ -6453,13 +6453,13 @@
                                                         <div class="ptext-value usd-rate">@lang('messages.Paid')</div>
                                                     @else
                                                         @if ($invoice->currency->name == "USD")
-                                                            <div class="ptext-value"><b>{{ "$ ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "$ ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @elseif ($invoice->currency->name == "CNY")
-                                                            <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @elseif ($invoice->currency->name == "TWD")
-                                                            <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @else
-                                                            <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->balance, 0, ",", ".") }}</b></div>
+                                                            <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->balance, 0, ".", ",") }}</b></div>
                                                         @endif
                                                     @endif
                                                 @endif
@@ -6486,22 +6486,22 @@
                                                 <div class="ptext-value">{{ dateFormat($invoice->due_date) }}</div>
                                                 @if ($invoice->currency->name == 'USD')
                                                     <div class="ptext-title"><b>@lang('messages.Total Price')</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                 @elseif ($invoice->currency->name == 'TWD')
                                                     <div class="ptext-title"><b>Total USD</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                     <div class="ptext-title"><b>Total TWD</b></div>
-                                                    <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->total_twd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "NT$ ".number_format($invoice->total_twd, 0, ".", ",") }}</b></div>
                                                 @elseif ($invoice->currency->name == 'CNY')
                                                     <div class="ptext-title"><b>Total USD</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                     <div class="ptext-title"><b>Total CNY</b></div>
-                                                    <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->total_cny, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "¥ ".number_format($invoice->total_cny, 0, ".", ",") }}</b></div>
                                                 @elseif ($invoice->currency->name == 'IDR')
                                                     <div class="ptext-title"><b>Total USD</b></div>
-                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "$ ".number_format($invoice->total_usd, 0, ".", ",") }}</b></div>
                                                     <div class="ptext-title"><b>Total IDR</b></div>
-                                                    <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->total_idr, 0, ",", ".") }}</b></div>
+                                                    <div class="ptext-value"><b>{{ "Rp ".number_format($invoice->total_idr, 0, ".", ",") }}</b></div>
                                                 @endif
                                             </div>
                                             
@@ -6534,7 +6534,7 @@
                                                                     <div class="col-5"><p>@lang('messages.Due Date')</p></div>
                                                                     <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                     <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                    <div class="col-7"><p><b>: {{ "$ ".number_format($orderWedding->final_price, 0, ",", ".") }}</b></p></div>
+                                                                    <div class="col-7"><p><b>: {{ "$ ".number_format($orderWedding->final_price, 0, ".", ",") }}</b></p></div>
                                                                     <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                                 </div>
                                                             </div>

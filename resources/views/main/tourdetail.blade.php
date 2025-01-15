@@ -279,7 +279,7 @@
                                                             <tr>
                                                                 <td>{{ ++$pr_no }}</td>
                                                                 <td>{{ $tour_price->min_qty." - ".$tour_price->max_qty }}</td>
-                                                                <td>{{"$ " . number_format($tour_price_pax, 0, ",", ".") }}</td>
+                                                                <td>{{"$ " . number_format($tour_price_pax, 0, ".", ",") }}</td>
                                                             </tr>
                                                         @endforeach
                                                     @endif
@@ -494,7 +494,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="guest_detail">@lang('messages.Guest Detail') <span> *</span></label>
-                                                                        <textarea id="guest_detail" name="guest_detail" placeholder="ex: Mr. name, Mrs. name" class="ckeditor form-control" value="{{ old('guest_detail') }}" required></textarea>
+                                                                        <textarea id="guest_detail" name="guest_detail" placeholder="ex: Mr. name, Mrs. name" class="tiny_mce form-control" value="{{ old('guest_detail') }}" required></textarea>
                                                                         @error('guest_detail')
                                                                             <div class="alert alert-danger">
                                                                                 {{ $message }}
@@ -506,7 +506,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="note">@lang('messages.Note')</label>
-                                                                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control" value="{{ old('note') }}"></textarea>
+                                                                        <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control" value="{{ old('note') }}"></textarea>
                                                                         @error('note')
                                                                             <div class="alert alert-danger">
                                                                                 {{ $message }}
@@ -562,10 +562,10 @@
                                                                                     <div class="usd-rate-kicked"></div>
                                                                                     <hr class="form-hr">
                                                                                     @if (isset($bookingcode->code))
-                                                                                        <div class="kick-back">{{ "- $ ".number_format($bookingcode->discounts, 0, ",", ".") }}</div>
+                                                                                        <div class="kick-back">{{ "- $ ".number_format($bookingcode->discounts, 0, ".", ",") }}</div>
                                                                                     @endif
                                                                                     @if ($promotion_price >0)
-                                                                                        <div class="kick-back">{{ "- $ ".number_format($promotion_price, 0, ",", ".") }}</div>
+                                                                                        <div class="kick-back">{{ "- $ ".number_format($promotion_price, 0, ".", ",") }}</div>
                                                                                     @endif
                                                                                     <hr class="form-hr">
                                                                                 @endif

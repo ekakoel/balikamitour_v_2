@@ -157,7 +157,7 @@
                                                     <p>{{ $tour->duration }}</p>
                                                 </td>
                                                 {{-- <td>
-                                                    <p>{{ "$ ". number_format($final_price, 0, ",", ".") }}<span>/Pax</span></p>
+                                                    <p>{{ "$ ". number_format($final_price, 0, ".", ",") }}<span>/Pax</span></p>
                                                 </td> --}}
                                                 <td>
                                                     @if ($tour->status == "Active")

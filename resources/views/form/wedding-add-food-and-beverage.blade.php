@@ -100,7 +100,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include" class="form-label">Include</label>
-                                                <textarea id="include" name="include"  class="ckeditor form-control border-radius-0 @error('include') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('include') }}"></textarea>
+                                                <textarea id="include" name="include"  class="tiny_mce form-control border-radius-0 @error('include') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('include') }}"></textarea>
                                                 @error('include')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -109,7 +109,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label">Description</label>
-                                                <textarea id="description" name="description"  class="ckeditor form-control border-radius-0 @error('description') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('description') }}"></textarea>
+                                                <textarea id="description" name="description"  class="tiny_mce form-control border-radius-0 @error('description') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('description') }}"></textarea>
                                                 @error('description')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -118,7 +118,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="note" class="form-label">Note</label>
-                                                <textarea id="note" name="note"  class="ckeditor form-control border-radius-0 @error('note') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('note') }}"></textarea>
+                                                <textarea id="note" name="note"  class="tiny_mce form-control border-radius-0 @error('note') is-invalid @enderror" placeholder="Insert some text ..." value="{{ old('note') }}"></textarea>
                                                 @error('note')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror

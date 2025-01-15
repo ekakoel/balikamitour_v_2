@@ -1370,7 +1370,7 @@
                                             {{ $adser_qty[$v] }}
                                         </td>
                                         <td style="text-align: right;">
-                                            {{ "$ ". number_format($adser_price[$v]*$adser_qty[$v], 0, ",", ".") }}
+                                            {{ "$ ". number_format($adser_price[$v]*$adser_qty[$v], 0, ".", ",") }}
                                         </td>
                                     </tr>
                                 @endfor
@@ -1387,7 +1387,7 @@
                         <tr>
                             <td colspan="4" style="text-align: center; font-size:1rem; font-weight:600;">Total</td>
                             <td style="text-align: right; font-size:1rem; font-weight:600;">
-                                {{ "$ ". number_format($order->final_price + $order->kick_back +$order->bookingcode_disc + $order->discounts + $promotion_disc, 0, ",", ".") }}
+                                {{ "$ ". number_format($order->final_price + $order->kick_back +$order->bookingcode_disc + $order->discounts + $promotion_disc, 0, ".", ",") }}
                             </td>
                         </tr>
                     </table>
@@ -1397,7 +1397,7 @@
                                 <td colspan="2" style="width:40%;"></td>
                                 <td style="width:20%;">Services</td>
                                 <td style="width: 20%">USD</td>
-                                <td style="width: 20%">{{ "$ ". number_format($order->final_price + $order->kick_back +$order->bookingcode_disc + $order->discounts + $promotion_disc, 0, ",", ".") }}</td>
+                                <td style="width: 20%">{{ "$ ". number_format($order->final_price + $order->kick_back +$order->bookingcode_disc + $order->discounts + $promotion_disc, 0, ".", ",") }}</td>
                             </tr>
                             <tr style="text-align: right;">
                                 <td colspan="2" style="width:40%;"></td>
@@ -1410,7 +1410,7 @@
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;">Kick Back</td>
                                     <td >USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($order->kick_back, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($order->kick_back, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if ($order->bookingcode_disc > 0)
@@ -1418,7 +1418,7 @@
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;">Booking Code</td>
                                     <td>USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($order->bookingcode_disc, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($order->bookingcode_disc, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if ($order->discounts > 0)
@@ -1426,7 +1426,7 @@
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;">Discounts</td>
                                     <td>USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($order->discounts, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($order->discounts, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if ($promotion_disc > 0)
@@ -1434,7 +1434,7 @@
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;">Promotions</td>
                                     <td>USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($promotion_disc, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($promotion_disc, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if($invoice->kurs->name == "CNY")
@@ -1442,46 +1442,46 @@
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                                 <tr style="text-align: right;">
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%;" class="final-price"><b>CNY</b></td>
-                                    <td style="width: 20%" class="final-price"><b>{{ "¥ ". number_format($invoice->total_cny, 0, ",", ".") }}</b></td>
+                                    <td style="width: 20%" class="final-price"><b>{{ "¥ ". number_format($invoice->total_cny, 0, ".", ",") }}</b></td>
                                 </tr>
                             @elseif($invoice->kurs->name == "TWD")
                                 <tr style="text-align: right; color:gray !important;">
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                                 <tr style="text-align: right;">
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%;" class="final-price"><b>TWD</b></td>
-                                    <td style="width: 20%" class="final-price"><b>{{ "$ ". number_format($invoice->total_twd, 0, ",", ".") }}</b></td>
+                                    <td style="width: 20%" class="final-price"><b>{{ "$ ". number_format($invoice->total_twd, 0, ".", ",") }}</b></td>
                                 </tr>
                             @elseif($invoice->kurs->name == "IDR")
                                 <tr style="text-align: right; color:gray !important;">
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                                 <tr style="text-align: right;">
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%;" class="final-price"><b>IDR</b></td>
-                                    <td style="width: 20%" class="final-price"><b>{{ "Rp ". number_format($invoice->total_idr, 0, ",", ".") }}</b></td>
+                                    <td style="width: 20%" class="final-price"><b>{{ "Rp ". number_format($invoice->total_idr, 0, ".", ",") }}</b></td>
                                 </tr>
                             @else
                                 <tr style="text-align: right;">
                                     <td colspan="2" style="width:40%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>Total</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                             @endif
                         </tbody>

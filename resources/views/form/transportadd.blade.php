@@ -101,25 +101,25 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Description<span>*</span></label>
-                                                <textarea id="description" name="description" class="ckeditor form-control border-radius-0" placeholder="Insert description" value="{{ old('description') }}" required></textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control border-radius-0" placeholder="Insert description" value="{{ old('description') }}" required></textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include" >Include<span>*</span></label>
-                                                <textarea id="include" name="include" class="ckeditor form-control border-radius-0" placeholder="Insert include" value="{{ old('include') }}" required></textarea>
+                                                <textarea id="include" name="include" class="tiny_mce form-control border-radius-0" placeholder="Insert include" value="{{ old('include') }}" required></textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="cancellation_policy">Cancellation Policy</label>
-                                                <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control border-radius-0" placeholder="Insert cancellation policy" value="{{ old('cancellation_policy') }}"></textarea>
+                                                <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control border-radius-0" placeholder="Insert cancellation policy" value="{{ old('cancellation_policy') }}"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control border-radius-0" placeholder="Insert additional information" value="{{ old('additional_info') }}"></textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control border-radius-0" placeholder="Insert additional information" value="{{ old('additional_info') }}"></textarea>
                                             </div>
                                         </div>
                                             <input id="author" name="author" value="{{ Auth::user()->id }}" type="hidden">

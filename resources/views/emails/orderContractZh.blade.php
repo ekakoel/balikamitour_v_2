@@ -1233,7 +1233,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    {{ "$ ". number_format($order->price_pax, 0, ",", ".") }}
+                                    {{ "$ ". number_format($order->price_pax, 0, ".", ",") }}
                                 </td>
                                 <td>
                                     @if ($order->service == "Tour Package")
@@ -1262,9 +1262,9 @@
                                 </td>
                                 <td>
                                     @if ($order->service == "Hotel" or $order->service == "Hotel Promo" or $order->service == "Hotel Package" or $order->service == "Tour Package" )
-                                        {{ "$ ". number_format($amount, 0, ",", ".") }}
+                                        {{ "$ ". number_format($amount, 0, ".", ",") }}
                                     @else
-                                        {{ "$ ". number_format($order->price_total, 0, ",", ".") }}
+                                        {{ "$ ". number_format($order->price_total, 0, ".", ",") }}
                                     @endif
                                 </td>
                             </tr>
@@ -1278,7 +1278,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        {{ "$ ". number_format(((($extrabed_price/$jml_extra_bed)/$jml_extra_bed)/$order->duration), 0, ",", ".") }}
+                                        {{ "$ ". number_format(((($extrabed_price/$jml_extra_bed)/$jml_extra_bed)/$order->duration), 0, ".", ",") }}
                                     </td>
                                     <td>
                                         {{ $jml_extra_bed }}
@@ -1287,7 +1287,7 @@
                                         {{ $order->duration }}
                                     </td>
                                     <td>
-                                        {{ "$ ". number_format($extrabed_price/$jml_extra_bed, 0, ",", ".") }}
+                                        {{ "$ ". number_format($extrabed_price/$jml_extra_bed, 0, ".", ",") }}
                                     </td>
                                 </tr>
                             @endif
@@ -1309,7 +1309,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ "$ ". number_format($opsirate_order_price_pax[$o], 0, ",", ".") }}
+                                                {{ "$ ". number_format($opsirate_order_price_pax[$o], 0, ".", ",") }}
                                             </td>
                                             <td>
                                                 {{ $opsirate_order_nog[$o] }}
@@ -1318,7 +1318,7 @@
                                                 1
                                             </td>
                                             <td>
-                                                {{ "$ ". number_format($opsirate_order_price_total[$o], 0, ",", ".") }}
+                                                {{ "$ ". number_format($opsirate_order_price_total[$o], 0, ".", ",") }}
                                             </td>
                                         </tr>
                                     @endfor
@@ -1352,7 +1352,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ "$ ". number_format($adser_price[$v], 0, ",", ".") }}
+                                                {{ "$ ". number_format($adser_price[$v], 0, ".", ",") }}
                                             </td>
                                             <td>
                                                 {{ $adser_qty[$v] }}
@@ -1361,7 +1361,7 @@
                                                 1
                                             </td>
                                             <td>
-                                                {{ "$ ". number_format($adser_price[$v]*$adser_qty[$v], 0, ",", ".") }}
+                                                {{ "$ ". number_format($adser_price[$v]*$adser_qty[$v], 0, ".", ",") }}
                                             </td>
                                         </tr>
                                     @endfor
@@ -1381,10 +1381,10 @@
                                     <tr>
                                         <td><div class="table-service-name">{{ $i++ }}</div></td>
                                         <td><div class="table-service-name">{{ "Date ".date('m/d',strtotime($inv_airport_shuttle->date)). ", Airport Shuttle, ".$inv_airport_shuttle->src." - ".$inv_airport_shuttle->dst.", ". $inv_airport_shuttle->transport }}</div></td>
-                                        <td><div class="table-service-name">{{ "$ ". number_format($inv_airport_shuttle->price, 0, ",", ".") }}</div></td>
+                                        <td><div class="table-service-name">{{ "$ ". number_format($inv_airport_shuttle->price, 0, ".", ",") }}</div></td>
                                         <td><div class="table-service-name">1</div></td>
                                         <td><div class="table-service-name">1</div></td>
-                                        <td><div class="table-service-name">{{ "$ ". number_format($inv_airport_shuttle->price, 0, ",", ".") }}</div></td>
+                                        <td><div class="table-service-name">{{ "$ ". number_format($inv_airport_shuttle->price, 0, ".", ",") }}</div></td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -1397,7 +1397,7 @@
                                 <td style="width:20%;"></td>
                                 <td style="width:20%;">服務</td>
                                 <td style="width: 20%">USD</td>
-                                <td style="width: 20%">{{ "$ ". number_format($invoice->total_usd + $order->kick_back + $order->discounts + $order->bookingcode_disc + $promotion_disc, 0, ",", ".") }}</td>
+                                <td style="width: 20%">{{ "$ ". number_format($invoice->total_usd + $order->kick_back + $order->discounts + $order->bookingcode_disc + $promotion_disc, 0, ".", ",") }}</td>
                             </tr>
                             <tr style="text-align: right;">
                                 <td style="width:20%;"></td>
@@ -1412,7 +1412,7 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;">反沖</td>
                                     <td >USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($order->kick_back, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($order->kick_back, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if ($order->bookingcode_disc > 0)
@@ -1421,7 +1421,7 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;">預訂代碼</td>
                                     <td>USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($order->bookingcode_disc, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($order->bookingcode_disc, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if ($order->discounts > 0)
@@ -1430,7 +1430,7 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;">折扣</td>
                                     <td>USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($order->discounts, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($order->discounts, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if ($promotion_disc > 0)
@@ -1439,7 +1439,7 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;">促銷活動</td>
                                     <td>USD</td>
-                                    <td style="width: 20%">{{ "-$ ". number_format($promotion_disc, 0, ",", ".") }}</td>
+                                    <td style="width: 20%">{{ "-$ ". number_format($promotion_disc, 0, ".", ",") }}</td>
                                 </tr>
                             @endif
                             @if($invoice->currency->name == "CNY")
@@ -1448,14 +1448,14 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>總</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                                 <tr style="text-align: right;">
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;" class="final-price"><b>總</b></td>
                                     <td style="width:20%;" class="final-price"><b>CNY</b></td>
-                                    <td style="width:20%;" class="final-price"><b>{{ "¥ ". number_format($invoice->total_cny, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%;" class="final-price"><b>{{ "¥ ". number_format($invoice->total_cny, 0, ".", ",") }}</b></td>
                                 </tr>
                             @elseif($invoice->currency->name == "TWD")
                                 <tr style="text-align: right;">
@@ -1463,14 +1463,14 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>總</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                                 <tr style="text-align: right;">
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;" class="final-price"><b>總</b></td>
                                     <td style="width:20%;" class="final-price"><b>TWD</b></td>
-                                    <td style="width:20%;" class="final-price"><b>{{ "$ ". number_format($invoice->total_twd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%;" class="final-price"><b>{{ "$ ". number_format($invoice->total_twd, 0, ".", ",") }}</b></td>
                                 </tr>
                             @elseif($invoice->currency->name == "IDR")
                                 <tr style="text-align: right;">
@@ -1478,14 +1478,14 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>總</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                                 <tr style="text-align: right;">
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;"></td>
                                     <td style="width:20%;" class="final-price"><b>總</b></td>
                                     <td style="width:20%;" class="final-price"><b>IDR</b></td>
-                                    <td style="width:20%;" class="final-price"><b>{{ "Rp ". number_format($invoice->total_idr, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%;" class="final-price"><b>{{ "Rp ". number_format($invoice->total_idr, 0, ".", ",") }}</b></td>
                                 </tr>
                             @else
                                 <tr style="text-align: right;">
@@ -1493,7 +1493,7 @@
                                     <td style="width:20%;"></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>總</b></td>
                                     <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>USD</b></td>
-                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ",", ".") }}</b></td>
+                                    <td style="width:20%; border-top: 1px solid grey;" class="final-price"><b>{{ "$ ". number_format($invoice->total_usd, 0, ".", ",") }}</b></td>
                                 </tr>
                             @endif
                         </tbody>

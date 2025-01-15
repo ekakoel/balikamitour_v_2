@@ -26,7 +26,7 @@
                                 </div>
                             
                                 <div class="price-card-usd m-t-8">
-                                    {{ "$ ".number_format($fixed_service->publish_rate, 0, ",", ".") }}
+                                    {{ "$ ".number_format($fixed_service->publish_rate, 0, ".", ",") }}
                                 </div>
                             </a>
                         </div>
@@ -56,7 +56,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-label-price">
-                                                {{ "$ ".number_format($fixed_service->publish_rate, 0, ",", ".") }}
+                                                {{ "$ ".number_format($fixed_service->publish_rate, 0, ".", ",") }}
                                             </div>
                                         @endif
                                         <div class="card-box-footer">

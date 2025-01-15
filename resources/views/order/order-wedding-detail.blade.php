@@ -660,7 +660,7 @@
                                         <div class="subtotal-text"> Total Services</div>
                                     </div>
                                     <div class="col-6 col-md-6 text-right">
-                                        <div class="subtotal-price">{{ "$ ".number_format(($total_wedding_services), 0, ",", ".") }}</div>
+                                        <div class="subtotal-price">{{ "$ ".number_format(($total_wedding_services), 0, ".", ",") }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -702,10 +702,10 @@
                                         </td>
                                         
                                         <td>
-                                            <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x], 0, ",", ".") }}</div>
+                                            <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x], 0, ".", ",") }}</div>
                                         </td>
                                         <td>
-                                            <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x]*$additional_service_qty[$x], 0, ",", ".") }}</div>
+                                            <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x]*$additional_service_qty[$x], 0, ".", ",") }}</div>
                                         </td>
                                     </tr>
                                 @endfor
@@ -717,7 +717,7 @@
                                     <div class="subtotal-text"> Total Additional Service</div>
                                 </div>
                                 <div class="col-6 col-md-6 text-right">
-                                    <div class="subtotal-price">{{ "$ ".number_format(($total_additional_service), 0, ",", ".") }}</div>
+                                    <div class="subtotal-price">{{ "$ ".number_format(($total_additional_service), 0, ".", ",") }}</div>
                                 </div>
                             </div>
                         </div>
@@ -813,26 +813,26 @@
                         </div>
                         <div class="col-6 col-md-6 text-right">
                             @if ($total_additional_service > 0)
-                                <div class="promo-text">{{ "$ ".number_format($wedding_order->fixed_service_price + $wedding->markup, 0, ",", ".") }}</div>
-                                <div class="promo-text">{{ "$ ".number_format($total_wedding_services, 0, ",", ".") }}</div>
-                                <div class="promo-text">{{ "$ ".number_format($total_additional_service, 0, ",", ".") }}</div>
+                                <div class="promo-text">{{ "$ ".number_format($wedding_order->fixed_service_price + $wedding->markup, 0, ".", ",") }}</div>
+                                <div class="promo-text">{{ "$ ".number_format($total_wedding_services, 0, ".", ",") }}</div>
+                                <div class="promo-text">{{ "$ ".number_format($total_additional_service, 0, ".", ",") }}</div>
                                 <hr class="form-hr">
                             @else
                                 <div class="promo-text">{{ $order->number_of_guests }} @lang('messages.Guests')</div>
                             @endif
                             @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $order->kick_back > 0 or $order->promotion_disc > 0)
                                 @if ($order->kick_back > 0)
-                                    <div class="kick-back">{{ "- $ ".number_format($order->kick_back, 0, ",", ".") }}</div>
+                                    <div class="kick-back">{{ "- $ ".number_format($order->kick_back, 0, ".", ",") }}</div>
                                 @endif
                                 @if ($order->bookingcode_disc > 0)
-                                    <div class="kick-back">{{ "- $ ".number_format($order->bookingcode_disc, 0, ",", ".") }}</div>
+                                    <div class="kick-back">{{ "- $ ".number_format($order->bookingcode_disc, 0, ".", ",") }}</div>
                                 @endif
 
                                 @if ($order->discounts > 0)
-                                    <div class="kick-back">{{ number_format($order->discounts, 0, ",", ".") }}</div>
+                                    <div class="kick-back">{{ number_format($order->discounts, 0, ".", ",") }}</div>
                                 @endif
                                 @if ($total_promotion > 0)
-                                    <div class="kick-back">{{ number_format($total_promotion, 0, ",", ".") }}</div>
+                                    <div class="kick-back">{{ number_format($total_promotion, 0, ".", ",") }}</div>
                                 @endif
                             
                                 @if ($order->kick_back > 0 or $order->bookingcode_disc > 0 or $order->discounts > 0 or $total_promotion > 0)
@@ -841,7 +841,7 @@
                                 
                             @endif
                             @if ($order->status !== "Pending")
-                                <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ",", ".") }}</div>
+                                <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ".", ",") }}</div>
                             @else
                                 <div class="usd-rate">@lang('messages.To be advised')</div>
                             @endif
@@ -925,7 +925,7 @@
                                                                 <div class="col-5"><p>@lang('messages.Due Date')</p></div>
                                                                 <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                 <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ",", ".") }}</b></p></div>
+                                                                <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ".", ",") }}</b></p></div>
                                                                 <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                             </div>
                                                         </div>
@@ -1039,7 +1039,7 @@
                                         </b>
                                         <p><i>Recived on : {{ dateFormat($rcpt->created_at) }}</i></p>
                                         {!! $rcpt->note !!}
-                                        Amount : {{ "$ ".number_format($rcpt->amount, 0, ",", ".") }}
+                                        Amount : {{ "$ ".number_format($rcpt->amount, 0, ".", ",") }}
                                     @elseif($rcpt->status == "Invalid")
                                         <b><i style="font-size: 0.7rem; color:rgb(255 0 0);">{{ $rcpt->status }}</i></b>
                                         {!! $rcpt->note !!}
@@ -1089,7 +1089,7 @@
                                                                                 <div class="col-5"><p>@lang('messages.Due Date')</p></div>
                                                                                 <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                                 <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                                <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ",", ".") }}</b></p></div>
+                                                                                <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ".", ",") }}</b></p></div>
                                                                                 <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                                             </div>
                                                                         </div>
@@ -1161,13 +1161,13 @@
                         <p>Total Payment :</p>
                     </div>
                     <div class="col-6 text-right">
-                        <p>{{ "$ ".number_format($total_payment, 0, ",", ".") }}</p>
+                        <p>{{ "$ ".number_format($total_payment, 0, ".", ",") }}</p>
                     </div>
                     <div class="col-6">
                         <p>Total Invoice :</p>
                     </div>
                     <div class="col-6 text-right">
-                        <p>{{ "$ ".number_format($order->final_price, 0, ",", ".") }}</p>
+                        <p>{{ "$ ".number_format($order->final_price, 0, ".", ",") }}</p>
                     </div>
                     <div class="col-12">
                         <hr class="form-hr">
@@ -1177,14 +1177,14 @@
                             <b>Deposit :</b>
                         </div>
                         <div class="col-6 text-right">
-                            <b>{{ "$ ".number_format($balance_payment*-1, 0, ",", ".") }}</b>
+                            <b>{{ "$ ".number_format($balance_payment*-1, 0, ".", ",") }}</b>
                         </div>
                     @else
                         <div class="col-6">
                             <b>Balance Payment :</b>
                         </div>
                         <div class="col-6 text-right">
-                            <b style="color:rgb(153, 0, 0);">{{ "- $ ".number_format($balance_payment, 0, ",", ".") }}</b>
+                            <b style="color:rgb(153, 0, 0);">{{ "- $ ".number_format($balance_payment, 0, ".", ",") }}</b>
                         </div>
                     @endif
                 @else

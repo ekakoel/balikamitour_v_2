@@ -122,7 +122,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="description" class="form-label">Description</label>
-                                                    <textarea id="description" name="description" class="ckeditor form-control @error('Description') is-invalid @enderror" placeholder="Insert description" value="{{ old('description') }}"></textarea>
+                                                    <textarea id="description" name="description" class="tiny_mce form-control @error('Description') is-invalid @enderror" placeholder="Insert description" value="{{ old('description') }}"></textarea>
                                                     @error('description')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -131,7 +131,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="include" class="form-label">Include <span>*</span></label>
-                                                    <textarea id="include" name="include" class="ckeditor form-control @error('include') is-invalid @enderror" placeholder="Insert include" value="{{ old('include') }}" required></textarea>
+                                                    <textarea id="include" name="include" class="tiny_mce form-control @error('include') is-invalid @enderror" placeholder="Insert include" value="{{ old('include') }}" required></textarea>
                                                     @error('include')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -140,7 +140,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="cancellation_policy" class="form-label">Cancellation Policy</label>
-                                                    <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control @error('Description') is-invalid @enderror" placeholder="Insert cancellation policy" value="{{ old('cancellation_policy') }}"></textarea>
+                                                    <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control @error('Description') is-invalid @enderror" placeholder="Insert cancellation policy" value="{{ old('cancellation_policy') }}"></textarea>
                                                     @error('cancellation_policy')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -149,7 +149,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="payment_process" class="form-label">Payment Process</label>
-                                                    <textarea id="payment_process" name="payment_process" class="ckeditor form-control @error('Description') is-invalid @enderror" placeholder="Insert Remark" value="{{ old('payment_process') }}"></textarea>
+                                                    <textarea id="payment_process" name="payment_process" class="tiny_mce form-control @error('Description') is-invalid @enderror" placeholder="Insert Remark" value="{{ old('payment_process') }}"></textarea>
                                                     @error('payment_process')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -158,7 +158,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="additional_info" class="form-label">Additional Information</label>
-                                                    <textarea id="additional_info" name="additional_info" class="ckeditor form-control @error('additional_info') is-invalid @enderror" placeholder="Insert additional_info" value="{{ old('additional_info') }}"></textarea>
+                                                    <textarea id="additional_info" name="additional_info" class="tiny_mce form-control @error('additional_info') is-invalid @enderror" placeholder="Insert additional_info" value="{{ old('additional_info') }}"></textarea>
                                                     @error('additional_info')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
@@ -167,7 +167,7 @@
                                             <div class="col-12 col-sm-12 col-md-12">
                                                 <div class="form-group">
                                                     <label for="remark" class="form-label">Remark</label>
-                                                    <textarea id="remark" name="remark" class="ckeditor form-control @error('Description') is-invalid @enderror" placeholder="Insert Remark" value="{{ old('remark') }}"></textarea>
+                                                    <textarea id="remark" name="remark" class="tiny_mce form-control @error('Description') is-invalid @enderror" placeholder="Insert Remark" value="{{ old('remark') }}"></textarea>
                                                     @error('remark')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror

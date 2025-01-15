@@ -172,7 +172,7 @@
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
                                                                                 <label for="date">Activity /  Service</label>
-                                                                                <textarea name="itinerary" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0">{{ $day_one->itinerary }}</textarea>
+                                                                                <textarea name="itinerary" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0">{{ $day_one->itinerary }}</textarea>
                                                                                 @error('itinerary')
                                                                                     <div class="alert alert-danger">
                                                                                         {{ $message }}
@@ -255,7 +255,7 @@
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
                                                                                 <label for="date">Activity /  Service</label>
-                                                                                <textarea name="itinerary" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0">{{ $day_two->itinerary }}</textarea>
+                                                                                <textarea name="itinerary" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0">{{ $day_two->itinerary }}</textarea>
                                                                                 @error('itinerary')
                                                                                     <div class="alert alert-danger">
                                                                                         {{ $message }}
@@ -338,7 +338,7 @@
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
                                                                                 <label for="date">Activity /  Service</label>
-                                                                                <textarea name="itinerary" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0">{{ $day_thre->itinerary }}</textarea>
+                                                                                <textarea name="itinerary" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0">{{ $day_thre->itinerary }}</textarea>
                                                                                 @error('itinerary')
                                                                                     <div class="alert alert-danger">
                                                                                         {{ $message }}

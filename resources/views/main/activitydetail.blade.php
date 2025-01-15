@@ -210,12 +210,12 @@
                                                 <div class="col-6 text-left">
                                                     @if (isset($bookingcode->code) or $promotion_price >0)
                                                         <div class="card-subtitle">@lang('messages.Normal Price'):</div>
-                                                        <div class="price-usd-normal p-l-0">{{"$ " . number_format($normal_price, 0, ",", ".") }}<span>/@lang('messages.pax')</span></div>
+                                                        <div class="price-usd-normal p-l-0">{{"$ " . number_format($normal_price, 0, ".", ",") }}<span>/@lang('messages.pax')</span></div>
                                                     @endif
                                                 </div>
                                                 <div class="col-6 text-right">
                                                     <div class="card-subtitle">@lang('messages.Price'):</div>
-                                                    <div class="price-usd float-right">{{"$ " . number_format($final_price, 0, ",", ".") }}<span>/@lang('messages.pax')</span></div>
+                                                    <div class="price-usd float-right">{{"$ " . number_format($final_price, 0, ".", ",") }}<span>/@lang('messages.pax')</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -400,7 +400,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="guest_detail">@lang('messages.Guest Detail') </label>
-                                                            <textarea name="guest_detail" placeholder="@lang('messages.Enter the names of all guests!, ex: 1. Mr. name, 2. Mrs. name')" class="ckeditor form-control bpage-radius-0" required>{{ old('guest_detail') }}</textarea>
+                                                            <textarea name="guest_detail" placeholder="@lang('messages.Enter the names of all guests!, ex: 1. Mr. name, 2. Mrs. name')" class="tiny_mce form-control bpage-radius-0" required>{{ old('guest_detail') }}</textarea>
                                                             @error('guest_detail')
                                                                 <div class="alert alert-danger">
                                                                     {{ $message }}
@@ -411,7 +411,7 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="note">@lang('messages.Note')</label>
-                                                            <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control bpage-radius-0" value="{{ old('note') }}"></textarea>
+                                                            <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control bpage-radius-0" value="{{ old('note') }}"></textarea>
                                                             @error('note')
                                                                 <div class="alert alert-danger">
                                                                     {{ $message }}
@@ -446,23 +446,23 @@
                                                                 </div>
                                                                 <div class="col-6 col-md-6 text-right">
                                                                     @if (isset($bookingcode->code) or $promotion_price > 0)
-                                                                        <div class="modal-num-price">{{ "$ ".number_format($normal_price, 0, ",", ".") }}/@lang('messages.pax')</div>
+                                                                        <div class="modal-num-price">{{ "$ ".number_format($normal_price, 0, ".", ",") }}/@lang('messages.pax')</div>
                                                                         <div class="modal-num-price" id="number_of_guests">1</div>
                                                                         <div class="modal-num-price"><span id="normal_price">{{ $normal_price }}</span></div>
                                                                         <hr class="form-hr">
                                                                         @if (isset($bookingcode->code))
-                                                                            <div class="kick-back">{{ "- $ ".number_format($bookingcode->discounts, 0, ",", ".") }}</div>
+                                                                            <div class="kick-back">{{ "- $ ".number_format($bookingcode->discounts, 0, ".", ",") }}</div>
                                                                         @endif
                                                                         @if ($promotion_price > 0)
-                                                                            <div class="kick-back">{{ "- $ ".number_format($promotion_price, 0, ",", ".") }}</div>
+                                                                            <div class="kick-back">{{ "- $ ".number_format($promotion_price, 0, ".", ",") }}</div>
                                                                         @endif
                                                                         <hr class="form-hr">
                                                                     @else
-                                                                        <div class="modal-num-price">{{ "$ ".number_format($normal_price, 0, ",", ".") }}/@lang('messages.pax')</div>
+                                                                        <div class="modal-num-price">{{ "$ ".number_format($normal_price, 0, ".", ",") }}/@lang('messages.pax')</div>
                                                                         <div class="modal-num-price"><span id="number_of_guests">1</span></div>
                                                                         <hr class="form-hr">
                                                                     @endif
-                                                                    <div class="price-tag"><span id="final_price">{{ number_format($final_price, 0, ",", ".") }}</span></div>
+                                                                    <div class="price-tag"><span id="final_price">{{ number_format($final_price, 0, ".", ",") }}</span></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -614,14 +614,14 @@
                                             </a>
                                             @if (isset($bookingcode->code) or $promotion_price >0)
                                                 <div class="price-card-normal m-t-8">
-                                                    {{"$ " . number_format($nnormal_price, 0, ",", ".") }}
+                                                    {{"$ " . number_format($nnormal_price, 0, ".", ",") }}
                                                 </div>
                                                 <div class="price-card m-t-27">
-                                                    {{"$ " . number_format($nfinal_price, 0, ",", ".") }}
+                                                    {{"$ " . number_format($nfinal_price, 0, ".", ",") }}
                                                 </div>
                                             @else
                                                 <div class="price-card m-t-8">
-                                                    {{"$ " . number_format($nfinal_price, 0, ",", ".") }}
+                                                    {{"$ " . number_format($nfinal_price, 0, ".", ",") }}
                                                 </div>
                                             @endif
                                             @if (isset($bookingcode->code))

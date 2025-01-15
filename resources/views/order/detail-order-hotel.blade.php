@@ -465,21 +465,24 @@
                     </table>
                 </div>
             </div>
-            @if ($order->benefits != "")
+            @if (isset($order->benefits))
                 @php
-                    $bene = json_decode($order->benefits);
-                    $arr = is_array($bene);
-                    if ($arr == 1) {
-                        $benefits = implode($bene);
-                    }else{
-                        $benefits = $order->benefits;
+                    $bnft = json_decode($order->benefits);
+                    if ($bnft) {
+                        $benefit = implode("<br>",$bnft);
                     }
                 @endphp
-                <div class="page-text">
-                    <hr class="form-hr">
-                    <b>@lang('messages.Benefit') :</b> <br>
-                    {!! $benefits !!}
-                </div>
+                @if ($benefit != null)
+                    <div class="page-text">
+                        <hr class="form-hr">
+                        <b>@lang('messages.Benefits') :</b>
+                        @if (isset($benefits))
+                            @foreach ($benefits as $benefit)
+                                {!! $benefit !!}
+                            @endforeach
+                        @endif
+                    </div>
+                @endif
             @endif
             @if ($order->destinations != "")
                 <div class="page-text">
@@ -496,11 +499,25 @@
                 </div>
             @endif
             @if ($order->include != "")
-                <div class="page-text">
-                    <hr class="form-hr">
-                    <b>@lang('messages.Include') :</b> <br>
-                    {!! $order->include !!}
-                </div>
+                @php
+                    $incld = json_decode($order->include);
+                    if ($incld) {
+                        $include = implode("<br>",$incld);
+                    }
+                @endphp
+                @if (count($incld) >0)
+                    <div class="page-text">
+                        <hr class="form-hr">
+                        <b>@lang('messages.Include') :</b>
+                        {!! $include !!}
+                    </div>
+                @else
+                    <div class="page-text">
+                        <hr class="form-hr">
+                        <b>@lang('messages.Include') :</b>
+                        {!! $order->include !!}
+                    </div>
+                @endif
             @endif
             @if ($order->additional_info != "")
                 <div class="page-text">
@@ -568,7 +585,7 @@
                                             <div class="table-service-name">{{ $guest_detail[$i] }}</div>
                                         </td>
                                         <td>
-                                            <div class="table-service-name">{{ "$ ".number_format($order->price_pax*$order->duration, 0, ",", ".")  }}</div>
+                                            <div class="table-service-name">{{ "$ ".number_format($order->price_pax*$order->duration, 0, ".", ",")  }}</div>
                                         </td>
                                         <td>
                                             @if ($extra_bed[$i] == "Yes")
@@ -576,7 +593,7 @@
                                                     @php
                                                         $extrabed = $extra_beds->where('id',$extra_bed_id[$i])->first();
                                                     @endphp
-                                                    <div class="table-service-name">{{ $extrabed->name." (".$extrabed->type.") $".number_format($extra_bed_price[$i], 0, ",", ".")}}</div>
+                                                    <div class="table-service-name">{{ $extrabed->name." (".$extrabed->type.") $".number_format($extra_bed_price[$i], 0, ".", ",")}}</div>
                                                 @else
                                                     @php
                                                         $order_status = "Invalid";
@@ -610,11 +627,11 @@
                             <div class="row">
                                 <div class="col-6 col-md-6">
                                     @if ($nor > 1)
-                                        <div class="promo-text">@lang('messages.Price/pax')</div>
-                                        <div class="promo-text">@lang('messages.Number of room')</div>
+                                        <div class="normal-text">@lang('messages.Price/pax')</div>
+                                        <div class="normal-text">@lang('messages.Number of room')</div>
                                     @endif
                                     @if ($total_extra_bed > 0)
-                                        <div class="promo-text">@lang('messages.Extra Bed')</div>
+                                        <div class="normal-text">@lang('messages.Extra Bed')</div>
                                     @endif
                                     @if ($nor > 1 or $total_extra_bed > 0)
                                         <hr class="form-hr">
@@ -623,16 +640,16 @@
                                 </div>
                                 <div class="col-6 col-md-6 text-right">
                                     @if ($nor > 1)
-                                        <div class="text-price">{{ "$ ".number_format($price_per_pax, 0, ",", ".")  }}</div>
+                                        <div class="text-price">{{ "$ ".number_format($price_per_pax, 0, ".", ",")  }}</div>
                                         <div class="text-price">{{ $nor }}</div>
                                     @endif
                                     @if ($total_extra_bed > 0)
-                                        <div class="text-price">{{ "$ ".number_format(($total_extra_bed), 0, ",", ".") }}</div>
+                                        <div class="text-price">{{ "$ ".number_format(($total_extra_bed), 0, ".", ",") }}</div>
                                     @endif
                                     @if ($nor > 1 or $total_extra_bed > 0)
                                         <hr class="form-hr"> 
                                     @endif
-                                    <div class="subtotal-price">{{ "$ ".number_format(($total_room_and_suite), 0, ",", ".") }}</div>
+                                    <div class="subtotal-price">{{ "$ ".number_format(($total_room_and_suite), 0, ".", ",") }}</div>
                                 </div>
                             </div>
                         </div>
@@ -684,7 +701,7 @@
                                             </td>
                                             
                                             <td>
-                                                <div class="table-service-name">{{ "$ ".number_format($optional_rate_orders_pt[$i], 0, ",", ".") }}</div>
+                                                <div class="table-service-name">{{ "$ ".number_format($optional_rate_orders_pt[$i], 0, ".", ",") }}</div>
                                             </td>
                                         </tr>
                                         @php
@@ -700,7 +717,7 @@
                                         <div class="subtotal-text">@lang('messages.Additional Charge')</div>
                                     </div>
                                     <div class="col-6 col-md-6 text-right">
-                                        <div class="subtotal-price">{{ "$ ".number_format(($optional_service_total_price), 0, ",", ".") }}</div>
+                                        <div class="subtotal-price">{{ "$ ".number_format(($optional_service_total_price), 0, ".", ",") }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -741,10 +758,10 @@
                                             </td>
                                             
                                             <td>
-                                                <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x], 0, ",", ".") }}</div>
+                                                <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x], 0, ".", ",") }}</div>
                                             </td>
                                             <td>
-                                                <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x]*$additional_service_qty[$x], 0, ",", ".") }}</div>
+                                                <div class="table-service-name">{{ "$ ".number_format($additional_service_price[$x]*$additional_service_qty[$x], 0, ".", ",") }}</div>
                                             </td>
                                         </tr>
                                     @endfor
@@ -756,7 +773,7 @@
                                         <div class="subtotal-text"> Total Additional Service</div>
                                     </div>
                                     <div class="col-6 col-md-6 text-right">
-                                        <div class="subtotal-price">{{ "$ ".number_format(($total_additional_service), 0, ",", ".") }}</div>
+                                        <div class="subtotal-price">{{ "$ ".number_format(($total_additional_service), 0, ".", ",") }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -801,7 +818,7 @@
                                             <div class="table-service-name">@lang('messages.Airport Shuttle')</div>
                                         </td>
                                         <td>
-                                            <div class="table-service-name">{{ $airport_shuttle->transport }}</div>
+                                            <div class="table-service-name">{{ $airport_shuttle->transport->brand." ".$airport_shuttle->transport->name }}</div>
                                         </td>
                                         <td>
                                             <div class="table-service-name">{{ $airport_shuttle->src }} - {{ $airport_shuttle->dst }}</div>
@@ -823,7 +840,7 @@
                                 </div>
                                 <div class="col-6 col-md-6 text-right">
                                     @if ($order->airport_shuttle_price > 0)
-                                        <div class="subtotal-price">{{ "$ ".number_format(($order->airport_shuttle_price), 0, ",", ".") }}</div>
+                                        <div class="subtotal-price">{{ "$ ".number_format(($order->airport_shuttle_price), 0, ".", ",") }}</div>
                                     @else
                                         <div class="subtotal-price"><i>@lang('messages.To be advised')</i></div>
                                     @endif
@@ -839,13 +856,13 @@
                     <div class="page-note">
                         <div class="row">
                             <div class="col-6 col-md-6">
-                                @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $optional_rate_orders or $order->promotion_disc or $order->kick_back)
-                                    <div class="promo-text">@lang('messages.Suites and Villas')</div>
+                                @if ($order->bookingcode_disc > 0 || $order->discounts > 0 || $optional_rate_orders || $order->promotion_disc || $order->kick_back || $order->airport_shuttle_price > 0)
+                                    <div class="normal-text">@lang('messages.Suites and Villas')</div>
                                     @if ($optional_service_total_price > 0)
-                                        <div class="promo-text">@lang('messages.Additional Charge')</div>
+                                        <div class="normal-text">@lang('messages.Additional Charge')</div>
                                     @endif
                                     @if ($order->airport_shuttle_price > 0)
-                                        <div class="promo-text">@lang('messages.Airport Shuttle')</div>
+                                        <div class="normal-text">@lang('messages.Airport Shuttle')</div>
                                     @endif
                                     @if ($order->kick_back > 0)
                                         <div class="promo-text">@lang('messages.Kick Back')</div>
@@ -864,33 +881,33 @@
                                 <div class="price-name">@lang('messages.Total Price')</div>
                             </div>
                             <div class="col-6 col-md-6 text-right">
-                                @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $optional_rate_orders != "" or $order->promotion_disc or $order->kick_back)
-                                    <div class="promo-text">{{ "$ ".number_format($total_room_and_suite, 0, ",", ".") }}</div>
+                                @if ($order->bookingcode_disc > 0 || $order->discounts > 0 || $optional_rate_orders != "" || $order->promotion_disc || $order->kick_back || $order->airport_shuttle_price > 0)
+                                    <div class="normal-text">{{ "$ ".number_format($total_room_and_suite, 0, ".", ",") }}</div>
                                     @if ($optional_service_total_price > 0)
-                                        <div class="promo-text">{{ "$ ".number_format(($optional_service_total_price), 0, ",", ".") }}</div>
+                                        <div class="normal-text">{{ "$ ".number_format(($optional_service_total_price), 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->airport_shuttle_price > 0)
-                                        <div class="promo-text">{{ "$ ".number_format($order->airport_shuttle_price, 0, ",", ".") }}</div>
+                                        <div class="normal-text">{{ "$ ".number_format($order->airport_shuttle_price, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->kick_back > 0)
-                                        <div class="kick-back">{{ number_format($order->kick_back, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($order->kick_back, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->bookingcode_disc > 0)
-                                        <div class="kick-back">{{ number_format($order->bookingcode_disc, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($order->bookingcode_disc, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->discounts > 0)
-                                        <div class="kick-back">{{ number_format($order->discounts, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($order->discounts, 0, ".", ",") }}</div>
                                     @endif
                                     @if ($order->promotion_disc > 0)
                                         @php
                                             $pd = json_decode($order->promotion_disc);
                                             $pro_desc = array_sum($pd);
                                         @endphp
-                                        <div class="kick-back">{{ number_format($pro_desc, 0, ",", ".") }}</div>
+                                        <div class="kick-back">{{ number_format($pro_desc, 0, ".", ",") }}</div>
                                     @endif
                                     <hr class="form-hr">
                                 @endif
-                                <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ",", ".") }}</div>
+                                <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ".", ",") }}</div>
                             </div>
                         </div>
                     </div>
@@ -947,7 +964,7 @@
                 <button type="submit" form="deleteOrder" class="btn btn-dark" onclick="return confirm('@lang('messages.Are you sure?')');" type="submit" data-toggle="tooltip" data-placement="top" title="@lang('messages.Delete')"><i class="icon-copy fa fa-trash"></i> Delete Order</button>
             @elseif($order->status == "Approved" or $order->status == "Paid")
                 @if ($status_contract == 1)
-                    @if ($receipt == "")
+                    @if ($receipt)
                         <a href="modal" data-toggle="modal" data-target="#payment-confirmation-{{ $order->id }}">
                             <button type="button" class="btn btn-primary"><i class="icon-copy fa fa-upload" aria-hidden="true"></i> @lang('messages.Payment Confirmation')</button>
                         </a>
@@ -975,7 +992,7 @@
                                                                 <div class="col-5"><p>@lang('messages.Payment Dateline')</p></div>
                                                                 <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                 <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ",", ".") }}</b></p></div>
+                                                                <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ".", ",") }}</b></p></div>
                                                                 <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                             </div>
                                                         </div>
@@ -1010,7 +1027,7 @@
                             </div>
                         </div>
                     @else
-                        @if ($receipt->status == "Invalid")
+                        {{-- @if ($receipt->status == "Invalid") --}}
                             <a href="modal" data-toggle="modal" data-target="#invalid-payment-confirmation-{{ $order->id }}">
                                 <button type="button" class="btn btn-primary desktop"><i class="icon-copy fa fa-upload" aria-hidden="true"></i> @lang('messages.Payment Confirmation')</button>
                             </a>
@@ -1038,7 +1055,7 @@
                                                                     <div class="col-5"><p>@lang('messages.Due Date')</p></div>
                                                                     <div class="col-7"><p>: {{ dateFormat($invoice->due_date) }}</p></div>
                                                                     <div class="col-5"><p>@lang('messages.Amount')</p></div>
-                                                                    <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ",", ".") }}</b></p></div>
+                                                                    <div class="col-7"><p><b>: {{ "$ ".number_format($order->final_price, 0, ".", ",") }}</b></p></div>
                                                                     <div class="col-12 m-t-18"><p><i class="icon-copy fa fa-exclamation" aria-hidden="true"></i> @lang('messages.Please make the payment before the due date and provide proof of payment to prevent the cancellation of your order.')</p></div>
                                                                 </div>
                                                             </div>
@@ -1072,7 +1089,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        {{-- @endif --}}
                     @endif
                     @if (config('app.locale') == "zh")
                         <a href="modal" data-toggle="modal" data-target="#contract-zh-{{ $order->id }}">
@@ -1123,6 +1140,7 @@
         
     </div>
 </div>
+
 @if ($order->status == "Approved" or $order->status == "Paid")
     <div class="col-md-4 desktop">
         <div class="card-box">

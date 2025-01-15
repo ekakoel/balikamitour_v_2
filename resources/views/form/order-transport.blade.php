@@ -226,7 +226,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="guest_detail" >@lang('messages.Guest Detail') </label>
-                                                <textarea name="guest_detail" placeholder="@lang('messages.Insert guest name')" class="ckeditor form-control border-radius-0" value="{{ old('guest_detail') }}" required></textarea>
+                                                <textarea name="guest_detail" placeholder="@lang('messages.Insert guest name')" class="tiny_mce form-control border-radius-0" value="{{ old('guest_detail') }}" required></textarea>
                                                 @error('guest_detail')
                                                     <div class="alert alert-danger">
                                                         {{ $message }}
@@ -237,7 +237,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="note">@lang('messages.Note')</label>
-                                                <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="ckeditor form-control border-radius-0" value="{{ old('note') }}"></textarea>
+                                                <textarea id="note" name="note" placeholder="@lang('messages.Optional')" class="tiny_mce form-control border-radius-0" value="{{ old('note') }}"></textarea>
                                                 @error('note')
                                                     <div class="alert alert-danger">
                                                         {{ $message }}
@@ -269,14 +269,14 @@
                                                             <div class="modal-num-price">$<span id="normal_price">{{ $normal_price }}</span></div>
                                                             <hr class="form-hr">
                                                             @if (isset($bookingcode->code))
-                                                                <div class="kick-back">{{ "- $ ".number_format($bookingcode->discounts, 0, ",", ".") }}</div>
+                                                                <div class="kick-back">{{ "- $ ".number_format($bookingcode->discounts, 0, ".", ",") }}</div>
                                                             @endif
                                                             @if ($promotion_price > 0)
-                                                                <div class="kick-back">{{ "- $ ".number_format($promotion_price, 0, ",", ".") }}</div>
+                                                                <div class="kick-back">{{ "- $ ".number_format($promotion_price, 0, ".", ",") }}</div>
                                                             @endif
                                                             <hr class="form-hr">
                                                         @endif
-                                                        <div class="price-tag"><span id="final_price">{{ number_format($final_price, 0, ",", ".") }}</span></div>
+                                                        <div class="price-tag"><span id="final_price">{{ number_format($final_price, 0, ".", ",") }}</span></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,7 +347,6 @@
         <script src="panel/apexcharts/apexcharts.min.js"></script>
         <script src="panel/script/dashboard.js"></script>
         <script src="panel/dropzone/dropzone.js"></script>
-        <script src="panel/ckeditor/ckeditor.js"></script>
         <script src="panel/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
         <script src="panel/fullcalendar/fullcalendar.min.js"></script>
         <script src="vendors/scripts/calendar-setting.js"></script>

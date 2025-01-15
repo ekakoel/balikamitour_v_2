@@ -150,7 +150,7 @@
                                                         <p>{!! $activity->location !!}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{!! "$ ". number_format($usd_activity_final, 0, ",", ".")." /pax" !!}</p>
+                                                        <p>{!! "$ ". number_format($usd_activity_final, 0, ".", ",")." /pax" !!}</p>
                                                     </td>
                                                     <td>
                                                         <p>{!! dateFormat($activity->validity) !!}</p>

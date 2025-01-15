@@ -143,7 +143,7 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-3 col-form-label">Inclusion</label>
                         <div class="col-sm-12 col-md-12">
-                            <textarea id="include" name="include" value="{{ old('include') }}" class="ckeditor form-control border-radius-0 @error('include') is-invalid @enderror"  placeholder="Insert Inclusion ..."  required></textarea>
+                            <textarea id="include" name="include" value="{{ old('include') }}" class="tiny_mce form-control border-radius-0 @error('include') is-invalid @enderror"  placeholder="Insert Inclusion ..."  required></textarea>
                             @error('include')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -153,7 +153,7 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-3 col-form-label">Additional Information</label>
                         <div class="col-sm-12 col-md-12">
-                            <textarea name="additional_info" id="additional_info" value="{{ old('additional_info') }}" class="ckeditor form-control border-radius-0 @error('additional_info') is-invalid @enderror" placeholder="Insert Additional Information ..." required></textarea>
+                            <textarea name="additional_info" id="additional_info" value="{{ old('additional_info') }}" class="tiny_mce form-control border-radius-0 @error('additional_info') is-invalid @enderror" placeholder="Insert Additional Information ..." required></textarea>
                             @error('additional_info')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

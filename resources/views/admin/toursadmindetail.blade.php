@@ -185,10 +185,10 @@
                                                     @endphp
                                                     <tr>
                                                         <td>{{ $price->min_qty." - ". $price->max_qty." Guests" }}</td>
-                                                        <td>{{ "$ ".number_format($harga_kontrak_usd, 0, ",", ".") }}</td>
-                                                        <td>{{ "$ ".number_format($price->markup, 0, ",", ".") }}</td>
-                                                        <td>{{ "$ ".number_format($price_tax, 0, ",", ".") }}</td>
-                                                        <td>{{ "$ ".number_format($public_rate_pax, 0, ",", ".") }}</td>
+                                                        <td>{{ "$ ".number_format($harga_kontrak_usd, 0, ".", ",") }}</td>
+                                                        <td>{{ "$ ".number_format($price->markup, 0, ".", ",") }}</td>
+                                                        <td>{{ "$ ".number_format($price_tax, 0, ".", ",") }}</td>
+                                                        <td>{{ "$ ".number_format($public_rate_pax, 0, ".", ",") }}</td>
                                                         <td>
                                                             @if ($price->status == "Draft")
                                                                 <div class="status-draft"></div>
@@ -233,7 +233,7 @@
                                                                         <div class="col-12">
                                                                             <div class="row">
                                                                                 <div class="col-12">
-                                                                                    <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ",", ".") }}</div>
+                                                                                    <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ".", ",") }}</div>
                                                                                 </div>
                                                                                 <div class="col-12">
                                                                                     <hr class="form-hr">
@@ -246,23 +246,23 @@
                                                                                         </div>
                                                                                         <div class="col-2  m-b-8">
                                                                                             <p><b>Contract Rate :</b></p>
-                                                                                            <div class="rate-usd">{{ "$ ".number_format($harga_kontrak_usd, 0, ",", ".") }}</div>
-                                                                                            <div class="rate-idr">{{ "IDR ". number_format($price->contract_rate, 0, ",", ".") }}</div>
+                                                                                            <div class="rate-usd">{{ "$ ".number_format($harga_kontrak_usd, 0, ".", ",") }}</div>
+                                                                                            <div class="rate-idr">{{ "IDR ". number_format($price->contract_rate, 0, ".", ",") }}</div>
                                                                                         </div>
                                                                                         <div class="col-2  m-b-8">
                                                                                             <p><b>Markup :</b></p>
-                                                                                            <div class="rate-usd">{{ "$ ".number_format($price->markup, 0, ",", ".") }}</div>
-                                                                                            <div class="rate-idr">{{ "IDR ". number_format($markup_idr, 0, ",", ".") }}</div>
+                                                                                            <div class="rate-usd">{{ "$ ".number_format($price->markup, 0, ".", ",") }}</div>
+                                                                                            <div class="rate-idr">{{ "IDR ". number_format($markup_idr, 0, ".", ",") }}</div>
                                                                                         </div>
                                                                                         <div class="col-2  m-b-8">
                                                                                             <p><b>TAX :</b></p>
-                                                                                            <div class="rate-usd">{{ "$ ".number_format($price_tax, 0, ",", ".") }}</div>
-                                                                                            <div class="rate-idr">{{ "IDR ". number_format($price_tax_idr, 0, ",", ".") }}</div>
+                                                                                            <div class="rate-usd">{{ "$ ".number_format($price_tax, 0, ".", ",") }}</div>
+                                                                                            <div class="rate-idr">{{ "IDR ". number_format($price_tax_idr, 0, ".", ",") }}</div>
                                                                                         </div>
                                                                                         <div class="col-2  m-b-8">
                                                                                             <p><b>Price / Pax :</b></p>
-                                                                                            <div class="rate-usd">{{ "$ ".number_format($public_rate_pax, 0, ",", ".") }}</div>
-                                                                                            <div class="rate-idr">{{ "IDR ". number_format($public_rate_pax_idr, 0, ",", ".") }}</div>
+                                                                                            <div class="rate-usd">{{ "$ ".number_format($public_rate_pax, 0, ".", ",") }}</div>
+                                                                                            <div class="rate-idr">{{ "IDR ". number_format($public_rate_pax_idr, 0, ".", ",") }}</div>
                                                                                         </div>
                                                                                         <div class="col-2 m-b-8">
                                                                                             <p><b>Expired Date :</b></p>

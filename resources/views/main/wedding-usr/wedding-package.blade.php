@@ -168,14 +168,14 @@
                                                     <div class="col-6">
                                                         <div class="modal-show-price-container">
                                                             <div class="modal-show-price">
-                                                                @lang('messages.Week Day Price'): <span>{{ number_format($wedding_package->week_day_price, 0, ",", ".") }}</span>
+                                                                @lang('messages.Week Day Price'): <span>{{ number_format($wedding_package->week_day_price, 0, ".", ",") }}</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="modal-show-price-container">
                                                             <div class="modal-show-price">
-                                                                @lang('messages.Holiday Price'): <span>{{ number_format($wedding_package->holiday_price, 0, ",", ".") }}</span>
+                                                                @lang('messages.Holiday Price'): <span>{{ number_format($wedding_package->holiday_price, 0, ".", ",") }}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -392,10 +392,10 @@
                                                         </div>
                                                         <div class="col-6 text-right">
                                                             <div class="usd-rate">
-                                                                {{ "$ ".number_format($wedding_package->week_day_price, 0, ",", ".") }} 
+                                                                {{ "$ ".number_format($wedding_package->week_day_price, 0, ".", ",") }} 
                                                             </div>
                                                             <div class="usd-rate">
-                                                                {{ "$ ".number_format($wedding_package->holiday_price, 0, ",", ".") }}
+                                                                {{ "$ ".number_format($wedding_package->holiday_price, 0, ".", ",") }}
                                                             </div>
                                                         </div>
                                                        

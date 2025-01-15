@@ -52,7 +52,7 @@
                                             <div class="subtitle">Recent Rate</div>
                                         </div>
                                         <div class="col-6 col-md-6 col-sm-6 text-right">
-                                            <div class="usd-rate">{{ "IDR ".number_format($usd_rate, 0, ",", ".") }}</div>
+                                            <div class="usd-rate">{{ "IDR ".number_format($usd_rate, 0, ".", ",") }}</div>
                                             <p>{{ $usd_rate }}</p>
                                         </div>
                                         <div class="col-md-12">
@@ -60,8 +60,8 @@
                                                 <div class="row">
                                                     <div class="col-6"><span><i class="icon-copy fa fa-arrow-up" aria-hidden="true"></i></span> <b>SELL</b></div>
                                                     <div class="col-6"><span><i class="icon-copy fa fa-arrow-down" aria-hidden="true"></i></span> <b>BUY</b></div>
-                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($usdrates->sell, 0, ",", ".") }}</div></div>
-                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($usdrates->buy, 0, ",", ".") }}</div></div>
+                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($usdrates->sell, 0, ".", ",") }}</div></div>
+                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($usdrates->buy, 0, ".", ",") }}</div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +90,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <b>Recent USD Rate</b><br>
-                                                                            <div class="title">{{ "IDR ".number_format($usdrates->rate, 0, ",", ".") }}</div>
+                                                                            <div class="title">{{ "IDR ".number_format($usdrates->rate, 0, ".", ",") }}</div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-12">
@@ -150,7 +150,7 @@
                                             <div class="subtitle">Recent Rate</div>
                                         </div>
                                         <div class="col-6 col-md-6 col-sm-6 text-right">
-                                            <div class="usd-rate">{{ "IDR ".number_format($cny_rate, 0, ",", ".") }}</div>
+                                            <div class="usd-rate">{{ "IDR ".number_format($cny_rate, 0, ".", ",") }}</div>
                                             <p>{{ $cny_rate }}</p>
                                         </div>
                                         <div class="col-md-12">
@@ -158,8 +158,8 @@
                                                 <div class="row">
                                                     <div class="col-6"><span><i class="icon-copy fa fa-arrow-up" aria-hidden="true"></i></span> <b>SELL</b></div>
                                                     <div class="col-6"><span><i class="icon-copy fa fa-arrow-down" aria-hidden="true"></i></span> <b>BUY</b></div>
-                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($cnyrates->sell, 0, ",", ".") }}</div></div>
-                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($cnyrates->buy, 0, ",", ".") }}</div></div>
+                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($cnyrates->sell, 0, ".", ",") }}</div></div>
+                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($cnyrates->buy, 0, ".", ",") }}</div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -188,7 +188,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <b>Recent CNY Rate</b><br>
-                                                                            <div class="title">{{ "IDR ".number_format($cnyrates->rate, 0, ",", ".") }}</div>
+                                                                            <div class="title">{{ "IDR ".number_format($cnyrates->rate, 0, ".", ",") }}</div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-12">
@@ -249,7 +249,7 @@
                                         </div>
 
                                         <div class="col-6 col-md-6 col-sm-6 text-right">
-                                            <div class="usd-rate">{{ "IDR ".number_format($twd_rate, 0, ",", ".") }}</div>
+                                            <div class="usd-rate">{{ "IDR ".number_format($twd_rate, 0, ".", ",") }}</div>
                                             <p>{{ $twd_rate }}</p>
                                         </div>
                                         <div class="col-md-12">
@@ -257,8 +257,8 @@
                                                 <div class="row">
                                                     <div class="col-6"><span><i class="icon-copy fa fa-arrow-up" aria-hidden="true"></i></span> <b>SELL</b></div>
                                                     <div class="col-6"><span><i class="icon-copy fa fa-arrow-down" aria-hidden="true"></i></span> <b>BUY</b></div>
-                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($twdrates->sell, 0, ",", ".") }}</div></div>
-                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($twdrates->buy, 0, ",", ".") }}</div></div>
+                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($twdrates->sell, 0, ".", ",") }}</div></div>
+                                                    <div class="col-6"><div class="usd-rate">{{ "Rp ".number_format($twdrates->buy, 0, ".", ",") }}</div></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -287,7 +287,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <b>Recent TWD Rate</b><br>
-                                                                            <div class="title">{{ "IDR ".number_format($twdrates->rate, 0, ",", ".") }}</div>
+                                                                            <div class="title">{{ "IDR ".number_format($twdrates->rate, 0, ".", ",") }}</div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-12">

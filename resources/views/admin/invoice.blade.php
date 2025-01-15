@@ -94,7 +94,7 @@
                                             <td><p>{{ $agent->name }}</p></td>
                                             <td>
                                                 @if ($inv->total_usd > 0)
-                                                    <p>{{ "$ ". number_format($inv->total_usd, 0, ",", ".") }}</p>
+                                                    <p>{{ "$ ". number_format($inv->total_usd, 0, ".", ",") }}</p>
                                                 @else
                                                     <p>$ 0</p>
                                                 @endif

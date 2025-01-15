@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="price-card-usd m-t-8">
-                                {{ "$ ".number_format($makeup->publish_rate, 0, ",", ".") }}
+                                {{ "$ ".number_format($makeup->publish_rate, 0, ".", ",") }}
                             </div>
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> @lang('messages.Close')</button>
                                     </div>
                                     <div class="modal-label-price">
-                                        {{ "$ ".number_format($makeup->publish_rate, 0, ",", ".") }}
+                                        {{ "$ ".number_format($makeup->publish_rate, 0, ".", ",") }}
                                     </div>
                                 </div>
                             </div>

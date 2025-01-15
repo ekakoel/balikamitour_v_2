@@ -235,7 +235,7 @@
                                                                                         <div class="form-group row">
                                                                                             <label for="note" class="col-sm-12 col-md-12 col-form-label">Note</label>
                                                                                             <div class="col-sm-12 col-md-12">
-                                                                                                <textarea name="note" wire:model="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Optional" type="text">{{ $optionalrate->note }}</textarea>
+                                                                                                <textarea name="note" wire:model="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Optional" type="text">{{ $optionalrate->note }}</textarea>
                                                                                             @error('note')
                                                                                                 <span class="invalid-feedback">
                                                                                                     <strong>{{ $message }}</strong>
@@ -369,7 +369,7 @@
                                                                             <div class="form-group row">
                                                                                 <label for="note" class="col-sm-12 col-md-12 col-form-label">Note</label>
                                                                                 <div class="col-sm-12 col-md-12">
-                                                                                    <textarea name="note" wire:model="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Optional" type="text"></textarea>
+                                                                                    <textarea name="note" wire:model="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Optional" type="text"></textarea>
                                                                                 @error('note')
                                                                                     <span class="invalid-feedback">
                                                                                         <strong>{{ $message }}</strong>

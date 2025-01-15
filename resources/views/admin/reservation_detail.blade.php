@@ -1270,7 +1270,7 @@
                                                                                                             {{ $guest_detail[$i] }}
                                                                                                         </div>
                                                                                                         <div class="tb-body">
-                                                                                                            {{ "$ ".number_format($order->normal_price, 0, ",", ".") }}
+                                                                                                            {{ "$ ".number_format($order->normal_price, 0, ".", ",") }}
                                                                                                         </div>
                                                                                                         <div class="tb-body">
                                                                                                             @if ($extra_bed[$i] == "Yes")
@@ -1278,7 +1278,7 @@
                                                                                                                 @php
                                                                                                                     $extrabed = $extra_beds->where('id',$extra_bed_id[$i])->first();
                                                                                                                 @endphp
-                                                                                                                    <div class="table-service-name">{{ $extrabed->name." (".$extrabed->type.") $".number_format($extra_bed_price[$i], 0, ",", ".")}}</div>
+                                                                                                                    <div class="table-service-name">{{ $extrabed->name." (".$extrabed->type.") $".number_format($extra_bed_price[$i], 0, ".", ",")}}</div>
                                                                                                                 @else
                                                                                                                     @php
                                                                                                                         $order_status = "Invalid";
@@ -1306,10 +1306,10 @@
                                                                                                             <div class="price-name">Room And Suite</div>
                                                                                                         </div>
                                                                                                         <div class="col-6 col-md-6 text-right">
-                                                                                                            <div class="usd-rate-kicked">{{ "$ ".number_format(($order->normal_price * $order->number_of_room), 0, ",", ".") }}</div>
-                                                                                                            <div class="usd-rate-kicked">{{ "$ ".number_format(($totalextrabed), 0, ",", ".") }}</div>
+                                                                                                            <div class="usd-rate-kicked">{{ "$ ".number_format(($order->normal_price * $order->number_of_room), 0, ".", ",") }}</div>
+                                                                                                            <div class="usd-rate-kicked">{{ "$ ".number_format(($totalextrabed), 0, ".", ",") }}</div>
                                                                                                             <hr class="form-hr">
-                                                                                                            <div class="usd-rate">{{ "$ ".number_format(($order->normal_price * $order->number_of_room)+$totalextrabed, 0, ",", ".") }}</div>
+                                                                                                            <div class="usd-rate">{{ "$ ".number_format(($order->normal_price * $order->number_of_room)+$totalextrabed, 0, ".", ",") }}</div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -1367,7 +1367,7 @@
                                                                                                                 {{ $optional_service_name->name }}
                                                                                                             </div>
                                                                                                             <div class="tb-body">
-                                                                                                                {{ "$ ".number_format($optional_rate_orders_pt[$i], 0, ",", ".") }}
+                                                                                                                {{ "$ ".number_format($optional_rate_orders_pt[$i], 0, ".", ",") }}
                                                                                                             </div>
                                                                                                         </div>
                                                                                                             @php
@@ -1383,7 +1383,7 @@
                                                                                                                 <div class="price-name">@lang('messages.Additional Charge')</div>
                                                                                                             </div>
                                                                                                             <div class="col-6 col-md-6 text-right">
-                                                                                                                <div class="usd-rate">{{ "$ ".number_format(($optional_service_total_price), 0, ",", ".") }}</div>
+                                                                                                                <div class="usd-rate">{{ "$ ".number_format(($optional_service_total_price), 0, ".", ",") }}</div>
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
@@ -1452,7 +1452,7 @@
                                                                                                     <div class="form-group row">
                                                                                                         <label for="note" class="col-sm-12 col-md-12 col-form-label">@lang('messages.Note')</label>
                                                                                                         <div class="col-sm-12 col-md-12">
-                                                                                                            <textarea id="note" readonly placeholder="Optional" class="ckeditor form-control border-radius-0">{{ $order->note }}</textarea>
+                                                                                                            <textarea id="note" readonly placeholder="Optional" class="tiny_mce form-control border-radius-0">{{ $order->note }}</textarea>
                                                                                                             @error('note')
                                                                                                                 <div class="alert alert-danger">
                                                                                                                     {{ $message }}
@@ -1490,7 +1490,7 @@
                                                                                                         @if ($order->number_of_room == "" or $order->number_of_guests_room == "" or $order->guest_detail == "" or $order->guest_detail == ""  )
                                                                                                             <div class="usd-rate" style="color: red;">@lang('messages.Your order has invalid data')</div>
                                                                                                         @else
-                                                                                                            <div class="usd-rate-kicked">{{ "$ ".number_format($tp_room_and_suite, 0, ",", ".") }}</div>
+                                                                                                            <div class="usd-rate-kicked">{{ "$ ".number_format($tp_room_and_suite, 0, ".", ",") }}</div>
                                                                                                             @if ($order->optional_price > 0)
                                                                                                                 <div class="usd-rate-kicked">{{ "$ ".$optional_service_total_price }}</div>
                                                                                                             @endif
@@ -1504,7 +1504,7 @@
                                                                                                                 <div class="kick-back">{{ "- $ ".$order->discounts }}</div>
                                                                                                             @endif
                                                                                                             <hr class="form-hr">
-                                                                                                            <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ",", ".") }}</div>
+                                                                                                            <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ".", ",") }}</div>
                                                                                                         @endif
                                                                                                     </div>
                                                                                                 </div>
@@ -1803,13 +1803,13 @@
                                                                                                 <div class="price-name">@lang('messages.Total Price')</div>
                                                                                             </div>
                                                                                             <div class="col-4 col-md-6 text-right">
-                                                                                                <div class="usd-rate-kicked">{{ "$ ".number_format($activitytour->price_pax, 0, ",", ".") }}</div>
+                                                                                                <div class="usd-rate-kicked">{{ "$ ".number_format($activitytour->price_pax, 0, ".", ",") }}</div>
                                                                                                 <div class="usd-rate-kicked">{{ $activitytour->number_of_guests }}</div>
                                                                                                 @if ($activitytour->discounts > 0)
                                                                                                     <div class="kick-back">{{ "- $ ".$activitytour->discounts }}</div>
                                                                                                 @endif
                                                                                                 <hr class="form-hr">
-                                                                                                <div class="usd-rate">{{ "$ ".number_format($activitytour->final_price, 0, ",", ".") }}</div>
+                                                                                                <div class="usd-rate">{{ "$ ".number_format($activitytour->final_price, 0, ".", ",") }}</div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -2087,13 +2087,13 @@
                                                                                                 <div class="price-name">@lang('messages.Total Price')</div>
                                                                                             </div>
                                                                                             <div class="col-4 col-md-6 text-right">
-                                                                                                <div class="usd-rate-kicked">{{ "$ ".number_format($transport->price_pax, 0, ",", ".") }}</div>
+                                                                                                <div class="usd-rate-kicked">{{ "$ ".number_format($transport->price_pax, 0, ".", ",") }}</div>
                                                                                                 <div class="usd-rate-kicked">{{ $transport->number_of_guests }}</div>
                                                                                                 @if ($transport->discounts > 0)
                                                                                                     <div class="kick-back">{{ "- $ ".$transport->discounts }}</div>
                                                                                                 @endif
                                                                                                 <hr class="form-hr">
-                                                                                                <div class="usd-rate">{{ "$ ".number_format($transport->final_price, 0, ",", ".") }}</div>
+                                                                                                <div class="usd-rate">{{ "$ ".number_format($transport->final_price, 0, ".", ",") }}</div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>

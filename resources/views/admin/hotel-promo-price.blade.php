@@ -97,20 +97,20 @@
                                     <p>{{ dateFormat($promo->periode_start) }} - {{ dateFormat($promo->periode_end) }}</p>
                                 </td>
                                 <td>
-                                    <div class="rate-usd">{{ "$ ". number_format($promo_usdrates, 0, ",", ".") }}</div>
-                                    <div class="rate-idr">{{ "IDR ". number_format($promo->contract_rate, 0, ",", ".") }}</div>
+                                    <div class="rate-usd">{{ "$ ". number_format($promo_usdrates, 0, ".", ",") }}</div>
+                                    <div class="rate-idr">{{ "IDR ". number_format($promo->contract_rate, 0, ".", ",") }}</div>
                                 </td>
                                 <td>
-                                    <div class="rate-usd">{{ "$ ". number_format($promo->markup, 0, ",", ".") }}</div>
-                                    <div class="rate-idr">{{ "IDR ". number_format($promo->markup * $usdrates->rate, 0, ",", ".") }}</div>
+                                    <div class="rate-usd">{{ "$ ". number_format($promo->markup, 0, ".", ",") }}</div>
+                                    <div class="rate-idr">{{ "IDR ". number_format($promo->markup * $usdrates->rate, 0, ".", ",") }}</div>
                                 </td>
                                 <td>
-                                    <div class="rate-usd">{{ "$ ". number_format($promo_tax, 0, ",", ".") }}</div>
-                                    <div class="rate-idr">{{ "IDR ". number_format($promo_tax * $usdrates->rate, 0, ",", ".") }}</div>
+                                    <div class="rate-usd">{{ "$ ". number_format($promo_tax, 0, ".", ",") }}</div>
+                                    <div class="rate-idr">{{ "IDR ". number_format($promo_tax * $usdrates->rate, 0, ".", ",") }}</div>
                                 </td>
                                 <td>
-                                    <div class="rate-usd">{{ "$ ". number_format(($promo_usdrates + $promo->markup + $promo_tax), 0, ",", ".") }}</div>
-                                    <div class="rate-idr">{{ "IDR ". number_format(($promo_usdrates + $promo->markup + $promo_tax)* $usdrates->rate, 0, ",", ".") }}</div>
+                                    <div class="rate-usd">{{ "$ ". number_format(($promo_usdrates + $promo->markup + $promo_tax), 0, ".", ",") }}</div>
+                                    <div class="rate-idr">{{ "IDR ". number_format(($promo_usdrates + $promo->markup + $promo_tax)* $usdrates->rate, 0, ".", ",") }}</div>
                                 </td>
                                 <td class="text-right">
                                     <div class="table-action">
@@ -174,11 +174,11 @@
                                                             <div class="code">{{ $promo->booking_code }}</div>
                                                         </div>
                                                         <div class="col-6 text-left flex-end">
-                                                            <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ",", ".") }}</div>
+                                                            <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ".", ",") }}</div>
                                                         </div>
                                                     @else
                                                         <div class="col-12 text-left flex-end">
-                                                            <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ",", ".") }}</div>
+                                                            <div class="subtitle">USD Rate {{ ": ". number_format($usdrates->rate, 0, ".", ",") }}</div>
                                                         </div>
                                                     @endif
                                                     <div class="col-md-12">
@@ -230,22 +230,22 @@
                                                                 <p><b>Markup :</b></p>
                                                             </div>
                                                             <div class="col-12 m-b-8">
-                                                                <div class="rate-usd">{{ "$ ".number_format($promo->markup, 0, ",", ".") }}</div>
-                                                                <div class="rate-idr">{{ "IDR ".number_format($promo->markup * $usdrates->rate, 0, ",", ".") }}</div>
+                                                                <div class="rate-usd">{{ "$ ".number_format($promo->markup, 0, ".", ",") }}</div>
+                                                                <div class="rate-idr">{{ "IDR ".number_format($promo->markup * $usdrates->rate, 0, ".", ",") }}</div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <p><b>Contract Rate :</b></p>
                                                             </div>
                                                             <div class="col-12 m-b-8">
-                                                                <div class="rate-usd">{{ "$ ". number_format($promo_usdrates, 0, ",", ".") }}</div>
-                                                                <div class="rate-idr">{{ "IDR ". number_format($promo->contract_rate, 0, ",", ".") }}</div>
+                                                                <div class="rate-usd">{{ "$ ". number_format($promo_usdrates, 0, ".", ",") }}</div>
+                                                                <div class="rate-idr">{{ "IDR ". number_format($promo->contract_rate, 0, ".", ",") }}</div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <p><b>Tax :</b></p>
                                                             </div>
                                                             <div class="col-12 m-b-8">
-                                                                <div class="rate-usd">{{ "$ ". number_format($harga_publish_promo_price, 0, ",", ".") }}</div>
-                                                                <div class="rate-idr">{{ "IDR ". number_format($harga_publish_promo_price * $usdrates->rate, 0, ",", ".") }}</div>
+                                                                <div class="rate-usd">{{ "$ ". number_format($harga_publish_promo_price, 0, ".", ",") }}</div>
+                                                                <div class="rate-idr">{{ "IDR ". number_format($harga_publish_promo_price * $usdrates->rate, 0, ".", ",") }}</div>
                                                             </div>
                                                         </div>       
                                                     </div>
@@ -275,10 +275,10 @@
                                                         <p><b>Published Rate :</b></p>
                                                     </div>
                                                     <div class="col-12 price-usd m-b-8">
-                                                        {{ "$ ". number_format(($promo_usdrates + $promo->markup + $harga_publish_promo_price), 0, ",", ".") }}
+                                                        {{ "$ ". number_format(($promo_usdrates + $promo->markup + $harga_publish_promo_price), 0, ".", ",") }}
                                                     </div>
                                                     <div class="col-12 price-idr m-b-8">
-                                                        {{ "IDR ". number_format(($promo_usdrates + $promo->markup + $harga_publish_promo_price)* $usdrates->rate, 0, ",", ".") }}
+                                                        {{ "IDR ". number_format(($promo_usdrates + $promo->markup + $harga_publish_promo_price)* $usdrates->rate, 0, ".", ",") }}
                                                     </div>
                                                 </div>
                                                 <div class="card-box-footer">
@@ -455,7 +455,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label for="include">Include</label>
-                                                                    <textarea id="include_promo_edit" name="include"  class="ckeditor form-control @error('include') is-invalid @enderror" placeholder="Insert some text ...">{!! $promo->include !!}</textarea>
+                                                                    <textarea id="include_promo_edit" name="include"  class="tiny_mce form-control @error('include') is-invalid @enderror" placeholder="Insert some text ...">{!! $promo->include !!}</textarea>
                                                                     @error('include')
                                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                                     @enderror
@@ -464,7 +464,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                 <label for="benefits">Benefits</label>
-                                                                    <textarea id="benefits_edit_promo" name="benefits"  class="ckeditor form-control @error('benefits') is-invalid @enderror" placeholder="Insert some text ...">{!! $promo->benefits !!}</textarea>
+                                                                    <textarea id="benefits_edit_promo" name="benefits"  class="tiny_mce form-control @error('benefits') is-invalid @enderror" placeholder="Insert some text ...">{!! $promo->benefits !!}</textarea>
                                                                     @error('benefits')
                                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                                     @enderror
@@ -473,7 +473,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label for="additional_info">Additional Information</label>
-                                                                    <textarea id="additional_info" name="additional_info"  class="ckeditor form-control  @error('additional_info') is-invalid @enderror" placeholder="Insert some text ...">{!! $promo->additional_info !!}</textarea>
+                                                                    <textarea id="additional_info" name="additional_info"  class="tiny_mce form-control  @error('additional_info') is-invalid @enderror" placeholder="Insert some text ...">{!! $promo->additional_info !!}</textarea>
                                                                     @error('additional_info')
                                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                                     @enderror
@@ -660,7 +660,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="include">Include</label>
-                                                <textarea id="include" name="include"  class="ckeditor form-control border-radius-0 @error('include') is-invalid @enderror" placeholder="Insert some text ...">{{ old('include') }}</textarea>
+                                                <textarea id="include" name="include"  class="tiny_mce form-control border-radius-0 @error('include') is-invalid @enderror" placeholder="Insert some text ...">{{ old('include') }}</textarea>
                                                 @error('include')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -669,7 +669,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="benefits">Benefits</label>
-                                                <textarea id="benefits" name="benefits"  class="ckeditor form-control border-radius-0 @error('benefits') is-invalid @enderror" placeholder="Insert some text ...">{{ old('benefits') }}</textarea>
+                                                <textarea id="benefits" name="benefits"  class="tiny_mce form-control border-radius-0 @error('benefits') is-invalid @enderror" placeholder="Insert some text ...">{{ old('benefits') }}</textarea>
                                                 @error('benefits')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -678,7 +678,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info"  class="ckeditor form-control border-radius-0 @error('additional_info') is-invalid @enderror" placeholder="Insert some text ...">{{ old('additional_info') }}</textarea>
+                                                <textarea id="additional_info" name="additional_info"  class="tiny_mce form-control border-radius-0 @error('additional_info') is-invalid @enderror" placeholder="Insert some text ...">{{ old('additional_info') }}</textarea>
                                                 @error('additional_info')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror

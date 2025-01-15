@@ -229,7 +229,7 @@
                                                     <div class="form-group row">
                                                         <label for="msg" class="col-sm-12 col-md-12 col-form-label">Note</label>
                                                         <div class="col-sm-12 col-md-12">
-                                                            <textarea id="msg" name="msg" class="ckeditor form-control border-radius-0" placeholder="Enter your notes here">{{ $reservation->msg }}</textarea>
+                                                            <textarea id="msg" name="msg" class="tiny_mce form-control border-radius-0" placeholder="Enter your notes here">{{ $reservation->msg }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>

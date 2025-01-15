@@ -125,7 +125,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="note" class="form-label">@lang('messages.Note')</label>
-                                <textarea name="note" class="ckeditor form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! old('note') !!}</textarea>
+                                <textarea name="note" class="tiny_mce form-control @error('note') is-invalid @enderror" placeholder="Insert note">{!! old('note') !!}</textarea>
                                 @error('note')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

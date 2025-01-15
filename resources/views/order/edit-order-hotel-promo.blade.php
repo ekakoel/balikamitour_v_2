@@ -250,7 +250,7 @@
                                                         <td>{{ dateFormat($decodedOptionalRates['or_service_date'][$index]) }}</td>
                                                         <td>{{ $decodedOptionalRates['number_of_guest'][$index] }}</td>
                                                         <td>{{ $optionalServiceName->name ?? '-' }}</td>
-                                                        <td>{{ "$ ".number_format($decodedOptionalRates['or_price_total'][$index], 0, ",", ".") }}</td>
+                                                        <td>{{ "$ ".number_format($decodedOptionalRates['or_price_total'][$index], 0, ".", ",") }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -262,7 +262,7 @@
                                                     <div class="subtotal-text">@lang('messages.Additional Charge')</div>
                                                 </div>
                                                 <div class="col-6 col-md-6 text-right">
-                                                    <div class="subtotal-price">{{ "$ ".number_format($optionalServiceTotalPrice, 0, ",", ".") }}</div>
+                                                    <div class="subtotal-price">{{ "$ ".number_format($optionalServiceTotalPrice, 0, ".", ",") }}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -364,8 +364,8 @@
                                             <div class="subtotal-text">@lang('messages.Airport Shuttle')</div>
                                         </div>
                                         <div class="col-6 text-right">
-                                            {{-- <div class="subtotal-price">${{ number_format($total_price_airport_shuttle, 0, ",", ".") }}</div> --}}
-                                            {{-- <div class="subtotal-price">{{ $total_price_airport_shuttle > 0?number_format($total_price_airport_shuttle, 0, ",", "."):__('messages.To be advised') }}</div> --}}
+                                            {{-- <div class="subtotal-price">${{ number_format($total_price_airport_shuttle, 0, ".", ",") }}</div> --}}
+                                            {{-- <div class="subtotal-price">{{ $total_price_airport_shuttle > 0?number_format($total_price_airport_shuttle, 0, ".", ","):__('messages.To be advised') }}</div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -377,7 +377,7 @@
                         <div class="row">
                             <div class="col-md-12">
                             <div class="form-group">
-                                {{-- <textarea id="note" name="note" class="ckeditor form-control border-radius-0" placeholder="@lang('messages.Optional')" {{ !$statusValid ? 'readonly' : '' }}>{{ $order->note }}</textarea> --}}
+                                {{-- <textarea id="note" name="note" class="tiny_mce form-control border-radius-0" placeholder="@lang('messages.Optional')" {{ !$statusValid ? 'readonly' : '' }}>{{ $order->note }}</textarea> --}}
                                 @error('note') <div class="alert alert-danger">{{ $message }}</div> @enderror
                             </div>
                             </div>
@@ -420,27 +420,27 @@
                                         </div>
                                         <div class="col-6 col-md-6 text-right">
                                             {{-- @if ($order->bookingcode_disc > 0 or $order->discounts > 0 or $optional_service_total_price > 0 or $order->kick_back > 0 or $total_promotion_disc > 0)
-                                                <div class="promo-text">{{ "$ ".number_format($totalRoomAndSuite, 0, ",", ".") }}</div>
+                                                <div class="promo-text">{{ "$ ".number_format($totalRoomAndSuite, 0, ".", ",") }}</div>
             
                                                 @if ($optional_service_total_price > 0)
-                                                    <div class="promo-text">{{ "$ ".number_format(($optional_service_total_price), 0, ",", ".") }}</div>
+                                                    <div class="promo-text">{{ "$ ".number_format(($optional_service_total_price), 0, ".", ",") }}</div>
                                                 @endif
             
                                                 <hr class="form-hr">
                                                 
                                                 @if ($order->kick_back > 0)
-                                                    <div class="kick-back">{{ number_format($order->kick_back, 0, ",", ".") }}</div>
+                                                    <div class="kick-back">{{ number_format($order->kick_back, 0, ".", ",") }}</div>
                                                 @endif
             
                                                 @if ($order->bookingcode_disc > 0)
-                                                    <div class="kick-back">{{ number_format($order->bookingcode_disc, 0, ",", ".") }}</div>
+                                                    <div class="kick-back">{{ number_format($order->bookingcode_disc, 0, ".", ",") }}</div>
                                                 @endif
             
                                                 @if ($order->discounts > 0)
-                                                    <div class="kick-back">{{ number_format($order->discounts, 0, ",", ".") }}</div>
+                                                    <div class="kick-back">{{ number_format($order->discounts, 0, ".", ",") }}</div>
                                                 @endif
                                                 @if ($total_promotion_disc > 0)
-                                                    <div class="kick-back">{{ number_format($total_promotion_disc, 0, ",", ".") }}</div>
+                                                    <div class="kick-back">{{ number_format($total_promotion_disc, 0, ".", ",") }}</div>
                                                 @endif
                                             
                                                 @if ($order->kick_back > 0 or $order->bookingcode_disc > 0 or $order->discounts > 0 or $total_promotion_disc > 0)
@@ -448,7 +448,7 @@
                                                 @endif
                                                 
                                             @endif --}}
-                                            <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ",", ".") }}</div>
+                                            <div class="usd-rate">{{ "$ ".number_format($order->final_price, 0, ".", ",") }}</div>
                                         </div>
                                     </div>
                                 </div>

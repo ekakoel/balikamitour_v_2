@@ -47,7 +47,7 @@
                     </div>
                 </a>
                 <div class="price-card m-t-8">
-                    {{"$ " . number_format($ceremony_decoration->publish_rate, 0, ",", ".") }}
+                    {{"$ " . number_format($ceremony_decoration->publish_rate, 0, ".", ",") }}
                 </div>
                 @canany(['posDev','weddingDvl','weddingAuthor'])
                     <div class="card-delete-btn">
@@ -122,23 +122,23 @@
                                                     $decoration_publish_idr = ceil($ceremony_decoration->publish_rate * $usdrates->rate);
                                                 @endphp
                                                 <div class="card-subtitle">Contract Rate</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($ceremony_decoration->contract_rate, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($decoration_cr_usd, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($ceremony_decoration->contract_rate, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($decoration_cr_usd, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Markup</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_mr_idr, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($ceremony_decoration->markup, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_mr_idr, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($ceremony_decoration->markup, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Tax {{ $tax->tax."%" }}</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_tax_idr, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($decoration_tax, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_tax_idr, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($decoration_tax, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Publish Rate</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_publish_idr, 0, ",", ".") }}</div>
-                                                <div class="usd-rate">{{ "$ ".number_format($ceremony_decoration->publish_rate, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_publish_idr, 0, ".", ",") }}</div>
+                                                <div class="usd-rate">{{ "$ ".number_format($ceremony_decoration->publish_rate, 0, ".", ",") }}</div>
                                             </div>
                                             
                                         </div>
@@ -361,7 +361,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea name="description" id="update-description-package{{ ++$cerno }}" wiremodel="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $ceremony_decoration->description !!}</textarea>
+                                                <textarea name="description" id="update-description-package{{ ++$cerno }}" wiremodel="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $ceremony_decoration->description !!}</textarea>
                                                 @error('description')
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>
@@ -428,7 +428,7 @@
                     </div>
                 </a>
                 <div class="price-card m-t-8">
-                    {{"$ " . number_format($reception_decoration->publish_rate, 0, ",", ".") }}
+                    {{"$ " . number_format($reception_decoration->publish_rate, 0, ".", ",") }}
                 </div>
                 @canany(['posDev','weddingDvl','weddingAuthor'])
                     <div class="card-delete-btn">
@@ -503,23 +503,23 @@
                                                     $decoration_publish_idr = ceil($reception_decoration->publish_rate * $usdrates->rate);
                                                 @endphp
                                                 <div class="card-subtitle">Contract Rate</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($reception_decoration->contract_rate, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($decoration_cr_usd, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($reception_decoration->contract_rate, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($decoration_cr_usd, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Markup</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_mr_idr, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($reception_decoration->markup, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_mr_idr, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($reception_decoration->markup, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Tax {{ $tax->tax."%" }}</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_tax_idr, 0, ",", ".") }}</div>
-                                                <div class="rate-usd">{{ "$ ".number_format($decoration_tax, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_tax_idr, 0, ".", ",") }}</div>
+                                                <div class="rate-usd">{{ "$ ".number_format($decoration_tax, 0, ".", ",") }}</div>
                                             </div>
                                             <div class="col-6 col-sm-4 m-b-8">
                                                 <div class="card-subtitle">Publish Rate</div>
-                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_publish_idr, 0, ",", ".") }}</div>
-                                                <div class="usd-rate">{{ "$ ".number_format($reception_decoration->publish_rate, 0, ",", ".") }}</div>
+                                                <div class="idr-rate">{{ "Rp ".number_format($decoration_publish_idr, 0, ".", ",") }}</div>
+                                                <div class="usd-rate">{{ "$ ".number_format($reception_decoration->publish_rate, 0, ".", ",") }}</div>
                                             </div>
                                             
                                         </div>
@@ -742,7 +742,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea name="description" id="update-description-package{{ ++$recno }}" wiremodel="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $reception_decoration->description !!}</textarea>
+                                                <textarea name="description" id="update-description-package{{ ++$recno }}" wiremodel="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $reception_decoration->description !!}</textarea>
                                                 @error('description')
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $message }}</strong>

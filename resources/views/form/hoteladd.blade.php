@@ -174,7 +174,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label">Description <span> *</span></label>
-                                                <textarea id="description" name="description" class="ckeditor form-control border-radius-0" placeholder="Insert description">{{ old('description') }}</textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control border-radius-0" placeholder="Insert description">{{ old('description') }}</textarea>
                                                 @error('description')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -183,7 +183,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="facility" class="form-label">Facility</label>
-                                                <textarea id="facility" name="facility" class="ckeditor form-control border-radius-0" placeholder="Insert facility">{{ old('facility') }}</textarea>
+                                                <textarea id="facility" name="facility" class="tiny_mce form-control border-radius-0" placeholder="Insert facility">{{ old('facility') }}</textarea>
                                                 @error('facility')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -192,7 +192,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="cancellation_policy" class="form-label">Cancellation Policy</label>
-                                                <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control border-radius-0" placeholder="Insert cancellation policy">{{ old('cancellation_policy') }}</textarea>
+                                                <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control border-radius-0" placeholder="Insert cancellation policy">{{ old('cancellation_policy') }}</textarea>
                                                 @error('cancellation_policy')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -201,7 +201,7 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control border-radius-0" placeholder="Insert additional information">{{ old('additional_info') }}</textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control border-radius-0" placeholder="Insert additional information">{{ old('additional_info') }}</textarea>
                                                 @error('additional_info')
                                                     <div class="alert-form alert-danger">{{ $message }}</div>
                                                 @enderror

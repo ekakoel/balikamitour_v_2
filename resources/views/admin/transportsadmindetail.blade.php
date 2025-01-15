@@ -199,20 +199,20 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <div class="rate-usd">{{ "$ ". number_format($usd_transport, 0, ",", ".") }}</div>
-                                                            <div class="rate-idr">{{ "IDR ". number_format($prices->contract_rate, 0, ",", ".") }}</div>
+                                                            <div class="rate-usd">{{ "$ ". number_format($usd_transport, 0, ".", ",") }}</div>
+                                                            <div class="rate-idr">{{ "IDR ". number_format($prices->contract_rate, 0, ".", ",") }}</div>
                                                         </td>
                                                         <td>
-                                                            <div class="rate-usd">{{ "$ ". number_format($prices->markup, 0, ",", ".") }}</div>
-                                                            <div class="rate-idr">{{ "IDR ". number_format($prices->markup * $usdrates->rate, 0, ",", ".") }}</div>
+                                                            <div class="rate-usd">{{ "$ ". number_format($prices->markup, 0, ".", ",") }}</div>
+                                                            <div class="rate-idr">{{ "IDR ". number_format($prices->markup * $usdrates->rate, 0, ".", ",") }}</div>
                                                         </td>
                                                         <td>
-                                                            <div class="rate-usd">{{ "$ ". number_format($transport_tax, 0, ",", ".") }}</div>
-                                                            <div class="rate-idr">{{ "IDR ". number_format($transport_tax * $usdrates->rate, 0, ",", ".") }}</div>
+                                                            <div class="rate-usd">{{ "$ ". number_format($transport_tax, 0, ".", ",") }}</div>
+                                                            <div class="rate-idr">{{ "IDR ". number_format($transport_tax * $usdrates->rate, 0, ".", ",") }}</div>
                                                         </td>
                                                         <td>
-                                                            <div class="rate-usd">{{ "$ ". number_format($transport_final_price, 0, ",", ".") }}</div>
-                                                            <div class="rate-idr">{{ "IDR ". number_format($transport_final_price*$usdrates->rate, 0, ",", ".") }}</div>
+                                                            <div class="rate-usd">{{ "$ ". number_format($transport_final_price, 0, ".", ",") }}</div>
+                                                            <div class="rate-idr">{{ "IDR ". number_format($transport_final_price*$usdrates->rate, 0, ".", ",") }}</div>
                                                         </td>
                                                         <form id="delete-price-{{ $prices->id }}" action="/fdelete-transport-price/{{ $prices->id }}" method="post">
                                                             @csrf
@@ -300,23 +300,23 @@
                                                                                 <div class="row ">
                                                                                     <div class="col-12">
                                                                                         <div class="card-subtitle">Contract Rate:</div>
-                                                                                        <div class="rate-usd">{{ "$ ". number_format($usd_transport, 0, ",", ".") }}</div>
-                                                                                        <div class="rate-idr">{{ "IDR ". number_format($prices->contract_rate, 0, ",", ".") }}</div>
+                                                                                        <div class="rate-usd">{{ "$ ". number_format($usd_transport, 0, ".", ",") }}</div>
+                                                                                        <div class="rate-idr">{{ "IDR ". number_format($prices->contract_rate, 0, ".", ",") }}</div>
                                                                                     </div>
                                                                                     <div class="col-12">
                                                                                         <div class="card-subtitle">Markup:</div>
-                                                                                        <div class="rate-usd">{{ "$ ". number_format($prices->markup, 0, ",", ".") }}</div>
-                                                                                        <div class="rate-idr">{{ "IDR ". number_format($prices->markup * $usdrates->rate, 0, ",", ".") }}</div>
+                                                                                        <div class="rate-usd">{{ "$ ". number_format($prices->markup, 0, ".", ",") }}</div>
+                                                                                        <div class="rate-idr">{{ "IDR ". number_format($prices->markup * $usdrates->rate, 0, ".", ",") }}</div>
                                                                                     </div>
                                                                                     <div class="col-12">
                                                                                         <div class="card-subtitle">Tax:</div>
-                                                                                        <div class="rate-usd">{{ "$ ". number_format($transport_tax, 0, ",", ".") }}</div>
-                                                                                        <div class="rate-idr">{{ "IDR ". number_format($transport_tax * $usdrates->rate, 0, ",", ".") }}</div>
+                                                                                        <div class="rate-usd">{{ "$ ". number_format($transport_tax, 0, ".", ",") }}</div>
+                                                                                        <div class="rate-idr">{{ "IDR ". number_format($transport_tax * $usdrates->rate, 0, ".", ",") }}</div>
                                                                                     </div>
                                                                                     <div class="col-12">
                                                                                         <div class="card-subtitle">Published Rate:</div>
-                                                                                        <div class="price-usd">{{ "$ ". number_format($transport_final_price, 0, ",", ".") }}</div>
-                                                                                        <div class="price-idr">{{ "IDR ". number_format($transport_final_price*$usdrates->rate, 0, ",", ".") }}</div>
+                                                                                        <div class="price-usd">{{ "$ ". number_format($transport_final_price, 0, ".", ",") }}</div>
+                                                                                        <div class="price-idr">{{ "IDR ". number_format($transport_final_price*$usdrates->rate, 0, ".", ",") }}</div>
                                                                                     </div>
                                                                                 
                                                                                 </div> 
@@ -441,7 +441,7 @@
                                                                                     <div class="form-group row">
                                                                                         <label for="additional_info" class="col-sm-12 col-md-12 col-form-label">Additional Information</label>
                                                                                         <div class="col-sm-12 col-md-12">
-                                                                                            <textarea name="additional_info" id="additional_info" wire:model="additional_info" class="ckeditor form-control @error('additional_info') is-invalid @enderror" placeholder="Select Date and Time" type="text">{!! $prices->additional_info !!}</textarea>
+                                                                                            <textarea name="additional_info" id="additional_info" wire:model="additional_info" class="tiny_mce form-control @error('additional_info') is-invalid @enderror" placeholder="Select Date and Time" type="text">{!! $prices->additional_info !!}</textarea>
                                                                                             @error('additional_info')
                                                                                                 <span class="invalid-feedback">
                                                                                                     <strong>{{ $message }}</strong>
@@ -568,7 +568,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label for="additional_info">Additional Information</label>
-                                                                            <textarea name="additional_info" id="additional_info" wire:model="additional_info" class="ckeditor form-control @error('additional_info') is-invalid @enderror" placeholder="Optional" type="text">{!! old('additional_info') !!}</textarea>
+                                                                            <textarea name="additional_info" id="additional_info" wire:model="additional_info" class="tiny_mce form-control @error('additional_info') is-invalid @enderror" placeholder="Optional" type="text">{!! old('additional_info') !!}</textarea>
                                                                             @error('additional_info')
                                                                                 <span class="invalid-feedback">
                                                                                     <strong>{{ $message }}</strong>

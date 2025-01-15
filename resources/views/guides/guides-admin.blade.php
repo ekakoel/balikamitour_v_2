@@ -260,7 +260,7 @@
                                                                                             <div class="col-md-12">
                                                                                                 <div class="form-group">
                                                                                                     <label for="address" class="form-label">Address </label>
-                                                                                                    <textarea id="address" name="address" class="ckeditor form-control @error('address') is-invalid @enderror" placeholder="Insert Address">{{ $guide->address }}</textarea>
+                                                                                                    <textarea id="address" name="address" class="tiny_mce form-control @error('address') is-invalid @enderror" placeholder="Insert Address">{{ $guide->address }}</textarea>
                                                                                                     @error('address')
                                                                                                         <span class="invalid-feedback">
                                                                                                             <strong>{{ $message }}</strong>
@@ -384,7 +384,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="address" class="form-label">Address <span>*</span></label>
-                                                                        <textarea id="address" name="address" class="ckeditor form-control @error('address') is-invalid @enderror" placeholder="Insert Address"></textarea>
+                                                                        <textarea id="address" name="address" class="tiny_mce form-control @error('address') is-invalid @enderror" placeholder="Insert Address"></textarea>
                                                                         @error('address')
                                                                             <span class="invalid-feedback">
                                                                                 <strong>{{ $message }}</strong>

@@ -117,25 +117,25 @@
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="description" class="form-label">Description </label>
-                                                <textarea id="description" name="description" class="ckeditor form-control" required>{!! $transport->description !!}</textarea>
+                                                <textarea id="description" name="description" class="tiny_mce form-control" required>{!! $transport->description !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="include" class="form-label">Include </label>
-                                                <textarea id="include" name="include" class="ckeditor form-control" required>{!! $transport->include !!}</textarea>
+                                                <textarea id="include" name="include" class="tiny_mce form-control" required>{!! $transport->include !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="cancellation_policy" class="form-label">Cancellation Policy</label>
-                                                <textarea id="cancellation_policy" name="cancellation_policy" class="ckeditor form-control" required>{!! $transport->cancellation_policy !!}</textarea>
+                                                <textarea id="cancellation_policy" name="cancellation_policy" class="tiny_mce form-control" required>{!! $transport->cancellation_policy !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12">
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label">Additional Information</label>
-                                                <textarea id="additional_info" name="additional_info" class="ckeditor form-control" required>{!! $transport->additional_info !!}</textarea>
+                                                <textarea id="additional_info" name="additional_info" class="tiny_mce form-control" required>{!! $transport->additional_info !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-12 text-right m-t-8 m-b-18">

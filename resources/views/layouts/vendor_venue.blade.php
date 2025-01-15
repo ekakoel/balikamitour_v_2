@@ -43,7 +43,7 @@
                     </div>
                 </a>
                 <div class="price-card m-t-8">
-                    {{"$ " . number_format($package_venue->publish_rate, 0, ",", ".") }}
+                    {{"$ " . number_format($package_venue->publish_rate, 0, ".", ",") }}
                 </div>
                 @canany(['posDev','weddingDvl','weddingAuthor'])
                     <div class="card-delete-btn">
@@ -120,23 +120,23 @@
                                                 $venue_publish_idr = ceil($package_venue->publish_rate * $usdrates->rate);
                                             @endphp
                                             <div class="card-subtitle">Contract Rate</div>
-                                            <div class="idr-rate">{{ "Rp ".number_format($package_venue->contract_rate, 0, ",", ".") }}</div>
-                                            <div class="rate-usd">{{ "$ ".number_format($venue_cr_usd, 0, ",", ".") }}</div>
+                                            <div class="idr-rate">{{ "Rp ".number_format($package_venue->contract_rate, 0, ".", ",") }}</div>
+                                            <div class="rate-usd">{{ "$ ".number_format($venue_cr_usd, 0, ".", ",") }}</div>
                                         </div>
                                         <div class="col-6 col-sm-4 m-b-8">
                                             <div class="card-subtitle">Markup</div>
-                                            <div class="idr-rate">{{ "Rp ".number_format($venue_mr_idr, 0, ",", ".") }}</div>
-                                            <div class="rate-usd">{{ "$ ".number_format($package_venue->markup, 0, ",", ".") }}</div>
+                                            <div class="idr-rate">{{ "Rp ".number_format($venue_mr_idr, 0, ".", ",") }}</div>
+                                            <div class="rate-usd">{{ "$ ".number_format($package_venue->markup, 0, ".", ",") }}</div>
                                         </div>
                                         <div class="col-6 col-sm-4 m-b-8">
                                             <div class="card-subtitle">Tax {{ $tax->tax."%" }}</div>
-                                            <div class="idr-rate">{{ "Rp ".number_format($venue_tax_idr, 0, ",", ".") }}</div>
-                                            <div class="rate-usd">{{ "$ ".number_format($venue_tax, 0, ",", ".") }}</div>
+                                            <div class="idr-rate">{{ "Rp ".number_format($venue_tax_idr, 0, ".", ",") }}</div>
+                                            <div class="rate-usd">{{ "$ ".number_format($venue_tax, 0, ".", ",") }}</div>
                                         </div>
                                         <div class="col-6 col-sm-4 m-b-8">
                                             <div class="card-subtitle">Publish Rate</div>
-                                            <div class="idr-rate">{{ "Rp ".number_format($venue_publish_idr, 0, ",", ".") }}</div>
-                                            <div class="usd-rate">{{ "$ ".number_format($package_venue->publish_rate, 0, ",", ".") }}</div>
+                                            <div class="idr-rate">{{ "Rp ".number_format($venue_publish_idr, 0, ".", ",") }}</div>
+                                            <div class="usd-rate">{{ "$ ".number_format($package_venue->publish_rate, 0, ".", ",") }}</div>
                                         </div>
                                         
                                     </div>
@@ -345,7 +345,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea name="description" id="update-description-package{{ ++$no }}" wire:model="description" class="ckeditor form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $package_venue->description !!}</textarea>
+                                            <textarea name="description" id="update-description-package{{ ++$no }}" wire:model="description" class="tiny_mce form-control @error('description') is-invalid @enderror" placeholder="Description" type="text">{!! $package_venue->description !!}</textarea>
                                             @error('description')
                                                 <span class="invalid-feedback">
                                                     <strong>{{ $message }}</strong>
